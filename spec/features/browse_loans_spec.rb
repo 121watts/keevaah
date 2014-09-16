@@ -12,7 +12,7 @@ describe 'when viewing the loan requests' do
 												repayments_begin: "2014-09-10 13:43:00 -0600",
 												monthly_payment: 1000,
 												user_id: 1
-												) }
+                          ).decorate }
 	let(:loan2) { Loan.create(id: 2,
 												title: 'Buy another cow',
 												description: 'Need to buy another milking cow for our farm',
@@ -21,7 +21,7 @@ describe 'when viewing the loan requests' do
 												repayments_begin: "2014-09-10 13:43:00 -0600",
 												monthly_payment: 1000,
 												user_id: 2
-												) }
+                           ).decorate }
   let(:loan_category) { LoanCategory.create(loan_id: 1, category_id: 1) }
   let(:loan_category) { LoanCategory.create(loan_id: 2, category_id: 1) }
   let(:category) { Category.create(id: 1, name: "Ag, bro")}

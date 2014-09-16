@@ -4,12 +4,6 @@ class LoansController < ApplicationController
 	end
 
 	def index
-		@loans = loans
-	end
-
-	private
-
-	def loans
-		@loans = Loan.all
+    @loans = Loan.all.decorate
 	end
 end

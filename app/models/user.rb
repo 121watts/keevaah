@@ -17,8 +17,4 @@ class User<ActiveRecord::Base
 
   scope :borrowers, -> { where('role' => 'borrower') }
 
-  def name
-   first_name + " " + last_name
-  end
-
 end

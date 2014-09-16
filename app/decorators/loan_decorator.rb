@@ -1,5 +1,6 @@
 class LoanDecorator < Draper::Decorator
   decorates_association :categories
+  decorates_association :user
 
   delegate_all
 

@@ -14,7 +14,7 @@ describe 'Shopping Contributions', type: :feature do
   end
 
   it 'can add an loan to a Contributions' do
-    visit categories_path
+    visit loans_path
     # first(:button, 'Loan Now').click
     click_on("Loan Now")
     total_loans = find('span.badge').text
@@ -22,7 +22,7 @@ describe 'Shopping Contributions', type: :feature do
   end
 
   it 'can add the same loan multiple times' do
-    visit categories_path
+    visit loans_path
     first(:button, 'Loan Now').click
     first(:button, 'Loan Now').click
     total_loans = find('span.badge').text
@@ -30,21 +30,21 @@ describe 'Shopping Contributions', type: :feature do
   end
 
   it 'cannot add an loan that do not exist' do
-    visit categories_path
+    visit loans_path
     Loan.destroy_all
     first(:button, 'Loan Now').click
     expect(page).to have_content 'That loan is no longer available.'
   end
 
   xit 'cannot add an loan that are disabled' do
-    visit categories_path
+    visit loans_path
     Loan.first.fulfill
     first(:button, 'Loan Now').click
     expect(page).to have_content 'That loan is no longer available.'
   end
 
   it 'can view the Contributions' do
-    visit categories_path
+    visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'
     expect(page).to have_content 'Buy a cow'
@@ -52,7 +52,7 @@ describe 'Shopping Contributions', type: :feature do
   end
 
   it 'can remove an loan from the Contributions' do
-    visit categories_path
+    visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'
     click_on 'Remove'

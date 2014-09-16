@@ -43,6 +43,13 @@
                         <% end %>
                       <% end %>
                     </span>
+                    <span class="checkout">
+                      <%= form_for(:cart, url: cart_path, method: :get) do |f| %>
+                        <%= f.hidden_field :loan_id, value: loan.id %>
+                        <%= f.hidden_field :quantity, value: 1 %>
+                        <%= button_tag type: 'submit', class: 'btn btn-primary btn-checkout' do %>Checkout<% end %>
+                      <% end %>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -83,6 +90,13 @@
                           <% end %>
                         <% end %>
                       </span>
+                      <span class="checkout">
+                        <%= form_for(:cart, url: cart_path, method: :get) do |f| %>
+                          <%= f.hidden_field :loan_id, value: loan.id %>
+                          <%= f.hidden_field :quantity, value: 1 %>
+                          <%= button_tag type: 'submit', class: 'btn btn-primary btn-checkout' do %>Checkout<% end %>
+                        <% end %>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -113,5 +127,16 @@
           }
         });
       });
+      $('.loan-box-price').each(function(){
+        var $this = $(this);
+        var $add_loan = $this.find('button.btn-add-loan');
+        var $checkout = $this.find('button.btn-checkout');
+
+        $add_loan.on("click", function(e) {
+          e.preventDefault();
+          $add_loan.hide();
+          $checkout.show();
+        })
+      })
     </script>
 </div>

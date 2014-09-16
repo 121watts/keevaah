@@ -13,20 +13,20 @@ describe 'Shopping Contributions', type: :feature do
                             )
   end
 
-  it 'can add an loan to a Contributions' do
+  it 'can add a contribution to a cart' do
     visit categories_path
-    # first(:button, 'Loan Now').click
-    click_on("Loan Now")
-    total_loans = find('span.badge').text
-    expect(total_loans).to eq '1'
+    first(:button, 'Loan Now').click
+    total_contribution = find('span.badge').text
+    expect(total_contribution).to eq '1'
   end
 
-  it 'can add the same loan multiple times' do
+  it 'cannot add the same contribution multiple times' do
     visit categories_path
     first(:button, 'Loan Now').click
-    first(:button, 'Loan Now').click
+    expect(page).to_not have_content('Loan Now')
+    expect(page).to have_content('Checkout')
     total_loans = find('span.badge').text
-    expect(total_loans).to eq '2'
+    expect(total_loans).to eq '1'
   end
 
   it 'cannot add an loan that do not exist' do

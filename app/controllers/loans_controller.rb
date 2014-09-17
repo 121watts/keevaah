@@ -13,11 +13,9 @@ class LoansController < ApplicationController
 		  @loans = Loan.includes(:categories).all
 	  end
 
-		@loans = @loans.decorate
-
 		# group by category
 		@loans_by_category = {}
-		@loans.each do |loan|
+		loan_requests.each do |loan|
 			loan.categories.each do |category|
 				@loans_by_category[category.name] ||= []
 				@loans_by_category[category.name] << loan
@@ -29,5 +27,9 @@ class LoansController < ApplicationController
 
 	def loans
 		@loans = Loan.all
+	end
+
+	def loan_requests
+		Loan.request.decorate
 	end
 end

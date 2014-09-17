@@ -20,8 +20,7 @@ describe 'Shopping Contributions', type: :feature do
     expect(total_contribution).to eq '1'
   end
 
-  xit 'cannot add the same contribution multiple times' do
-    # i cannot figure out how to change an attribut with any kind of presisitence
+  it 'cannot add the same contribution multiple times' do
     visit loans_path
     first(:button, 'Loan Now').click
     expect(page).to_not have_content('Loan Now')
@@ -30,21 +29,14 @@ describe 'Shopping Contributions', type: :feature do
     expect(total_loans).to eq '1'
   end
 
-  xit 'cannot add an loan that do not exist' do
+  it 'cannot add an loan that are disabled' do
+    loan = Loan.last
+    loan.fulfill!
     visit loans_path
-    Loan.destroy_all
-    first(:button, 'Loan Now').click
-    expect(page).to have_content 'That loan is no longer available.'
+    expect(page).not_to have_content "#{loan.description}"
   end
 
-  xit 'cannot add an loan that are disabled' do
-    visit loans_path
-    Loan.first.fulfill
-    first(:button, 'Loan Now').click
-    expect(page).to have_content 'That loan is no longer available.'
-  end
-
-  xit 'can view the Contributions' do
+  it 'can view the Contributions' do
     visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'

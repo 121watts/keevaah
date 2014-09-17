@@ -8,19 +8,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  # def current_cart
-  #   if current_user
-  #     items = session[:cart] || {}
-  #     cart = Cart.find_or_initialize_by(user: current_user)
-  #     cart.items ||= "{}"
-  #     cart.items = items.to_json unless items.empty?
-  #     cart.save
-  #     @cart ||= cart
-  #   else
-  #     @cart = session[:cart] ||= {}
-  #   end
-  # end
-
   def is_borrower?
     current_user && current_user.role == 'borrower'
   end
@@ -46,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def cart_count
-    cart.loans ? cart.loans.count : 0
+    cart.contributions ? cart.contributions.count : 0
   end
 
   private

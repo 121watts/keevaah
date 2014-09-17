@@ -6,17 +6,17 @@
       <tr>
         <th>Title</th>
         <th>Amount Contributed</th>
-        <th>Loan Amount</th>
+        <th>contribution Amount</th>
         <th>Remove?</th>
       </tr>
-      <% if @loans.any? %>
-        <% @loans.each do |loan| %>
+      <% if @contributions.any? %>
+        <% @contributions.each do |contribution| %>
           <tr>
-            <td><%= loan.title %></td>
-            <td><%= loan.unit_price_dollars %></td>
+            <td><%= contribution.loan.title %></td>
+            <td><%= contribution.amount %></td>
             <td>
               <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>
-                <%= f.hidden_field :loan_id, value: loan.id %>
+                <%= f.hidden_field :contribution_id, value: contribution.id %>
                 <%= f.submit "Remove", class: "btn btn-danger" %>
               <% end %>
             </td>
@@ -35,7 +35,7 @@
         </tr>
       <% end %>
     </table>
-    <% if @loans.any? %>
+    <% if @contributions.any? %>
       <div id="checkout-button"><%= link_to "Checkout", new_order_path, class: 'btn btn-success center' %></div>
     <% end %>
   </div>

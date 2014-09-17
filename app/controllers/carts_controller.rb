@@ -1,10 +1,10 @@
 class CartsController < ApplicationController
   def show
-    @loans = cart.loans.decorate
+    @contributions = cart.contributions
   end
 
   def update
-    add_loan || delete_loan
+    add_contribution || delete_contribution
   end
 
   def destroy
@@ -14,15 +14,19 @@ class CartsController < ApplicationController
 
   private
 
-  def add_loan
-    loan = Loan.find(params[:cart][:loan_id])
-    cart.add_loan(loan) unless cart.loans.include?(loan)
+  def add_contribution
+    if current_user
+      contribution = Contribution.create({loan_id: params[:cart][:loan_id], user_id: current_user.id})
+    else
+      contribution = Contribution.create({loan_id: params[:cart][:loan_id]})
+    end
+    cart.add_contribution(contribution) unless cart.contributions.include?(contribution)
     redirect_to cart
   end
 
-  def delete_loan
-    loan = Loan.find(params[:cart][:loan_id])
-    cart.remove_loan(loan)
+  def delete_contribution
+    contribution = Contribution.find(params[:cart][:contribution_id])
+    cart.remove_contribution(contribution)
     redirect_to cart
   end
 end

@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20140917201900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cart_loans", force: true do |t|
+    t.integer  "loan_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "carts", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -32,13 +39,6 @@ ActiveRecord::Schema.define(version: 20140917201900) do
     t.string   "amount"
     t.integer  "user_id"
     t.integer  "loan_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "create_cart_loans", force: true do |t|
-    t.integer  "loan_id"
-    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

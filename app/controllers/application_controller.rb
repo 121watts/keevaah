@@ -45,8 +45,11 @@ class ApplicationController < ActionController::Base
     @cart ||= (_session_cart || _create_cart)
   end
 
-  def cart_count
-    @cart.loans.count
+  helper_method def cart_count
+    cart.loans ? cart.loans.count : 0
+    # unless !cart.loans
+    #   cart.loans.count
+    # end
   end
 
   private

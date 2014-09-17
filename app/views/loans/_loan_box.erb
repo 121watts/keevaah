@@ -8,7 +8,7 @@
         <% end %>
       </span>
       <span class="loan-description">
-        <%= loan.description %>
+        <%= truncate(loan.description, :length => 400) %>
       </span>
     </div>
 

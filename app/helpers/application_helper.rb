@@ -15,6 +15,14 @@ module ApplicationHelper
 		Category.all
 	end
 
+	def contributions
+		Contributions.all
+	end
+
+	def contributions_by_status(status)
+		Contribution.where(status: status)
+	end
+
 	def display_name(user)
 		user.nickname ? user.nickname : user.first_name
 	end

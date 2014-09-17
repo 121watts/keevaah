@@ -16,11 +16,13 @@ gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'pg'
 gem 'aasm'
 gem 'ransack'
+gem 'asset_sync'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-group :production do
-	gem 'rails_12factor'
+
+group :production, :staging do
+  gem 'rails_12factor'
 end
 
 group :development do

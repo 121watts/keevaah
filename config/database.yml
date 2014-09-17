@@ -1,0 +1,17 @@
+default: &default
+  adapter:  postgresql
+  encoding: unicode
+  pool:     5
+  timeout:  5000
+
+development:
+  <<: *default
+  database: the_pivot_dev
+
+test:
+  <<: *default
+  database: the_pivot_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

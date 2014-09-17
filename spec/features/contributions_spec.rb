@@ -33,6 +33,18 @@ describe 'when viewing the loans' do
 			click_on "Loan Now"
 		end
 
+		class DummyClass
+		end
+
+		it 'can see a total for all contribution' do
+			dummy = DummyClass.new
+			dummy.extend(ContributeHelper)
+			dummy.stub(:current_user) { User.new }
+			3.times do Contribution.create(user_id: 1, loan_id: 2)
+			end
+			expect(dummy.total).to eq 75
+		end
+
 		xit 'can edit an order' do
 			click_link "Edit"
 			fill_in "Order type", with: "delivery"

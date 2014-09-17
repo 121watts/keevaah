@@ -38,7 +38,7 @@ describe 'when viewing the loans' do
 
 		it 'can see a total for all contribution' do
 			dummy = DummyClass.new
-			dummy.extend(ContributeHelper)
+			dummy.extend(ContributionHelper)
 			dummy.stub(:current_user) { User.new }
 			3.times do Contribution.create(user_id: 1, loan_id: 2)
 			end

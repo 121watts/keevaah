@@ -8,6 +8,7 @@ class CartsController < ApplicationController
     quantity = params[:cart][:quantity].to_i
 
     if loan = Loan.find_by(id: loan_id, aasm_state: 'request')
+      #create a new contribution and put it into the cart
       current_cart.store(loan_id, quantity)
       current_cart.save
 

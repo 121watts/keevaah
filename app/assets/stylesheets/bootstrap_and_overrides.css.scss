@@ -186,6 +186,16 @@ $navbar-inverse-brand-color: #000;
   display: inline-block;
 }
 
+.checkout {
+  margin-top: 0.6%;
+  box-shadow: 3px 3px 3px #888;
+  display: inline-block;
+}
+
+.btn-checkout {
+  display: none;
+}
+
 a.add-loan-text:hover {
 	color: #000;
 	text-decoration: none;
@@ -284,3 +294,7 @@ a.add-loan-text:hover {
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
 @import url(http://fonts.googleapis.com/css?family=Parisienne);
 @import url(http://fonts.googleapis.com/css?family=Aclonica);
+
+.btn-checkout {
+  display: none;
+}

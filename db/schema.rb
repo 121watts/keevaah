@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20140914182148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: true do |t|
-    t.string   "street"
-    t.string   "unit",       default: ""
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
   create_table "carts", force: true do |t|
     t.string   "items"
     t.integer  "user_id"
@@ -74,9 +63,9 @@ ActiveRecord::Schema.define(version: 20140914182148) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "aasm_state"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "order_loans", force: true do |t|
@@ -92,9 +81,9 @@ ActiveRecord::Schema.define(version: 20140914182148) do
     t.string   "order_type"
     t.integer  "address_id"
     t.string   "status"
+    t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "payment_type"
   end
 
   create_table "users", force: true do |t|

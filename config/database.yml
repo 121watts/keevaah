@@ -1,23 +1,17 @@
-development:
-  adapter: postgresql
+default: &default
+  adapter:  postgresql
   encoding: unicode
-  database: keeva_development
-  pool: 5
-  username: hildenton
-  password:
+  pool:     5
+  timeout:  5000
+
+development:
+  <<: *default
+  database: the_pivot_dev
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: keeva_test
-  pool: 5
-  username: hildenton
-  password:
+  <<: *default
+  database: the_pivot_test
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: keeva_production
-  pool: 5
-  username: hildenton
-  password:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

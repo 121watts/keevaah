@@ -68,24 +68,6 @@ ActiveRecord::Schema.define(version: 20140914182148) do
     t.datetime "updated_at"
   end
 
-  create_table "order_loans", force: true do |t|
-    t.integer  "loan_id"
-    t.integer  "quantity"
-    t.integer  "order_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "orders", force: true do |t|
-    t.integer  "user_id"
-    t.string   "order_type"
-    t.integer  "address_id"
-    t.string   "status"
-    t.integer  "total"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "first_name"

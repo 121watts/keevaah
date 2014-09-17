@@ -22,11 +22,34 @@ describe 'when viewing the loans' do
       LoanCategory.create!(loan_id: 1, category_id: 1)
       loan_contribution = LoanContribution.create(contribution_id: contribution.id, loan_id: loan.id)
 		end
-		
+
 		# contributions mean that less money is needed to fulfill a loan
 		# can only make a contribution if the amount is less than what is owed
 		# cannot contribute more than requested for loan
 		# can only contribute to loans with status request
 
-	end
+		it 'can choose a loan and make a contribution to it' do
+			visit loans_path
+			click_on "Loan Now"
+		end
+
+		xit 'can edit an order' do
+			click_link "Edit"
+			fill_in "Order type", with: "delivery"
+			click_button "Update Order"
+			expect(page).to have_content("delivery")
+		end
+
+    xit 'can see borrower name from contribution page' do
+      expect(page).to have_content('your dad')
+    end
+
+    xit 'can see borrower name, and loan deets on details page' do
+      click_link 'Details'
+      expect(page).to have_content(loan.borrower.name)
+      expect(page).to have_content(loan.amount)
+      expect(page).to have_content(loan.title)
+      expect(page).to have_content(loan.description)
+    end
+  end
 end

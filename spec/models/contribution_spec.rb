@@ -26,6 +26,7 @@ RSpec.describe Contribution, type: :model do
     expect(contribution.status).to eq('cancelled')
   end
 
+  
 end
 
 # contributions mean that less money is needed to fulfill a loan

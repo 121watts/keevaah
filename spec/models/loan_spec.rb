@@ -66,7 +66,7 @@ RSpec.describe Loan, type: :model  do
 		end
 
 		it "knows its progress" do
-			Contribution.create!(loan_id: 1, amount: 25000)
+			Contribution.create!(user_id: 1, loan_id: 1, amount: 25000)
 			assert 50, loan.progress
 		end
 

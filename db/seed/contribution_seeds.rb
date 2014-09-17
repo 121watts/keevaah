@@ -1,3 +1,2 @@
-@contributions = [
-  
+@contributions = [[id: rand(15)]
 ]

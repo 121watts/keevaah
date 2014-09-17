@@ -1,4 +1,6 @@
 class Contribution < ActiveRecord::Base
+  include ContributionHelper
+
   before_create :set_default_status
   before_create :set_default_amount
 
@@ -24,5 +26,4 @@ class Contribution < ActiveRecord::Base
   def update_to_cancelled
     update_attribute(:status, 'cancelled')
   end
-
 end

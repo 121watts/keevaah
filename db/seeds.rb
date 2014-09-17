@@ -19,6 +19,5 @@ end
 end
 
 # CONTRIBUTIONS
-# @contributions.each do |contribution|
-#   Contribution.create(contribution)
-# end
+50.times do Contribution.create(user_id: rand(10), loan_id: rand(10), status: "paid")
+end

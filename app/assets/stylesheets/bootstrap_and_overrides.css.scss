@@ -19,6 +19,11 @@ $body-bg: #F8F8FF;
 	margin-top: 20px;
 	box-shadow: 10px 10px 5px #888;
 }
+.search-bar {
+  padding: 21.5px 489px;
+  font-size: 18px;
+  line-height: 20px;
+}
 
 // NAVBAR //
 
@@ -56,6 +61,7 @@ $navbar-inverse-brand-color: #000;
 #mini-keevahh-logo{
   margin-top: -10px;
 }
+
 
 // LOGIN / REGISTER //
 .login-reg-page {

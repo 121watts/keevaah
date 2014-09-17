@@ -9,4 +9,9 @@ class Cart < ActiveRecord::Base
   def remove_loan(loan)
     self.loans.delete(loan)
   end
+
+  def total
+    total = loans.inject(0) { |i, loan| i += loan.amount.to_i }
+    total/100
+  end
 end

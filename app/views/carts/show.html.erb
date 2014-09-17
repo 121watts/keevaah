@@ -26,7 +26,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><span id="cart-total"><%= calculate_total %> TOTAL</span></td>
+          <td><span id="cart-total"><%= number_to_currency(cart.total) %> TOTAL</span></td>
           <td></td>
         </tr>
       <% else %>

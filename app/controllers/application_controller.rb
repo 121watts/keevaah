@@ -47,9 +47,6 @@ class ApplicationController < ActionController::Base
 
   helper_method def cart_count
     cart.loans ? cart.loans.count : 0
-    # unless !cart.loans
-    #   cart.loans.count
-    # end
   end
 
   private

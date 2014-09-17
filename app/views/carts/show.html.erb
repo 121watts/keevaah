@@ -6,14 +6,15 @@
       <tr>
         <th>Title</th>
         <th>Amount Contributed</th>
-        <th>contribution Amount</th>
+        <th>Loan Amount</th>
         <th>Remove?</th>
       </tr>
       <% if @contributions.any? %>
         <% @contributions.each do |contribution| %>
           <tr>
             <td><%= contribution.loan.title %></td>
-            <td><%= contribution.amount %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td><%= contribution.loan.amount_in_dollars %></td>
             <td>
               <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>
                 <%= f.hidden_field :contribution_id, value: contribution.id %>

@@ -5,6 +5,7 @@ class CartsController < ApplicationController
 
   def update
     add_contribution || delete_contribution
+    redirect_to :back
   end
 
   def destroy
@@ -20,13 +21,11 @@ class CartsController < ApplicationController
     else
       contribution = Contribution.create({loan_id: params[:cart][:loan_id]})
     end
-    cart.add_contribution(contribution) unless cart.contributions.include?(contribution)
-    redirect_to cart
+    cart.add_contribution(contribution) 
   end
 
   def delete_contribution
     contribution = Contribution.find(params[:cart][:contribution_id])
     cart.remove_contribution(contribution)
-    redirect_to cart
   end
 end

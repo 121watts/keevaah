@@ -10,7 +10,6 @@ class Contribution < ActiveRecord::Base
 
   validates_presence_of :loan_id
 
-
   def set_default_status
     self.status ||= "pending"
   end

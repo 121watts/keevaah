@@ -61,7 +61,7 @@ describe 'Shopping Contributions', type: :feature do
   end
 
   xit 'can change the contribution amount' do
-    visit categories_path
+    visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'
 

@@ -11,8 +11,6 @@ class User<ActiveRecord::Base
     length: { minimum: 2, maximum: 32 }, allow_blank: true
   validates :role,                  presence: true
 
-  has_many :addresses
-  has_many :orders
   has_many :loans
 
   scope :borrowers, -> { where('role' => 'borrower') }

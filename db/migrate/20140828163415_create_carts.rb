@@ -1,8 +1,8 @@
 class CreateCarts < ActiveRecord::Migration
   def change
     create_table :carts do |t|
-      t.column :items, :string
-      t.column :user_id, :integer
+      t.integer :user_id
+
       t.timestamps
     end
   end

@@ -4,7 +4,6 @@ class LoansController < ApplicationController
 	end
 
 	def index
-		binding.pry
 		set_newest_loans
 		@categories = Category.all.decorate
 		@q = Loan.search(params[:q])
@@ -36,10 +35,10 @@ class LoansController < ApplicationController
 	end
 
 	def set_newest_loans
-		newest_category = Category.find_by(name: "Newest")
-		newest_loans = Loan.last(5)
-		newest_loans.map do |loan|
-			LoanCategory.create(loan_id: loan.id, category_id: newest_category.id)
-		end
+		# newest_category = Category.find_by(name: "Newest")
+		# newest_loans = Loan.last(5)
+		# newest_loans.map do |loan|
+		# 	LoanCategory.create(loan_id: loan.id, category_id: newest_category.id)
+		# end
 	end
 end

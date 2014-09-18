@@ -6,11 +6,7 @@ describe 'when viewing the loans' do
 
 		before(:each) do
 			@category = create(:category)
-<<<<<<< HEAD
 			@newest_category = Category.create(name: "Newest")
-
-=======
->>>>>>> 3203a0b3139d7eec8d53de41404d8a80b66cf8a4
 			@borrower = create(:borrower)
 			@loan = create(:loan)
 			@loan.categories << @category
@@ -206,23 +202,9 @@ describe 'when viewing the loans' do
 			expect(page).not_to have_content "Need to buy a pig for ham"
 		end
 
-<<<<<<< HEAD
 		it 'can edit a category' do
 			Category.create(id: 4, name: 'Test Category')
 			Category.create(id: 5, name: 'Testy Cat')
-
-=======
-		it 'shows categories on edit loan page' do
-			category = Category.create(id: 1, name: 'Test Category')
-			category = Category.create(id: 2, name: 'Testy Category')
-			@loan.category_ids = [1,2]
-			visit edit_borrower_loan_path(@loan)
-			expect(page).to have_content "Test Category"
-			expect(page).to have_content "Testy Category"
-		end
-
-		it 'has can delete a category from loan' do
->>>>>>> 3203a0b3139d7eec8d53de41404d8a80b66cf8a4
 			visit edit_borrower_loan_path(@loan)
 			select("Testy Cat", :from => 'loan_categories')
 			click_button("Update Loan")

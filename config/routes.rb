@@ -1,4 +1,5 @@
-Rails.application.routes.draw do |variable|
+Rails.application.routes.draw do
+
   root to: 'loans#index'
 
   get '/login',  to: 'sessions#new'

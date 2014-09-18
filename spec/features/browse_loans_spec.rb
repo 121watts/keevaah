@@ -6,27 +6,10 @@ describe 'when viewing the loan requests' do
 
    before(:each) do
      @category = Category.create(id: 1, name: "Ag, bro")
-     @loan = Loan.create(id: 1,
-                           title: 'Buy a cow',
-                           description: 'Need to buy a milking cow for our farm',
-                           amount: 50000,
-                           requested_by: "2014-09-10 13:43:00 -0600",
-                           repayments_begin: "2014-09-10 13:43:00 -0600",
-                           monthly_payment: 1000,
-                           user_id: 1
-                           )
-     @loan2 = Loan.create(id: 2,
-                           title: 'Buy another cow',
-                           description: 'Need to buy another milking cow for our farm',
-                           amount: 50000,
-                           requested_by: "2014-09-10 13:43:00 -0600",
-                           repayments_begin: "2014-09-10 13:43:00 -0600",
-                           monthly_payment: 1000,
-                           user_id: 2
-                           )
-     @loan_category = LoanCategory.create(loan_id: 1, category_id: 1)
-
-     @loan_category2 = LoanCategory.create(loan_id: 2, category_id: 1)
+     @loan = create(:loan)
+     @loan2 = create(:loan, title: "Loan 2")
+     @category.loans << @loan
+     @category.loans << @loan2
 
      visit loans_path
    end

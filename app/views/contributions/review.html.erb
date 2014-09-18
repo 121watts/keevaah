@@ -5,34 +5,37 @@
 <%= form_tag checkout_contributions_path do %>
 <table class="table table-striped order-table">
   <tr>
+    <th></th>
     <th>Loan Name</th>
-    <th>Contribution Amount</th>
     <th>Loan Amount</th>
+    <th>Contribution Amount</th>
     <th></th>
   </tr>
   <% for contribution in @contributions %>
     <tr>
+      <td><%= hidden_field_tag "contribution_ids[]", contribution.id %></td>
       <td><%=h contribution.loan.title %></td>
       <td><%=h number_to_currency contribution.loan.amount.to_i/100 %></td>
-      <td><%= number_to_currency contribution.amount.to_i/100 %></td>
+      <td><%= number_field_tag 'amounts[]', contribution.amount.to_i/100 %></td>
     </tr>
+    <% end %>
     <tr>
       <td></td>
       <td></td>
       <td>TOTAL:</td>
       <td class="cart-total"><%= number_to_currency cart.total %></td>
     </tr>
-  <% end %>
 </table>
 <div class="col-md-5">
+  <%= hidden_field_tag :stripe_card_token %>
   <div class="form-group">
     <label for="CardCardNumber">Credit Card Number</label>
-    <input type="text" class="form-control" id="credit_card" data-stripe="number">
+    <%= text_field_tag 'credit_card', nil, class: "form-control", id: "credit_card", stripe: "number" %>
     <label for="ExpirationDate">Expiration Date</label>
-    <input type="text" class="form-control" id="exp_month" data-stripe="exp-month">
-    <input type="text" class="form-control" id="exp_year" data-stripe="exp-year">
+    <%= text_field_tag 'exp-month', nil, class: "form-control", id: "exp-month", stripe: "number" %>
+    <%= text_field_tag 'exp-year', nil, class: "form-control", id: "exp-year", stripe: "number" %>
     <label for="CVV">CVV</label>
-    <input type="text" class="form-control" id="cvv" data-stripe="cvv">
+    <%= text_field_tag 'CVV', nil, class: "form-control", id: "cvv", stripe: "number" %>
   </div>
 </div><!-- /col-md-5 -->
 </br></br>

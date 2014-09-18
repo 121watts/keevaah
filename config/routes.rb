@@ -11,14 +11,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :edit, :update]
   resource :account, only: [:show, :edit, :update]
   resource :cart, only: [:show, :update, :destroy]
-  resource :contribution, only: [:show] do
+  resources :contributions, only: [:show] do
     collection do
       post :checkout
+      get :review
     end
-    get '/review' => 'contributions#review'
-  end
-  resources :contributions do
-
   end
 
   resources :orders, only: [:index, :new, :create, :show] do

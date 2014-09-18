@@ -221,7 +221,6 @@ describe 'when viewing the loans' do
 			click_button("Update Loan")
 			click_link("Keevahh")
 			expect(current_path).to eq(root_path)
-			save_and_open_page
 			click_link('Testy Cat')
 			expect(page).to have_content 'Buy a cow'
 			expect(page).to have_content "Need to buy a milking cow for our farm"

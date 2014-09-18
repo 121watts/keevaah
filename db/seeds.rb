@@ -1,4 +1,4 @@
-require_relative './seed/borrower_seeds'
+  require_relative './seed/borrower_seeds'
 require_relative './seed/loan_seeds'
 require_relative './seed/category_seeds'
 require_relative './seed/contribution_seeds'

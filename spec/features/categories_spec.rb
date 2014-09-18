@@ -5,7 +5,7 @@ describe 'when viewing the categories' do
 
 		before(:each) do
 			@category = create(:category)
-			@loan = create(:loan)
+			@loan = create(:loan, title: "Cowz")
 			@category.loans << @loan
 			visit loans_path
 		end

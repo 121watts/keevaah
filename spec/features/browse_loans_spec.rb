@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 describe 'when viewing the loan requests' do
-
  context 'as a guest' do
 
    before(:each) do
      @category = Category.create(id: 1, name: "Ag, bro")
-     @loan = create(:loan)
+     @loan = create(:loan, title: "Loan 1")
      @loan2 = create(:loan, title: "Loan 2")
      @category.loans << @loan
      @category.loans << @loan2
@@ -34,5 +33,5 @@ describe 'when viewing the loan requests' do
      expect(page).to have_content "#{@loan.title}"
      expect(page).to_not have_content "#{@loan2.title}"
    end
- end
+  end
 end

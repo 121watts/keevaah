@@ -4,10 +4,8 @@ class ContributionsController < ApplicationController
   end
 
   def review
+    redirect_to login_path if current_user.nil?
     @contributions = cart.contributions
-    if current_user = nil
-      redirect_to login_path
-    end
   end
 
   def checkout
@@ -15,7 +13,6 @@ class ContributionsController < ApplicationController
     @contributions.each_with_index do |contribution, i|
       amount = params[:amounts][i].to_i * 100
       loan = contribution.loan
-      binding.pry
       if amount <= loan.pending
         contribution.update={amount: amount, user_id: current_user.id, status: 'paid'}
         # don't do this

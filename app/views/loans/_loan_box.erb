@@ -2,16 +2,15 @@
   <div class="loan-box-description">
     <%= image_tag loan.image.url(:small), class: "loan-image" %><br/>
     <div>
-      <span class="loan-title">
+      <div class="loan-title">
           <%= link_to loan do %>
-          <strong><%= loan.title %></strong>
+          <strong><%= truncate(loan.title, :length => 20) %></strong>
         <% end %>
-      </span>
-      <span class="loan-description">
-        <%= loan.description %>
-      </span>
+      </div>
+      <div class="loan-description">
+        <%= truncate(loan.description, :length => 350) %>
+      </div>
     </div>
-
 
 
     <div class="loan-box-price">

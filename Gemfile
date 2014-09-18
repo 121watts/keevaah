@@ -15,9 +15,8 @@ gem 'stripe'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'pg'
 gem 'aasm'
-gem 'ransack'
 gem 'asset_sync'
-gem 'factory_girl_rails', '~> 4.0'
+gem 'ransack'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
@@ -45,6 +44,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'simple_form'

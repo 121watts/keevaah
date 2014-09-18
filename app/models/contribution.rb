@@ -6,9 +6,7 @@ class Contribution < ActiveRecord::Base
 
   belongs_to :loan
   belongs_to :user
-
-  has_many :cart_contributions
-  has_many :carts, through: :cart_contributions
+  belongs_to :cart
 
   validates_presence_of :loan_id
 
@@ -27,5 +25,5 @@ class Contribution < ActiveRecord::Base
   def update_to_cancelled
     update_attribute(:status, 'cancelled')
   end
-  
+
 end

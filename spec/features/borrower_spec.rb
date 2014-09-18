@@ -72,8 +72,7 @@ describe 'borrower experience' do
 
   context 'as a registered borrower' do
 
-    let(:borrower) { User.create(first_name: "Gen", last_name: "Casagrande", email: "yourmom123@aol.com",
-                  password: "password", password_confirmation: "password", role: "borrower", nickname: "gen") }
+  let(:borrower) { create(:borrower) }
 
   before(:each) do
     @loan = Loan.create!(id: 1,
@@ -85,7 +84,6 @@ describe 'borrower experience' do
 												monthly_payment: 1000,
 												user_id: 99
 												)
-
 
       @user = User.create!(id: 99, first_name: 'Nando', last_name: 'Hasselhoff', email: 'nando@aol.com', password: '123', password_confirmation: '123', role: "borrower")
       login(email: 'nando@aol.com', password: '123')

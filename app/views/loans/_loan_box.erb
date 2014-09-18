@@ -4,11 +4,11 @@
     <div>
       <div class="loan-title">
           <%= link_to loan do %>
-          <strong><%= loan.title %></strong>
+          <strong><%= truncate(loan.title, :length => 20) %></strong>
         <% end %>
       </div>
       <div class="loan-description">
-        <%= truncate(loan.description, :length => 400) %>
+        <%= truncate(loan.description, :length => 350) %>
       </div>
     </div>
 

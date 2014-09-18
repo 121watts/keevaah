@@ -12,6 +12,7 @@ class User<ActiveRecord::Base
   validates :role,                  presence: true
 
   has_many :loans
+  has_many :contributions
 
   scope :borrowers, -> { where('role' => 'borrower') }
 

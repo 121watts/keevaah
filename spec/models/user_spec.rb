@@ -2,19 +2,10 @@ require 'rails_helper'
 
 describe User, type: :model do
 
-  let(:pwner) do
-    User.new(email: "yourmom123@aol.com",
-             first_name: "John",
-             last_name: "Michael",
-             nickname: "pwner2000",
-             password: "123456",
-             password_confirmation: "123456",
-             role: "borrower"
-              )
-  end
+  let(:user) { create(:borrower) }
 
   it 'is valid' do
-    expect(pwner).to be_valid
+    expect(user).to be_valid
   end
 
   it { should validate_presence_of(:email) }

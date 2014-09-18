@@ -13,14 +13,18 @@ class ContributionsController < ApplicationController
   def checkout
     @contributions = cart.contributions
     @contributions.each_with_index do |contribution, i|
-      # validate contribution
-      contribution.update(amount: params[:amounts][i], user_id: current_user.id, status: 'paid')
-      # update loan
-      session[:cart] = nil
+      amount = params[:amounts][i].to_i * 100
+      loan = contribution.loan
+      binding.pry
+      if amount <= loan.pending
+        contribution.update={amount: amount, user_id: current_user.id, status: 'paid'}
+        # don't do this
+        if loan.pending == 0
+          loan.fulfill!
+        end
+      end
     end
+    session[:cart] = nil
     redirect_to root_path
   end
 end
-
-
-{"utf8"=>"✓", "authenticity_token"=>"Kr+WWayjMRVb7sUk8XhXS2bnDufL434fCiYW97sgdqU=", "contribution_ids"=>["7", "8"], "amounts"=>["25", "25"], "stripe_card_token"=>"", "credit_card"=>"4242424242424242", "exp-month"=>"1", "exp-year"=>"15", "CVV"=>"123", "commit"=>"Checkout", "action"=>"checkout", "controller"=>"contributions"}

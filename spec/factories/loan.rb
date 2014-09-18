@@ -6,5 +6,6 @@ FactoryGirl.define do
     requested_by "October 15, 2014"
     repayments_begin "November 4, 2014"
     monthly_payment 5500
+    user_id 1
   end
 end

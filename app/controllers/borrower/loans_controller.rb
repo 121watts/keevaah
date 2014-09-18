@@ -18,6 +18,7 @@ class Borrower::LoansController < BorrowersController
 	def create
 		@loan = current_user.loans.new(loan_params)
 		if @loan.save
+			@loan_category = LoanCategory.create(loan_id: @loan.id, category_id: params[:loan][:categories])
 			redirect_to borrower_loans_path
 		else
 			render :new

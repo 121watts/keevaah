@@ -16,16 +16,21 @@
   <%= form_for @loan, url: borrower_loans_path, method: :post do |f| %>
     <%= f.label       :title %><br/>
     <%= f.text_field  :title %><br/>
+
     <%= f.label       :description %><br/>
     <%= f.text_field  :description %><br/>
+
+    <%= f.label             :loan_category %><br/>
+    <%= f.collection_select :categories, Category.all, :id, :name %><br/>
+
     <%= f.label       :amount %><br/>
     <%= f.text_field  :amount %><br/>
 
-    <%= f.label       :repayments_begin %><br/>
-    <%= f.date_field  :repayments_begin %><br/>
-
     <%= f.label       :requested_by %><br/>
     <%= f.date_field  :requested_by %><br/>
+
+    <%= f.label       :repayments_begin %><br/>
+    <%= f.date_field  :repayments_begin %><br/>
 
     <%= f.label       :monthly_payment %><br/>
     <%= f.text_field  :monthly_payment %><br/>

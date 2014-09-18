@@ -7,6 +7,7 @@ describe 'when viewing the loans' do
 		before(:each) do
 			register_and_login_as_borrower
 			@borrower = User.last
+			@category = Category.create(id: 3, name: "Agriculture")
 			@loan = Loan.create(title: 'Buy a cow',
 															description: 'Need to buy a milking cow for our farm',
 															amount: 50000,
@@ -40,9 +41,8 @@ describe 'when viewing the loans' do
 		end
 
 		it 'shows the category associated with an loan' do
-			category = Category.create(name: "Agriculture")
-			@loan.categories << category
-			category.loans << @loan
+			@loan.categories << @category
+			@category.loans << @loan
 			visit borrower_loans_path
 			expect(page).to have_content "Buy a cow"
 			expect(page).to have_content "Agriculture"
@@ -56,9 +56,8 @@ describe 'when viewing the loans' do
 		end
 
 		it 'shows the category associated with an loan' do
-			category = Category.create(name: "Agriculture")
-			@loan.categories << category
-			category.loans << @loan
+			@loan.categories << @category
+			@category.loans << @loan
 			visit borrower_loans_path
 			expect(page).to have_content "Buy a cow"
 			expect(page).to have_content "Agriculture"
@@ -72,8 +71,13 @@ describe 'when viewing the loans' do
 			fill_in "Requested by", with: "2014-09-10"
 			fill_in "Repayments begin", with: "2015-09-10"
 			fill_in "Monthly payment", with: "100"
+			select("#{@category.name}", :from => 'loan_categories')
 			click_button "Create loan"
 			expect(current_path).to eq(borrower_loans_path)
+			expect(page).to have_content 'Buy a Sheep'
+			expect(page).to have_content "Need to buy a sheep for wool"
+			click_link("Keevahh")
+			expect(current_path).to eq(root_path)
 			expect(page).to have_content 'Buy a Sheep'
 			expect(page).to have_content "Need to buy a sheep for wool"
 		end
@@ -156,6 +160,7 @@ describe 'when viewing the loans' do
 			expect(page).to have_content 'blank'
 		end
 
+
 		it 'can update an loan' do
 			visit edit_borrower_loan_path(@loan)
 			fill_in "Title", with: "Fancy New Donut"
@@ -217,19 +222,18 @@ describe 'when viewing the loans' do
 		end
 
 		it 'has can delete a category from loan' do
-			category = Category.create(name: 'Test Category')
-			LoanCategory.create(loan: @loan, category: category)
+			LoanCategory.create(loan: @loan, category: @category)
 
 			visit edit_borrower_loan_path(@loan)
-			expect(page).to have_content "Test Category"
+			expect(page).to have_content "Agriculture"
 			click_link "Delete"
 			expect(page).to_not have_content "Delete"
 		end
 
 		it 'can add a category to a loan' do
-			Category.create(name: 'Test Category')
-			Category.create(name: 'Testy Cat')
-			Category.create(name: 'Tasty')
+			Category.create(id: 4, name: 'Test Category')
+			Category.create(id: 5, name: 'Testy Cat')
+			Category.create(id: 6, name: 'Tasty')
 
 			visit edit_borrower_loan_path(@loan)
 			expect(page).to_not have_content 'Delete'

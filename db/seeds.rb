@@ -19,5 +19,5 @@ end
 end
 
 # CONTRIBUTIONS
-100.times do Contribution.create(user_id: rand(30), loan_id: rand(10), status: "paid")
+100.times do Contribution.create(user_id: rand(21..30), loan_id: rand(10), status: "paid")
 end

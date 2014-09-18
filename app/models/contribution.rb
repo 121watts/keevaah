@@ -7,9 +7,10 @@ class Contribution < ActiveRecord::Base
   belongs_to :loan
   belongs_to :user
 
-  validates_presence_of :loan_id
-  validates_presence_of :user_id
+  has_many :cart_contributions
+  has_many :carts, through: :cart_contributions
 
+  validates_presence_of :loan_id
 
   def set_default_status
     self.status ||= "pending"

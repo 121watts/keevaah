@@ -9,14 +9,15 @@
         <th>Loan Amount</th>
         <th>Remove?</th>
       </tr>
-      <% if @loans.any? %>
-        <% @loans.each do |loan| %>
+      <% if @contributions.any? %>
+        <% @contributions.each do |contribution| %>
           <tr>
-            <td><%= loan.title %></td>
-            <td><%= loan.unit_price_dollars %></td>
+            <td><%= contribution.loan.title %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td><%= contribution.loan.amount_in_dollars %></td>
             <td>
               <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>
-                <%= f.hidden_field :loan_id, value: loan.id %>
+                <%= f.hidden_field :contribution_id, value: contribution.id %>
                 <%= f.submit "Remove", class: "btn btn-danger" %>
               <% end %>
             </td>
@@ -26,7 +27,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td><span id="cart-total"><%= calculate_total %> TOTAL</span></td>
+          <td><span id="cart-total"><%= number_to_currency(cart.total) %> TOTAL</span></td>
           <td></td>
         </tr>
       <% else %>
@@ -35,8 +36,8 @@
         </tr>
       <% end %>
     </table>
-    <% if @loans.any? %>
-      <div id="checkout-button"><%= link_to "Checkout", new_order_path, class: 'btn btn-success center' %></div>
+    <% if @contributions.any? %>
+      <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success center' %></div>
     <% end %>
   </div>
 </div>

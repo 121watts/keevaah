@@ -11,7 +11,8 @@ class Loan < ActiveRecord::Base
 														greater_than_or_equal_to: 0
 	has_many :loan_categories
 	has_many :categories, through: :loan_categories
-	has_many :orders, through: :order_loans
+	has_many :cart_loans
+	has_many :carts, through: :cart_loan
 	has_many :contributions
 	belongs_to :user
 

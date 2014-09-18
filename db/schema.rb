@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917194813) do
+ActiveRecord::Schema.define(version: 20140917201900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cart_contributions", force: true do |t|
+    t.integer  "contribution_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cart_loans", force: true do |t|
+    t.integer  "loan_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "carts", force: true do |t|
-    t.string   "items"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -45,13 +58,6 @@ ActiveRecord::Schema.define(version: 20140917194813) do
     t.datetime "updated_at"
   end
 
-  create_table "loan_contributions", force: true do |t|
-    t.integer  "loan_id"
-    t.integer  "contribution_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "loans", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -65,24 +71,6 @@ ActiveRecord::Schema.define(version: 20140917194813) do
     t.datetime "image_updated_at"
     t.string   "aasm_state"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "order_loans", force: true do |t|
-    t.integer  "loan_id"
-    t.integer  "quantity"
-    t.integer  "order_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "orders", force: true do |t|
-    t.integer  "user_id"
-    t.string   "order_type"
-    t.integer  "address_id"
-    t.string   "status"
-    t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

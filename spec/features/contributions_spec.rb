@@ -19,8 +19,7 @@ describe 'when viewing the loans' do
 			loan
       contribution = Contribution.create(user_id: lender.id, loan_id: 1, amount: 2500)
 			category = Category.create!(id: 1, name: "Agriculture")
-      LoanCategory.create!(loan_id: 1, category_id: 1)
-      loan_contribution = LoanContribution.create(contribution_id: contribution.id, loan_id: loan.id)
+      LoanCategory.create!(loan_id: 1, category_id: 1)			
 		end
 
 		# contributions mean that less money is needed to fulfill a loan

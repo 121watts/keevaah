@@ -4,6 +4,7 @@ class CreateContributions < ActiveRecord::Migration
       t.string :amount
       t.integer :user_id
       t.integer :loan_id
+      t.string :status
 
       t.timestamps
     end

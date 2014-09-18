@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :edit, :update]
   resource :account, only: [:show, :edit, :update]
   resource :cart, only: [:show, :update, :destroy]
+  resources :contributions, only: [:show] do
+    collection do
+      post :checkout
+      get :review
+    end
+  end
 
   resources :orders, only: [:index, :new, :create, :show] do
     get '/cancel' => 'orders#cancel', as: :cancel
@@ -26,17 +32,17 @@ Rails.application.routes.draw do
     end
 
     resources :categories, except: [:show]
-    resources :order_loans, only: [:destroy, :update]
-  	resources :orders, except: [:new, :destroy] do
-	    get '/update_status' => 'orders#update_status', as: :update_status
-	    get '/cancel' => 'orders#cancel', as: :cancel
-	    get '/remove_loan/:loan_id' => 'orders#remove_loan', as: :remove_loan
-	  end
-
-    get '/ordered' => 'orders#ordered', as: :ordered
-    get '/paid' => 'orders#paid', as: :paid
-    get '/completed' => 'orders#completed', as: :completed
-    get '/cancelled' => 'orders#cancelled', as: :cancelled
+    # resources :order_loans, only: [:destroy, :update]
+  	# resources :orders, except: [:new, :destroy] do
+	  #   get '/update_status' => 'orders#update_status', as: :update_status
+	  #   get '/cancel' => 'orders#cancel', as: :cancel
+	  #   get '/remove_loan/:loan_id' => 'orders#remove_loan', as: :remove_loan
+	  # end
+    #
+    # get '/ordered' => 'orders#ordered', as: :ordered
+    # get '/paid' => 'orders#paid', as: :paid
+    # get '/completed' => 'orders#completed', as: :completed
+    # get '/cancelled' => 'orders#cancelled', as: :cancelled
   end
 
   get '/code', to: redirect('https://github.com/MarcGarreau/grubhub_v2')

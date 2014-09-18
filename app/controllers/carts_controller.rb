@@ -1,40 +1,31 @@
 class CartsController < ApplicationController
   def show
-    @loans = Loan.where(id: current_cart.keys).decorate
+    @contributions = cart.contributions
   end
 
   def update
-    loan_id = params[:cart][:loan_id]
-    quantity = params[:cart][:quantity].to_i
-
-    if loan = Loan.find_by(id: loan_id, aasm_state: 'request')
-      #create a new contribution and put it into the cart
-      current_cart.store(loan_id, quantity)
-      current_cart.save
-
-      if current_cart.quantity(loan_id) > 0
-        if current_cart.new?(loan_id)
-          flash[:success] = 'Added to your cart. (You can afford that?)'
-        else
-          flash[:success] = 'Updated quantity for loan.'
-        end
-      else
-        flash[:success] = "You will not contribute to '#{loan.title}'."
-        redirect_to cart_path
-        return
-      end
-    else
-      flash[:error] = 'That loan is no longer available.'
-    end
-
+    add_contribution || delete_contribution
     redirect_to :back
   end
 
   def destroy
-    loan = Loan.find_by(id: params[:cart][:loan_id])
-    current_cart.delete(loan.id)
+    cart.destroy
+    redirect_to root_path
+  end
 
-    flash[:success] = "You will not contribute to '#{loan.title}'."
-    redirect_to cart_path
+  private
+
+  def add_contribution
+    if current_user
+      contribution = Contribution.create({loan_id: params[:cart][:loan_id], user_id: current_user.id})
+    else
+      contribution = Contribution.create({loan_id: params[:cart][:loan_id]})
+    end
+    cart.add_contribution(contribution) 
+  end
+
+  def delete_contribution
+    contribution = Contribution.find(params[:cart][:contribution_id])
+    cart.remove_contribution(contribution)
   end
 end

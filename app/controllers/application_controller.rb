@@ -8,19 +8,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def current_cart
-    if current_user
-      items = session[:cart] || {}
-      cart = Cart.find_or_initialize_by(user: current_user)
-      cart.items ||= "{}"
-      cart.items = items.to_json unless items.empty?
-      cart.save
-      @cart ||= cart
-    else
-      @cart ||= CartSession.new(session)
-    end
-  end
-
   def is_borrower?
     current_user && current_user.role == 'borrower'
   end
@@ -41,11 +28,31 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  helper_method def cart
+    @cart ||= (_session_cart || _create_cart)
+  end
+
+  helper_method def cart_count
+    cart.contributions ? cart.contributions.count : 0
+  end
+
   private
 
   def login_with_flash
     flash[:error] = 'You must be logged in to access that.'
     session[:last_page] = request.path
     redirect_to login_path
+  end
+
+  def _session_cart
+    return unless session[:cart_id]
+    @current_cart ||= Cart.find(session[:cart_id])
+  end
+
+  def _create_cart
+    return if session[:cart_id]
+    current_cart = Cart.create!
+    session[:cart_id] = current_cart.id
+    current_cart
   end
 end

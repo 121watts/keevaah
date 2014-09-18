@@ -7,8 +7,6 @@ RSpec.describe Contribution, type: :model do
     expect(contribution).to be_valid
   end
 
-  it { should validate_presence_of(:user_id) }
-
   it { should validate_presence_of(:loan_id) }
 
   it 'should have default values of pending and $25.00' do
@@ -26,7 +24,7 @@ RSpec.describe Contribution, type: :model do
     expect(contribution.status).to eq('cancelled')
   end
 
-  
+
 end
 
 # contributions mean that less money is needed to fulfill a loan

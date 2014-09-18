@@ -2,11 +2,10 @@ require 'rails_helper'
 
 describe 'Checking out', type: :feature do
   context 'with an empty cart' do
-    xit 'sees an error message' do
-      register
-      login
-      visit new_order_path
-      expect(page).to have_content 'Your are not contributing to any loans. How does that feel?'
+    it 'sees an error message' do
+      visit root_path
+      click_on "View Contributions"
+      expect(page).to have_content 'Your cart is empty.'
     end
   end
   #
@@ -32,7 +31,7 @@ describe 'Checking out', type: :feature do
       visit new_order_path
     end
   #
-    xit 'sees the cart loans' do
+    it 'sees the cart loans' do
       expect(page).to have_content 'cow'
       expect(page).to have_content '$500.00'
     end

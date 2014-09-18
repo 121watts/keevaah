@@ -1,0 +1,40 @@
+<h1>CHECKOUT PAGE!</h1>
+
+
+
+<%= form_tag checkout_contributions_path do %>
+<table class="table table-striped order-table">
+  <tr>
+    <th>Loan Name</th>
+    <th>Contribution Amount</th>
+    <th>Loan Amount</th>
+    <th></th>
+  </tr>
+  <% for contribution in @contributions %>
+    <tr>
+      <td><%=h contribution.loan.title %></td>
+      <td><%=h number_to_currency contribution.loan.amount.to_i/100 %></td>
+      <td><%= number_to_currency contribution.amount.to_i/100 %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>TOTAL:</td>
+      <td class="cart-total"><%= number_to_currency cart.total %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="col-md-5">
+  <div class="form-group">
+    <label for="CardCardNumber">Credit Card Number</label>
+    <input type="text" class="form-control" id="credit_card" data-stripe="number">
+    <label for="ExpirationDate">Expiration Date</label>
+    <input type="text" class="form-control" id="exp_month" data-stripe="exp-month">
+    <input type="text" class="form-control" id="exp_year" data-stripe="exp-year">
+    <label for="CVV">CVV</label>
+    <input type="text" class="form-control" id="cvv" data-stripe="cvv">
+  </div>
+</div><!-- /col-md-5 -->
+</br></br>
+<%= submit_tag "Checkout" %>
+<% end %>

@@ -3,23 +3,12 @@ require 'rails_helper'
 describe 'when viewing the loans' do
 
 	context 'as a lender' do
-		let(:loan) { Loan.create(id: 1,
-														title: 'Buy a cow',
-														description: 'Need to buy a milking cow for our farm',
-														amount: 50000,
-														requested_by: "2014-09-10 13:43:00 -0600",
-														repayments_begin: "2014-09-10 13:43:00 -0600",
-														monthly_payment: 100000,
-														user_id: 1
-														) }
-
 		before(:each) do
-			register_and_login_as_lender
-      lender = User.last
-			loan
-      contribution = Contribution.create(user_id: lender.id, loan_id: 1, amount: 2500)
-			category = Category.create!(id: 1, name: "Agriculture")
-      LoanCategory.create!(loan_id: 1, category_id: 1)			
+      @lender = create(:lender)
+			@category = create(:category)
+			@loan = create(:loan, category_ids: @category.id)
+      @contribution = create(:contribution, user_id: @lender.id, loan_id: @loan.id)
+			login(email: @lender.email, password: @lender.password )
 		end
 
 		# contributions mean that less money is needed to fulfill a loan
@@ -41,13 +30,6 @@ describe 'when viewing the loans' do
 			3.times do Contribution.create(user_id: 1, loan_id: 2)
 			end
 			expect(dummy.total).to eq 10000
-		end
-
-		xit 'can edit an order' do
-			click_link "Edit"
-			fill_in "Order type", with: "delivery"
-			click_button "Update Order"
-			expect(page).to have_content("delivery")
 		end
 
     xit 'can see borrower name from contribution page' do

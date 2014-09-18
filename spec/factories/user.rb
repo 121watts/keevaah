@@ -12,7 +12,6 @@ FactoryGirl.define do
    end
 
    factory :lender, class: User, parent: :user do
-    role "lender"
     first_name "Lender"
     last_name "McNender"
     email "lender@jumpstartlab.com"

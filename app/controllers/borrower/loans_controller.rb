@@ -33,6 +33,7 @@ class Borrower::LoansController < BorrowersController
 	def update
     @loan = current_user.loans.find(params[:id]).decorate
 		if @loan.update(loan_params)
+			@loan_category = LoanCategory.create(loan_id: @loan.id, category_id: params[:loan][:categories])
 			redirect_to borrower_loans_path
 		else
 			render :edit
@@ -42,14 +43,6 @@ class Borrower::LoansController < BorrowersController
 	def delete_category
 		loan = Loan.find(params[:loan_id])
 		loan.remove_category(params[:category_id])
-		redirect_to edit_borrower_loan_path(loan)
-	end
-
-	def add_category
-		loan = Loan.find(params[:loan_id])
-		unless LoanCategory.find_by(loan_id: params[:loan_id], category_id: params[:category_id])
-			LoanCategory.create(loan_id: params[:loan_id], category_id: params[:category_id])
-		end
 		redirect_to edit_borrower_loan_path(loan)
 	end
 

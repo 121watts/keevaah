@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Contribution, type: :model do
-  let (:contribution) {Contribution.create(user_id: 1, loan_id: 1)}
+  let (:contribution) { create(:contribution) }
 
   it 'is valid' do
     expect(contribution).to be_valid
@@ -23,7 +23,6 @@ RSpec.describe Contribution, type: :model do
     contribution.update_to_cancelled
     expect(contribution.status).to eq('cancelled')
   end
-
 
 end
 

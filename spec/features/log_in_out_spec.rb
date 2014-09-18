@@ -2,16 +2,11 @@ require 'rails_helper'
 
 describe 'Logging in' do
 
-  before(:each) { User.create email: 'yourmom123@aol.com',
-                  password: '123',
-                  password_confirmation: '123',
-                  first_name: 'Jon',
-                  last_name:  'Michael',
-                  role: "borrower"}
+  before(:each) { @borrower = create(:borrower) }
 
   context 'as a borrower' do
     it 'logs in as a borrower successfully' do
-      login
+      login(email: @borrower.email, password: @borrower.password)
       expect(page).to_not have_content 'Login'
       expect(page).to     have_content 'Logout'
     end
@@ -29,7 +24,7 @@ describe 'Logging in' do
 
   context 'as a borrower' do
     it 'logs out' do
-      login
+      login(email: @borrower.email, password: @borrower.password)
       click_on 'Logout'
       expect(page).to     have_content 'Login'
       expect(page).to_not have_content 'Logout'

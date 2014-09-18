@@ -72,23 +72,15 @@ describe 'borrower experience' do
 
   context 'as a registered borrower' do
 
-    let(:borrower) { User.create(first_name: "Gen", last_name: "Casagrande", email: "yourmom123@aol.com",
-                  password: "password", password_confirmation: "password", role: "borrower", nickname: "gen") }
+  let(:borrower) { create(:borrower) }
+  let(:contribution) { create(:contribution) }
 
-  before(:each) do
-    @loan = Loan.create!(id: 1,
-												title: 'Buy a cow',
-												description: 'Need to buy a milking cow for our farm',
-												amount: 50000,
-												requested_by: "2014-09-10 13:43:00 -0600",
-												repayments_begin: "2014-09-10 13:43:00 -0600",
-												monthly_payment: 1000,
-												user_id: 99
-												)
-
-
-      @user = User.create!(id: 99, first_name: 'Nando', last_name: 'Hasselhoff', email: 'nando@aol.com', password: '123', password_confirmation: '123', role: "borrower")
-      login(email: 'nando@aol.com', password: '123')
+    before(:each) do
+      @category = create(:category)
+      @loan = create(:loan)
+      @loan.categories << @category
+      @user = borrower
+      login(email: borrower.email, password: borrower.password)
     end
 
     it "has a borrower dashboard" do
@@ -109,8 +101,7 @@ describe 'borrower experience' do
 
     it 'can view date joined, first name, last name, email, and nickname' do
       click_on "Logout"
-      register
-      login
+      login(email: borrower.email, password: borrower.password)
       expect(page).to have_content(borrower.first_name)
       expect(page).to have_content(borrower.last_name)
       expect(page).to have_content(borrower.email)
@@ -139,9 +130,8 @@ describe 'borrower experience' do
       expect(page).to have_content(@loan.amount)
     end
 
-
-
     it 'can link to a details page for each loan' do
+      
       click_link "#{@loan.title}"
       expect(current_path).to eq(borrower_loan_path(@loan))
       expect(page).to have_content(@loan.title)

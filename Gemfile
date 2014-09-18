@@ -44,6 +44,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'simple_form'

@@ -26,4 +26,5 @@ class Contribution < ActiveRecord::Base
   def update_to_cancelled
     update_attribute(:status, 'cancelled')
   end
+  
 end

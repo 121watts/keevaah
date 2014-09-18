@@ -17,7 +17,7 @@ describe 'when viewing the loans' do
 			register_and_login_as_lender
       lender = User.last
 			loan
-      contribution = Contribution.create(user_id: lender.id, loan_id: 1, amount: 25)
+      contribution = Contribution.create(user_id: lender.id, loan_id: 1, amount: 2500)
 			category = Category.create!(id: 1, name: "Agriculture")
       LoanCategory.create!(loan_id: 1, category_id: 1)
       loan_contribution = LoanContribution.create(contribution_id: contribution.id, loan_id: loan.id)
@@ -33,16 +33,15 @@ describe 'when viewing the loans' do
 			click_on "Loan Now"
 		end
 
-		class DummyClass
-		end
-
 		it 'can see a total for all contribution' do
+			class DummyClass
+			end
 			dummy = DummyClass.new
 			dummy.extend(ContributionHelper)
-			dummy.stub(:current_user) { User.new }
+			dummy.stub(:current_user) { User.new(id: 1) }
 			3.times do Contribution.create(user_id: 1, loan_id: 2)
 			end
-			expect(dummy.total).to eq 75
+			expect(dummy.total).to eq 10000
 		end
 
 		xit 'can edit an order' do

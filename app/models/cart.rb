@@ -1,10 +1,10 @@
 class Cart < ActiveRecord::Base
-  has_many :cart_contributions
-  has_many :contributions, through: :cart_contributions
+  
+  has_many :contributions
 
   def add_contribution(contribution)
     if validate_contribution?(contribution)
-      self.contributions << contribution 
+      self.contributions << contribution
     end
   end
 

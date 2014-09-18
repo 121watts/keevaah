@@ -2,15 +2,9 @@ require 'rails_helper'
 
 describe 'Shopping Contributions', type: :feature do
   before(:each) do
-    category = Category.create!(name: 'Agriculture')
-    category.loans.create!(id: 1,
-                            title: 'Buy a cow',
-                            description: 'Need to buy a milking cow for our farm',
-                            amount: 50000,
-                            requested_by: "2014-09-10",
-                            repayments_begin: "2014-09-10",
-                            monthly_payment: 1000
-                            )
+    @category = create(:category)
+    @loan = create(:loan)
+    @category.loans << @loan
   end
 
   it 'can add a contribution to a cart' do
@@ -24,7 +18,6 @@ describe 'Shopping Contributions', type: :feature do
     visit loans_path
     first(:button, 'Loan Now').click
     first(:button, 'Loan Now').click
-    # expect(page).to_not have_content('Loan Now')
     total_loans = find('span.badge').text
     expect(total_loans).to eq '1'
   end
@@ -40,8 +33,8 @@ describe 'Shopping Contributions', type: :feature do
     visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'
-    expect(page).to have_content 'Buy a cow'
-    expect(page).to have_content '$25.00'
+    expect(page).to have_content @loan.title
+    expect(page).to have_content "$25.00"
   end
 
   xit 'can change the contribution amount' do

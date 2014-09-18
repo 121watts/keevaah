@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Loan, type: :model  do
-	let(:loan) { Loan.create!(id: 1,
-													title: 'Buy a cow',
-													description: 'Need to buy a milking cow for our farm',
-													amount: 50000,
-													requested_by: "2014-09-10",
-													repayments_begin: "2014-09-10",
-													monthly_payment: 1000
-													) }
+
+	let(:loan) do
+		create(:loan)
+	end
 
 	it 'is valid' do
 		expect(loan).to be_valid

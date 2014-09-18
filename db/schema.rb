@@ -11,24 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917201900) do
+ActiveRecord::Schema.define(version: 20140914181300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cart_contributions", force: true do |t|
-    t.integer  "contribution_id"
-    t.integer  "cart_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "cart_loans", force: true do |t|
-    t.integer  "loan_id"
-    t.integer  "cart_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -46,9 +32,10 @@ ActiveRecord::Schema.define(version: 20140917201900) do
     t.string   "amount"
     t.integer  "user_id"
     t.integer  "loan_id"
+    t.string   "status"
+    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
   end
 
   create_table "loan_categories", force: true do |t|

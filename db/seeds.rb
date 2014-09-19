@@ -9,14 +9,24 @@ require_relative './seed/contribution_seeds'
 end
 
 # USERS
-@users.each do |user|
+@lenders.each do |user|
   User.create(user)
 end
 
-# LOANS
-@loans.each do |loan|
-  Loan.create(loan)
+@admins.each do |user|
+  User.create(user)
 end
+
+# BORROWERS and LOANS
+@borrowers.each do |user|
+  begin
+    user_ = User.create(user).first
+    user_.loans.create(@loans.sample) if user_
+  rescue
+  end
+
+end
+
 
 # CONTRIBUTIONS
 100.times do Contribution.create(user_id: rand(21..30), loan_id: rand(10), status: "paid")

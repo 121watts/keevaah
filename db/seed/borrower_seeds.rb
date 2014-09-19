@@ -1,5 +1,5 @@
 @lenders = [
-  [id: 0,
+  [
   first_name: "Jon",
   last_name: "Snow",
   email: "jsnow@whitewall.gov",
@@ -7,7 +7,7 @@
   password_confirmation: "password",
   role: "lender"],
 
-  [id: 27,
+  [
   first_name: "Lender",
   last_name: "McLender",
   email: "lender@keevaah.com",
@@ -30,7 +30,7 @@
 end
 
 @admins = [
-  [id: 22,
+  [
   first_name: "Jeff",
   last_name: "Casimir",
   email: "demo+jeff@jumpstartlab.com",
@@ -39,7 +39,7 @@ end
   role: "admin",
   nickname: 'j3'],
 
-  [id: 23,
+  [
   first_name: "Jorge",
   last_name: "Tellez",
   email: "demo+jorge@jumpstartlab.com",
@@ -48,7 +48,7 @@ end
   role: "admin",
   nickname: 'novohispano'],
 
-  [id: 24,
+  [
   first_name: "Josh",
   last_name: "Cheek",
   email: "demo+josh@jumpstartlab.com",
@@ -57,7 +57,7 @@ end
   role: "admin",
   nickname: 'josh'],
 
-  [id: 25,
+  [
   first_name: "Watts",
   last_name: "Watkins",
   email: "demo+watts@jumpstartlab.com",
@@ -66,7 +66,7 @@ end
   role: "admin",
   nickname: 'watts'],
 
-  [id: 26,
+  [
   first_name: "Hil",
   last_name: "Denton",
   email: "something@jumpstartlab.com",

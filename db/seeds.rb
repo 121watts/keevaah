@@ -19,13 +19,16 @@ end
 
 # BORROWERS and LOANS
 @borrowers.each do |user|
-  begin
     user_ = User.create(user).first
     user_.loans.create(@loans.sample) if user_
-  rescue
-  end
-
 end
+
+# PICTURES
+# @loans.each_with_index do |loan, i|
+#   loan_params = loan[0]
+#   loan_params[:image] = File.open("#{$RAILS_ROOT}public/assets/images/seed/loan_#{i + 1}.jpg")
+#   Loan.create!(loan_params)
+# end
 
 
 # CONTRIBUTIONS

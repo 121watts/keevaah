@@ -14,7 +14,7 @@
   password: "password",
   password_confirmation: "password",
   role: "lender",
-  nickname: 'hildawg']
+  nickname: 'McLender']
 ]
 
 @borrowers = []

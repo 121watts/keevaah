@@ -28,9 +28,8 @@ class LoansController < ApplicationController
 		newest_loans.each do |loan|
 			loan.categories.each do |category|
 				newest_category = Category.find_by(name: "Newest")
-
 				if newest_category
-					LoanCategory.destroy_all(category_id: newest_category.id)	
+					LoanCategory.destroy_all(category_id: newest_category.id)
 					loan.categories << newest_category
 					@newest_loans_by_category[newest_category.name] ||= []
 					@newest_loans_by_category[newest_category.name] << loan.decorate

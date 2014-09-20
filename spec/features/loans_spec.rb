@@ -203,7 +203,6 @@ describe 'when viewing the loans' do
 		end
 
 		it 'can edit a category' do
-			Category.create(id: 4, name: 'Test Category')
 			Category.create(id: 5, name: 'Testy Cat')
 			visit edit_borrower_loan_path(@loan)
 			select("Testy Cat", :from => 'loan_categories')
@@ -226,8 +225,8 @@ describe 'when viewing the loans' do
 			select("#{@category.name}", :from => 'loan_categories')
 			click_button "Create loan"
 			visit root_path
-			click_link("Newest")
-			expect(Loan.last.categories.find_by(name: "Newest")).to eq(@newest_category)
+			click_link('Newest')
+			expect(page).to have_content 'Buy a Sheep'
 		end
 	end
 end

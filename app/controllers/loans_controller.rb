@@ -4,7 +4,6 @@ class LoansController < ApplicationController
 	end
 
 	def index
-		set_newest_loans
 		@categories = Category.all.decorate
 		@q = Loan.search(params[:q])
 		if params[:q]
@@ -19,7 +18,23 @@ class LoansController < ApplicationController
 		loan_requests.each do |loan|
 			loan.categories.each do |category|
 				@loans_by_category[category.name] ||= []
-				@loans_by_category[category.name] << loan
+				@loans_by_category[category.name] << loan.decorate
+			end
+		end
+
+		#group newest loans into newest category
+		@newest_loans_by_category = {}
+		#
+		newest_loans.each do |loan|
+			loan.categories.each do |category|
+				newest_category = Category.find_by(name: "Newest")
+
+				if newest_category
+					LoanCategory.destroy_all(category_id: newest_category.id)	
+					loan.categories << newest_category
+					@newest_loans_by_category[newest_category.name] ||= []
+					@newest_loans_by_category[newest_category.name] << loan.decorate
+				end
 			end
 		end
 	end
@@ -31,14 +46,10 @@ class LoansController < ApplicationController
 	end
 
 	def loan_requests
-		Loan.request.decorate
+		Loan.request
 	end
 
-	def set_newest_loans
-		# newest_category = Category.find_by(name: "Newest")
-		# newest_loans = Loan.last(5)
-		# newest_loans.map do |loan|
-		# 	LoanCategory.create(loan_id: loan.id, category_id: newest_category.id)
-		# end
+	def newest_loans
+		newest_loans = Loan.order(created_at: :desc).limit(10)
 	end
 end

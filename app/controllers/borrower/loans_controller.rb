@@ -4,7 +4,7 @@ class Borrower::LoansController < BorrowersController
 	end
 
 	def dashboard
-		@loans = current_user.loans.all
+		@loans = current_user.loans.all.decorate
 	end
 
 	def show
@@ -47,8 +47,12 @@ class Borrower::LoansController < BorrowersController
 	end
 
 	def destroy
-		current_user.loans.find(params[:id]).destroy
-		redirect_to borrower_loans_path
+		if current_user.loans.find_by(id: params[:id], aasm_state: "request")
+			current_user.loans.find(params[:id]).destroy
+			redirect_to borrower_loans_path
+		else
+			redirect_to borrower_loans_path, notice: "You cannot cancel a loan that has been fulfilled"
+		end
 	end
 
 	def retire

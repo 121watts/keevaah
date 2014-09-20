@@ -4,17 +4,17 @@
    requested_by: "October 15, 2014",
    repayments_begin: "November 4, 2014",
    monthly_payment: 5500,
-   category_ids: ["1"],
-   user_id: 1],
+   category_ids: ["1"]
+   ],
 
-  [ title: "Buy Fertilizers",
-   amount: 47500,
-   description: "Florgie is married with four children. Florgie is 44 years old and lives in Cabol-anonan,Tudela, Philippines. Florgie is a farmer and grows rice crops to earn a living. She has been doing this for 20 years. She has requested a loan to buy fertilizers. Florgie has been a member of PMPC for five years. In the future, Florgie hopes to save more in case of emergencies.",
-   requested_by: "December 6, 2014",
-   repayments_begin: "February 4, 2015",
-   monthly_payment: 8000,
-   category_ids: ["1"],
-   user_id: 2],
+   [ title: "Buy Fertilizers",
+     amount: 47500,
+     description: "Florgie is married with four children. Florgie is 44 years old and lives in Cabol-anonan,Tudela, Philippines. Florgie is a farmer and grows rice crops to earn a living. She has been doing this for 20 years. She has requested a loan to buy fertilizers. Florgie has been a member of PMPC for five years. In the future, Florgie hopes to save more in case of emergencies.",
+     requested_by: "December 6, 2014",
+     repayments_begin: "February 4, 2015",
+     monthly_payment: 8000,
+     category_ids: ["1"]
+   ],
 
   [ title: "Buy Fertilizers and seeds",
    amount: 125000,
@@ -22,8 +22,8 @@
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 5000,
-   category_ids: ["1"],
-   user_id: 3],
+   category_ids: ["1"]
+   ],
 
   [ title: "Buy young cattle",
    amount: 202500,
@@ -31,8 +31,8 @@
    requested_by: "October 7, 2014",
    repayments_begin: "March 4, 2015",
    monthly_payment: 15000,
-   category_ids: ["1"],
-   user_id: 4],
+   category_ids: ["1"]
+ ],
 
   [ title: "frais de labour, achat d’intrants, de petits matériels agricoles et de semence",
    amount: 100000,
@@ -40,8 +40,8 @@
    requested_by: "March 4, 2015",
    repayments_begin: "August 7, 2015",
    monthly_payment: 10000,
-   category_ids: ["1"],
-   user_id: 5],
+   category_ids: ["1"]
+ ],
 
   [ title: "Purchase three sacks of corn",
    amount: 15000,
@@ -49,8 +49,8 @@
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 1150,
-   category_ids: ["2"],
-   user_id: 6],
+   category_ids: ["2"]
+],
 
   [ title: "Buy boats, trophies, and baseballs to sell",
    amount: 77500,
@@ -58,8 +58,8 @@
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 4550,
-   category_ids: ["2"],
-   user_id: 7],
+   category_ids: ["2"]
+],
 
   [ title: "Repair dangerous home staircase",
    amount: 117500,
@@ -67,114 +67,102 @@
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 6000,
-   category_ids: ["2"],
-   user_id: 8],
-
+   category_ids: ["2"]
+],
   [ title: "Buy the latest video games",
    amount: 50000,
    description: "David improved his business thanks to his previous loan by purchasing a new video game console in cash. His family’s situation is now better than before. He made his loan payments on time and is teaching his children how to repair video game consoles so that in the future they can start their own business.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 3500,
-   category_ids: ["2"],
-   user_id: 9],
-
+   category_ids: ["2"]
+],
   [ title: "Purchase goods to stock and open a market",
    amount: 300000,
    description: "Tamila is 29 years old. She is married and lives with her husband, infant son, and parents-in-law in a small village of the Khulo district. Tamila and her family are involved in agricultural activities. In particular, they have 4 cows, whose milk is used to make cheese. In addition, they have 1.5 hectares of agricultural land, where they grow potatoes. The harvested potatoes and produced cheese are sold at local markets.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 15000,
-   category_ids: ["2"],
-   user_id: 10],
-
+   category_ids: ["2"]
+],
   [ title: "Pay a member's school fees",
    amount: 552500,
    description: "Josephine, whose hand is raised in the group, is a 28-year-old married woman with two children. She lives in Bundibugyo, Uganda, and her business is cocoa buying and selling. She works very hard to run her business and earn a living, and most important, to look after her children. She faces a challenge of price fluctuations, which at times lead to losses.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 69000,
-   category_ids: ["3"],
-   user_id: 11],
-
+   category_ids: ["3"]
+],
   [ title: "Pay semester school fees",
    amount: 72600,
    description: "Abdulqader is a university student majoring in Finance, and he is in his second year. Abdulqader is seeking to work in his study field after getting his bachelor’s, but he currently doesn’t have enough money to pay for his upcoming semester fees. For that, he has applied for this loan.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 4000,
-   category_ids: ["3"],
-   user_id: 12],
-
+   category_ids: ["3"]
+],
   [ title: "Cover higher education expenses",
    amount: 732500,
    description: "Cleydy is a young Dentistry student. She is asking for loan to be able to cover her education costs.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 7250,
-   category_ids: ["3"],
-   user_id: 13],
-
+   category_ids: ["3"]
+],
   [ title: "Buy butifarras-making supplies",
    amount: 75000,
    description: "Rosa, 45, earns her living making and selling butifarras, a handmade sausage made with pork and seasonings and served with wrapped yuca. It’s a family business that she started in 2004. She learned from her cousins who are very famous in their town for the quality with which they make their product. Rosa belongs to a butifarras-makers' association in Soledad, a town known for making this kind of sausage. She sells directly to local customers and referrals, through which she has gained a steady clientele.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 5000,
-   category_ids: ["4"],
-   user_id: 14],
-
+   category_ids: ["4"]
+],
   [ title: "Buy chickens and vaccines",
    amount: 50000,
    description: "Juliet is 22 years old and lives in the Gokwe South District of Zimbabwe. She is an active volunteer, serving as a Camfed Learner Guide at the local secondary school and assisting the elderly in her community. Additionally, Juliet operates a poultry business from her home. She started the business from the small savings she accumulated after being trained as a Camfed Learner Guide. Juliet has been able to support herself and her family because of her business’s success. With the loan from Keevaah, Juliet will be able to grow her business by increasing the number of broiler chickens she raises in each batch. She also intends to buy vaccines for the broilers. The profits will help in the upkeep of her family.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 6250,
-   category_ids: ["4"],
-   user_id: 15],
-
+   category_ids: ["4"]
+],
   [ title: "Buy miscellaneous goods for resale",
    amount: 102500,
    description: "Mr. Sidy is 32 years old and lives with his wife and child in a traditional family in N’tenout in the subprefecture of Ouelessebougoue [Koulikoro Region, the Republic of Mali],. Sidy did not have an opportunity to attend school. Early on he got involved in earning an income, in particular buying and reselling basic necessity goods such as soap, milk, oil, rice, flour, sugar, and beverages.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 11400,
-   category_ids: ["5"],
-   user_id: 16],
-
+   category_ids: ["5"]
+],
   [ title: "Buy beauty salon supplies",
    amount: 800000,
    description: "Zainab is a model of a spirit and determination. Although her career as a beautician started as a hobby, she developed her skills over the course of 11 years through hard work and diligent studying. Three years ago, she decided to take her career one step further and opened her own beauty salon with the support of her family.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 40000,
-   category_ids: ["5"],
-   user_id: 17],
-
+   category_ids: ["5"]
+],
   [ title: "Build a small biogas digester",
    amount: 100000,
    description: "Ly, 41 years old, is an active rice farmer in a small community in Kampong Speu Province. He has four unmarried children. To make a living and support his family, he manages and operates a rice farming business on farmland that is located near his house. He has been involved with this business since 1980 and the net profit that he can make is USD 3 a day.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 3700,
-   category_ids: ["5"],
-   user_id: 18],
-
+   category_ids: ["5"]
+],
   [ title: "Paint his residence",
    amount: 20000,
    description: "Artidoro, 40, is a loving head of household, is married, and lives in San Martin with his family. He is a person with a strong desire to get ahead. For more than five years, he has been making a living offering transportation services in a mototaxi he owns and things go well for him because he is known to his customers, he is concerned about their well-being, and he always obeys the traffic signals.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 2200,
-   category_ids: ["6"],
-   user_id: 19],
-
+   category_ids: ["6"]
+],
   [ title: "Buy cement, sand, and other materials for house repair.",
    amount: 37500,
    description: "Gopal, 42, is married. He makes a living by working as a member of the field staff at MESP NGO. His wife is a homemaker, and he has three children; all are studying in school. He’s requesting the loan from the same NGO where he is working to buy cement, sand, and other materials to repair his house because last year his house was destroyed due to heavy rain. He wants to secure his family from natural calamities, for which he needs financial support from Keevaah.",
    requested_by: "December 6, 2014",
    repayments_begin: "February 4, 2015",
    monthly_payment: 900,
-   category_ids: ["6"],
-   user_id: 20],
+   category_ids: ["6"]
+]
 ]

@@ -29,11 +29,16 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def cart
-    @cart ||= (_session_cart || _create_cart)
+    cart ||= (_session_cart || _create_cart)
   end
 
   helper_method def cart_count
-    cart.contributions ? cart.contributions.count : 0
+    # @cart.contributions ? @cart.contributions.count : 0
+    if cart.contributions.count
+      cart.contributions.count
+    else
+      0
+    end
   end
 
   private
@@ -46,7 +51,7 @@ class ApplicationController < ActionController::Base
 
   def _session_cart
     return unless session[:cart_id]
-    @current_cart ||= Cart.find(session[:cart_id])
+    current_cart ||= Cart.find(session[:cart_id])
   end
 
   def _create_cart

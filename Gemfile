@@ -17,6 +17,7 @@ gem 'pg'
 gem 'aasm'
 gem 'asset_sync'
 gem 'ransack'
+gem 'kaminari'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
@@ -37,6 +38,7 @@ group :development, :test do
 	gem 'capybara'
 	gem 'shoulda-matchers', require: false
 	gem 'launchy'
+  gem 'faker'
 end
 
 group :test do
@@ -44,6 +46,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'simple_form'

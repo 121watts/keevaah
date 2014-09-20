@@ -9,8 +9,9 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    cart.destroy
-    redirect_to root_path
+    delete_contribution
+    @contributions = cart.contributions
+    render :show
   end
 
   private
@@ -21,11 +22,13 @@ class CartsController < ApplicationController
     else
       contribution = Contribution.create({loan_id: params[:cart][:loan_id]})
     end
-    cart.add_contribution(contribution) 
+    cart.add_contribution(contribution)
+    flash[:success] = "You've added a $#{contribution.amount.to_i/100}.00 contribution to your cart!"
   end
 
   def delete_contribution
     contribution = Contribution.find(params[:cart][:contribution_id])
     cart.remove_contribution(contribution)
+    flash[:success] = "Removed contribution from cart"
   end
 end

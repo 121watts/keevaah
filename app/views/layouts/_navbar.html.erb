@@ -18,7 +18,7 @@
 				 <li class="active">
             <%= link_to cart_path do %>
               <span class="glyphicon glyphicon-shopping-cart"></span>
-              View Contributions <span class="badge"><%= cart_count %></span>
+              View Contributions <span class="badge"><%= cart.contributions.count %></span>
             <% end %>
 	        </li>
 	        <% if current_user %>

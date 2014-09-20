@@ -5,17 +5,11 @@ describe 'when viewing the loans' do
 	context 'as a borrower' do
 
 		before(:each) do
-			register_and_login_as_borrower
-			@borrower = User.last
-			@category = Category.create(id: 3, name: "Agriculture")
-			@loan = Loan.create(title: 'Buy a cow',
-															description: 'Need to buy a milking cow for our farm',
-															amount: 50000,
-															requested_by: "2014-09-10 13:43:00 -0600",
-															repayments_begin: "2014-09-10 13:43:00 -0600",
-															monthly_payment: 1000,
-															user_id: @borrower.id
-															)
+			@category = create(:category)
+			@borrower = create(:borrower)
+			@loan = create(:loan)
+			@loan.categories << @category
+			login(email: @borrower.email, password: @borrower.password)
 			visit borrower_loans_path
 		end
 
@@ -24,43 +18,38 @@ describe 'when viewing the loans' do
 		end
 
 		it 'should see existing loans' do
-			expect(page).to have_content 'Buy a cow'
-			expect(page).to have_content 'Need to buy a milking cow for our farm'
-			expect(page).to have_content '$500.00'
+			expect(page).to have_content @loan.title
+			expect(page).to have_content @loan.description
 		end
 
 		it 'has a link to an loan' do
-			expect(page).to have_link 'Buy a cow', href: borrower_loan_path(@loan)
+			expect(page).to have_link @loan.title, href: borrower_loan_path(@loan)
 		end
 
 		it 'links successfully to loan' do
-			click_link 'Buy a cow'
+			click_link @loan.title
 			expect(current_path).to eq(borrower_loan_path(@loan))
-			expect(page).to have_content 'Buy a cow'
-			expect(page).to have_content 'Need to buy a milking cow for our farm'
+			expect(page).to have_content @loan.title
+			expect(page).to have_content @loan.description
 		end
 
 		it 'shows the category associated with an loan' do
-			@loan.categories << @category
-			@category.loans << @loan
 			visit borrower_loans_path
-			expect(page).to have_content "Buy a cow"
-			expect(page).to have_content "Agriculture"
+			expect(page).to have_content @loan.title
+			expect(page).to have_content @category.name
 		end
 
 		it 'links successfully to loan' do
-			click_link 'Buy a cow'
+			click_link @loan.title
 			expect(current_path).to eq(borrower_loan_path(@loan))
-			expect(page).to have_content 'Buy a cow'
-			expect(page).to have_content 'Need to buy a milking cow for our farm'
+			expect(page).to have_content @loan.title
+			expect(page).to have_content @loan.description
 		end
 
 		it 'shows the category associated with an loan' do
-			@loan.categories << @category
-			@category.loans << @loan
 			visit borrower_loans_path
-			expect(page).to have_content "Buy a cow"
-			expect(page).to have_content "Agriculture"
+			expect(page).to have_content @loan.title
+			expect(page).to have_content @category.name
 		end
 
 		it 'can create a new loan' do

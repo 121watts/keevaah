@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :index, :edit, :update]
   resource :account, only: [:show, :edit, :update]
   resource :cart, only: [:show, :update, :destroy]
-  resources :contributions, only: [:show, :edit,:update] do
+  resources :contributions, only: [:index, :show, :update] do
     collection do
       post :checkout
       get :review

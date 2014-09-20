@@ -1,13 +1,34 @@
 <%- model_class = Loan -%>
-<div class="page-header">
-  <h1><%= @loan.title %></h1>
-</div>
+<div class="page-border">
+  <div class="page-header">
+    <h1><%= @loan.title %></h1>
+  </div>
 
-<dl class="dl-horizontal">
-  <dt><strong>Description:</strong></dt>
-  <dd><%= @loan.description %></dd>
-  <dt><strong>Categories:</strong></dt>
-  <dd><%= @loan.display_categories %></dd>
-  <dt><strong>Price:</strong></dt>
-  <dd><%= @loan.unit_price_dollars %></dd>
-</dl>
+  <dl class="dl-horizontal">
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @loan.description %></dd>
+    <dt><strong>Categories:</strong></dt>
+    <dd><%= @loan.display_categories %></dd>
+    <dt><strong>Amount:</strong></dt>
+    <dd><%= @loan.amount_in_dollars %></dd>
+    <dt><strong>Your monthly payment:</strong></dt>
+    <dd><%= @loan.monthly_payment_in_dollars %></dd>
+    <dt><strong>Requested By:</strong></dt>
+    <dd><%= @loan.requested_by %></dd>
+    <dt><strong>Repayments begin:</strong></dt>
+    <dd><%= @loan.repayments_begin %></dd>
+    <dt><strong>Loan Status</strong></dt>
+    <dd><%= @loan.aasm_state %></dd>
+    <dt><strong>Image:</strong></dt>
+    <dd><%= image_tag @loan.image.url(:small) %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <%= link_to 'Edit',
+      edit_borrower_loan_path(@loan), :class => 'btn btn-primary' %>
+    <%= link_to 'Delete', borrower_loan_path(@loan),
+      :method => 'delete',
+      :data => { :confirm => 'Are you sure?' },
+      :class => 'btn btn-danger' %>
+  </div>
+</div>

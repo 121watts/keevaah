@@ -26,4 +26,9 @@ class Contribution < ActiveRecord::Base
     update_attribute(:status, 'cancelled')
   end
 
+  def total
+    total = 0
+    total += self.amount.to_i
+  end
+
 end

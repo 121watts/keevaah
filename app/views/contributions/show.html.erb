@@ -1,0 +1,31 @@
+<div class="page-border">
+  <div class="page-header">
+    <h1><%= @contribution.loan.title %></h1>
+  </div>
+
+  <dl class="dl-horizontal">
+    <dt><strong>Borrower:</strong></dt>
+    <dd><%= @contribution.loan.user.name %></dd>
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @contribution.loan.description %></dd>
+    <dt><strong>Amount:</strong></dt>
+    <dd><%= @contribution.loan.amount_in_dollars %></dd>
+    <dt><strong>Monthly payment:</strong></dt>
+    <dd><%= @contribution.loan.monthly_payment_in_dollars %></dd>
+    <dt><strong>Requested By:</strong></dt>
+    <dd><%= @contribution.loan.requested_by %></dd>
+    <dt><strong>Repayments begin:</strong></dt>
+    <dd><%= @contribution.loan.repayments_begin %></dd>
+    <dt><strong>contribution.loan.status</strong></dt>
+    <dd><%= @contribution.loan.aasm_state %></dd>
+    <dt><strong>Image:</strong></dt>
+    <dd><%= image_tag @contribution.loan.image.url(:small) %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <%= link_to 'Cancel', contribution_path(@contribution),
+      :method => 'delete',
+      :data => { :confirm => 'Are you sure?' },
+      :class => 'btn btn-danger' %>
+  </div>
+</div>

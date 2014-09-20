@@ -1,10 +1,14 @@
 class ContributionsController < ApplicationController
+  def index
+    @contributions = current_user.contributions
+  end
+
   def show
-    current_user
+    @contribution = current_user.contributions.find(params[:id])
   end
 
   def update
-    @contribution = Contribution.find(params[:contribution][:id])
+    @contribution = current_user.contributions.find(params[:contribution][:id])
     @contribution.update(amount: params[:contribution][:amount])
     redirect_to cart_path
   end
@@ -25,5 +29,9 @@ class ContributionsController < ApplicationController
     end
     session[:cart] = nil
     redirect_to root_path
+  end
+
+  def destroy
+    current_user.loans.find(params[:id]).destroy
   end
 end

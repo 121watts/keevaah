@@ -1,0 +1,41 @@
+<div class="page-border">
+  <div class="page-header">
+    <h1>My Contributions</h1>
+  </div>
+  <table class="table table-striped">
+    <% if @contributions.any? %>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Amount Contributed</th>
+          <th>Loan Amount</th>
+          <th>Status</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @contributions.each do |contribution| %>
+          <tr>
+            <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
+            <td><%= contribution.loan.description %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span id="cart-total">
+              <%= number_to_currency(@contributions.each {|contribution|contribution.total}) %> TOTAL</span></td>
+            <td></td>
+          </tr>
+      </tbody>
+    <% else %>
+      <tr>
+        <td colspan="5" style="text-align:center;">Your have not made any contributions.</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

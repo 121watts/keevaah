@@ -5,8 +5,9 @@ describe 'when viewing the loans' do
 	context 'as a lender' do
 		before(:each) do
       @lender = create(:lender)
+			@borrower = create(:borrower)
 			@category = create(:category)
-			@loan = create(:loan, category_ids: @category.id)
+			@loan = create(:loan, category_ids: @category.id, user_id: @borrower.id)
       @contribution = create(:contribution, user_id: @lender.id, loan_id: @loan.id)
 			login(email: @lender.email, password: @lender.password )
 		end
@@ -21,6 +22,11 @@ describe 'when viewing the loans' do
 			click_on "Loan Now"
 		end
 
+		it 'can see the contributions they have made' do
+			click_on "My Contributions"
+			expect(page).to have_content("Contributions")
+		end
+
 		it 'can see a total for all contribution' do
 			class DummyClass
 			end
@@ -32,16 +38,18 @@ describe 'when viewing the loans' do
 			expect(dummy.total).to eq 10000
 		end
 
-    xit 'can see borrower name from contribution page' do
-      expect(page).to have_content('your dad')
+    it 'can see loan name from contribution page' do
+			click_on "My Contributions"
+      expect(page).to have_content('Buy pigs')
     end
 
-    xit 'can see borrower name, and loan deets on details page' do
-      click_link 'Details'
-      expect(page).to have_content(loan.borrower.name)
-      expect(page).to have_content(loan.amount)
-      expect(page).to have_content(loan.title)
-      expect(page).to have_content(loan.description)
+    it 'can see borrower name, and loan deets on details page' do
+			click_on "My Contributions"
+      click_link "#{@loan.title}"
+			expect(page).to have_content(@loan.user.first_name)
+      expect(page).to have_content("$#{@loan.amount/100}")
+      expect(page).to have_content(@loan.title)
+			expect(page).to have_content(@loan.description)
     end
   end
 end

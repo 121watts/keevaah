@@ -66,11 +66,11 @@ RSpec.describe Loan, type: :model  do
 			assert 50, loan.progress
 		end
 
-		xit "changes from request to fulfilled when the contributions equal request amount" do
+		it "changes from request to fulfilled when the contributions equal request amount" do
 			assert loan.request?
-			Contribution.create!(loan_id: 1, amount: 50000)
+			Contribution.create!(loan_id: 1, amount: 77500)
 			assert_equal 0, loan.pending
-			assert loan.fulfilled? # need an action here
+			assert loan.fulfilled?
 		end
 	end
 

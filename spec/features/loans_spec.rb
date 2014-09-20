@@ -53,7 +53,7 @@ describe 'when viewing the loans' do
 			expect(page).to have_content @category.name
 		end
 
-		xit 'can create a new loan' do
+		it 'can create a new loan' do
 			visit new_borrower_loan_path
 			fill_in "Title", with: "Buy a Sheep"
 			fill_in "Description", with: "Need to buy a sheep for wool"

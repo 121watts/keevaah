@@ -3,6 +3,12 @@ class ContributionsController < ApplicationController
     current_user
   end
 
+  def update
+    @contribution = Contribution.find(params[:contribution][:id])
+    @contribution.update(amount: params[:contribution][:amount])
+    redirect_to cart_path
+  end
+
   def review
     redirect_to login_path if current_user.nil?
     @contributions = cart.contributions
@@ -15,10 +21,6 @@ class ContributionsController < ApplicationController
       loan = contribution.loan
       if amount <= loan.pending
         contribution.update={amount: amount, user_id: current_user.id, status: 'paid'}
-        # don't do this
-        if loan.pending == 0
-          loan.fulfill!
-        end
       end
     end
     session[:cart] = nil

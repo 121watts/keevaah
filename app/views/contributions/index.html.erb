@@ -14,8 +14,8 @@
         <tr>
           <th>Title</th>
           <th>Description</th>
-          <th>Amount Contributed</th>
           <th>Loan Amount</th>
+          <th>Amount Contributed</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -24,8 +24,8 @@
           <tr>
             <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
             <td><%= contribution.loan.description %></td>
-            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
             <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
             <td><%= contribution.status %></td>
           </tr>
         <% end %>

@@ -1,4 +1,4 @@
-  require_relative './seed/borrower_seeds'
+require_relative './seed/borrower_seeds'
 require_relative './seed/loan_seeds'
 require_relative './seed/category_seeds'
 require_relative './seed/contribution_seeds'
@@ -10,10 +10,6 @@ end
 
 # USERS
 @lenders.each do |user|
-  User.create(user)
-end
-
-@admins.each do |user|
   User.create(user)
 end
 
@@ -32,5 +28,6 @@ end
 
 
 # CONTRIBUTIONS
-100.times do Contribution.create(user_id: rand(21..30), loan_id: rand(10), status: "paid")
+100.times do
+  Contribution.create(user_id: rand(1..3), loan_id: rand(50),amount: rand(2500.. 50000), status: "paid")
 end

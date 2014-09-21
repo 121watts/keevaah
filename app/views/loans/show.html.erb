@@ -23,12 +23,14 @@
     <dd><%= image_tag @loan.image.url(:small) %></dd>
   </dl>
 
-  <div class="form-actions">
-    <%= link_to 'Edit',
-      edit_borrower_loan_path(@loan), :class => 'btn btn-primary' %>
-    <%= link_to 'Delete', borrower_loan_path(@loan),
-      :method => 'delete',
-      :data => { :confirm => 'Are you sure?' },
-      :class => 'btn btn-danger' %>
-  </div>
+  <span class="add-loan">
+    <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
+      <%= f.hidden_field :loan_id, value: @loan.id %>
+      <%= f.hidden_field :quantity, value: 1 %>
+      <!-- <%= f.hidden_field :amount, value: (25..500).step(5).map{ |n| n } %><br/> -->
+      <%= button_tag type: 'submit', class: 'btn btn-primary btn-add-loan' do %>
+        <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
+      <% end %>
+    <% end %>
+  </span>
 </div>

@@ -1,7 +1,13 @@
 <div class="page-border">
-  <div class="page-header">
-    <h1>My Contributions</h1>
-  </div>
+  <div class="page-border">
+    <div class="page-header">
+      <h1>Profile</h1>
+      <div id="profile">
+        <%= link_to "Edit My Profile", edit_user_path(current_user), :class => 'btn btn-primary' %><br/><br/>
+        <%= current_user.first_name %><%= current_user.last_name %>
+        <%= current_user.email %>
+      </div>
+    </div>
   <table class="table table-striped">
     <% if @contributions.any? %>
       <thead>
@@ -11,7 +17,6 @@
           <th>Amount Contributed</th>
           <th>Loan Amount</th>
           <th>Status</th>
-
         </tr>
       </thead>
       <tbody>
@@ -19,8 +24,9 @@
           <tr>
             <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
             <td><%= contribution.loan.description %></td>
-            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
             <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td><%= contribution.loan.aasm_state %></td>
           </tr>
         <% end %>
           <tr>
@@ -28,7 +34,7 @@
             <td></td>
             <td></td>
             <td><span id="cart-total">
-              <%= number_to_currency(@contributions.each {|contribution|contribution.total}) %> TOTAL</span></td>
+              <%= number_to_currency(@contribtuion_total) %> TOTAL</span></td>
             <td></td>
           </tr>
       </tbody>

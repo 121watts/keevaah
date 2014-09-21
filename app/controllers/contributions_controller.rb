@@ -1,6 +1,7 @@
 class ContributionsController < ApplicationController
   def index
     @contributions = current_user.contributions
+    @contribtuion_total = current_user.contributions.map {|contribution| contribution.amount.to_i/100}.reduce(:+)
   end
 
   def show
@@ -8,8 +9,8 @@ class ContributionsController < ApplicationController
   end
 
   def update
-    @contribution = current_user.contributions.find(params[:contribution][:id])
-    @contribution.update(amount: params[:contribution][:amount])
+    @contribution = cart.contributions.find(params[:contribution][:id])
+    @contribution.update(amount: params[:contribution][:amount].to_i * 100)
     redirect_to cart_path
   end
 
@@ -21,13 +22,13 @@ class ContributionsController < ApplicationController
   def checkout
     @contributions = cart.contributions
     @contributions.each_with_index do |contribution, i|
-      amount = params[:amounts][i].to_i * 100
+      amount = Contribution.find(params[:contribution_ids][i].to_i).amount.to_i
       loan = contribution.loan
       if amount <= loan.pending
-        contribution.update={amount: amount, user_id: current_user.id, status: 'paid'}
+        contribution.update(amount: amount, user_id: current_user.id, status: 'paid')
       end
     end
-    session[:cart] = nil
+    session[:cart_id] = nil
     redirect_to root_path
   end
 

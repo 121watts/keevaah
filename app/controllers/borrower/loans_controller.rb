@@ -1,10 +1,20 @@
 class Borrower::LoansController < BorrowersController
 	def index
-    @loans = current_user.loans.includes(:categories).all.decorate
+		@loan_states = Loan.aasm.states.map {|state| state.name.to_s }
+		@loans_by_state = {}
+		current_user.loans.each do |loan|
+			@loans_by_state[loan.aasm_state] ||= []
+			@loans_by_state[loan.aasm_state] << loan.decorate
+		end
 	end
 
 	def dashboard
-		@loans = current_user.loans.all.decorate
+		@loan_states = Loan.aasm.states.map {|state| state.name.to_s }
+		@loans_by_state = {}
+		current_user.loans.each do |loan|
+			@loans_by_state[loan.aasm_state] ||= []
+			@loans_by_state[loan.aasm_state] << loan.decorate
+		end
 	end
 
 	def show

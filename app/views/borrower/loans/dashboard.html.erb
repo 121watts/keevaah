@@ -12,33 +12,20 @@
       <%= current_user.email %>
     </div>
   </div>
-  <h3>Loans:</h3>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Categories</th>
-        <th>Amount</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @loans.each do |loan| %>
-        <tr>
-          <td><%= link_to loan.title, borrower_loan_path(loan) %></td>
-          <td><%= loan.description %></td>
-          <td><%= loan.display_categories %></td>
-          <td><%= loan.unit_price_dollars %></td>
-          <td>
-            <%= link_to 'Edit', edit_borrower_loan_path(loan), :class => 'btn btn-primary' %>
-            <%= link_to 'Cancel', borrower_loan_path(loan),
-              :method => :delete,
-              :data => { :confirm => 'Are you sure?' },
-              :class => 'btn btn-mini btn-danger' %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+
+  <h3>Loans</h3>
+  <ul class="nav nav-tabs" role="tablist">
+    <% @loan_states.each_with_index do |state, i| %>
+      <li class="<%= i==0 ? 'active' : '' %>">
+        <a class="tab-control" href="#tab-<%=i + 1 %>"><%= state.capitalize %></a>
+      </li>
+    <% end %>
+  </ul>
+  <% @loan_states.each_with_index do |state, i| %>
+      <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+        <div class="loans transitions-enabled">
+          <%= render partial: 'loans_table', collection: @loans_by_state[state], as: :loan %>
+        </div>
+      </div>
+  <% end %>
 </div>

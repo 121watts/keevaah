@@ -17,6 +17,7 @@
           <th>Loan Amount</th>
           <th>Amount Contributed</th>
           <th>Status</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,15 @@
             <td><%= contribution.loan.description %></td>
             <td><%= contribution.loan.decorate.unit_price_dollars %></td>
             <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
-            <td><%= contribution.status %></td>
+            <td><%= contribution.status.capitalize %></td>
+            <td>
+              <div class="form-actions">
+                <%= link_to 'Cancel', contribution_cancel_path(contribution),
+                  :method => 'post',
+                  :data => { :confirm => 'Are you sure?' },
+                  :class => 'btn btn-danger' %>
+              </div>
+            </td>
           </tr>
         <% end %>
           <tr>

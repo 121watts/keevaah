@@ -25,14 +25,17 @@ class ContributionsController < ApplicationController
       amount = Contribution.find(params[:contribution_ids][i].to_i).amount.to_i
       loan = contribution.loan
       if amount <= loan.pending
-        contribution.update(amount: amount, user_id: current_user.id, status: 'paid')
+        contribution.update(amount: amount, user_id: current_user.id).update_to_paid  
+
       end
     end
     session[:cart_id] = nil
     redirect_to root_path
   end
 
-  def destroy
-    current_user.loans.find(params[:id]).destroy
+  def cancel
+    contribution = current_user.contributions.find(params[:contribution_id])
+    contribution.update_to_cancelled
+    redirect_to :back
   end
 end

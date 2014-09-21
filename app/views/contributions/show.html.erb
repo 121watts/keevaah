@@ -23,8 +23,8 @@
   </dl>
 
   <div class="form-actions">
-    <%= link_to 'Cancel', contribution_path(@contribution),
-      :method => 'delete',
+    <%= link_to 'Cancel', contribution_cancel_path(@contribution),
+      :method => 'post',
       :data => { :confirm => 'Are you sure?' },
       :class => 'btn btn-danger' %>
   </div>

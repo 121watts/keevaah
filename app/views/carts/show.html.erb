@@ -13,7 +13,16 @@
         <% @contributions.each do |contribution| %>
           <tr>
             <td><%= contribution.loan.title %></td>
-            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td>
+              <select>
+                <option><%= number_to_currency(contribution.amount.to_i/100) %></option>
+                  <% contribution_int = contribution.amount.to_i  %>
+                <% until contribution_int == contribution.loan.amount do %>
+                  <% contribution_int = contribution_int + 2500 %>
+                <option><%= number_to_currency(contribution_int/100) %></option>
+                <% end %>
+              </select>
+            </td>
             <td><%= contribution.loan.amount_in_dollars %></td>
             <td>
               <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>

@@ -24,9 +24,9 @@
           <tr>
             <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
             <td><%= contribution.loan.description %></td>
-            <td><%= contribution.loan.decorate.unit_price_dollars %></td>
             <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
-            <td><%= contribution.loan.aasm_state %></td>
+            <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+            <td><%= contribution.status %></td>
           </tr>
         <% end %>
           <tr>

@@ -2,6 +2,18 @@ require 'rails_helper'
 
 describe 'when viewing the loans' do
 
+	context 'as a guest' do
+		before(:each) do
+			@loan = create(:loan, title: "Loan 1")
+		end
+
+		it 'can see a link for all the loan' do
+			visit loans_path
+			click_on "All"
+			expect(page).to have_content @loan.title
+		end
+	end
+
 	context 'as a borrower' do
 
 		before(:each) do

@@ -124,10 +124,10 @@ describe 'borrower experience' do
       expect(page).to have_content('Carlos')
     end
 
-    xit 'can see list of thier loan(s)' do
+    it 'can see list of thier loan(s) on the borrower dashboard' do
       expect(page).to have_content(@loan.title)
       expect(page).to have_content(@loan.description)
-      expect(page).to have_content(@loan.amount)
+      expect(page).to have_content($500)
     end
 
     it 'can link to a details page for each loan' do

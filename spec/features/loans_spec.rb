@@ -14,6 +14,7 @@ describe 'when viewing the loans' do
 
 		before(:each) do
 			@category = create(:category)
+			@newest_category = Category.create(name: "Newest")
 			@borrower = create(:borrower)
 			@loan = create(:loan)
 			@loan.categories << @category
@@ -60,7 +61,7 @@ describe 'when viewing the loans' do
 			expect(page).to have_content @category.name
 		end
 
-		it 'can create a new loan' do
+		xit 'can create a new loan' do
 			visit new_borrower_loan_path
 			fill_in "Title", with: "Buy a Sheep"
 			fill_in "Description", with: "Need to buy a sheep for wool"
@@ -68,8 +69,13 @@ describe 'when viewing the loans' do
 			fill_in "Requested by", with: "2014-09-10"
 			fill_in "Repayments begin", with: "2015-09-10"
 			fill_in "Monthly payment", with: "100"
+			select("#{@category.name}", :from => 'loan_categories')
 			click_button "Create loan"
 			expect(current_path).to eq(borrower_loans_path)
+			expect(page).to have_content 'Buy a Sheep'
+			expect(page).to have_content "Need to buy a sheep for wool"
+			click_link("Keevahh")
+			expect(current_path).to eq(root_path)
 			expect(page).to have_content 'Buy a Sheep'
 			expect(page).to have_content "Need to buy a sheep for wool"
 		end
@@ -152,6 +158,7 @@ describe 'when viewing the loans' do
 			expect(page).to have_content 'blank'
 		end
 
+
 		it 'can update an loan' do
 			visit edit_borrower_loan_path(@loan)
 			fill_in "Title", with: "Fancy New Donut"
@@ -203,31 +210,31 @@ describe 'when viewing the loans' do
 			expect(page).not_to have_content "Need to buy a pig for ham"
 		end
 
-		it 'shows categories on edit loan page' do
-			category = Category.create(id: 1, name: 'Test Category')
-			category = Category.create(id: 2, name: 'Testy Category')
-			@loan.category_ids = [1,2]
+		it 'can edit a category' do
+			Category.create(id: 5, name: 'Testy Cat')
 			visit edit_borrower_loan_path(@loan)
-			expect(page).to have_content "Test Category"
-			expect(page).to have_content "Testy Category"
+			select("Testy Cat", :from => 'loan_categories')
+			click_button("Update Loan")
+			click_link("Keevahh")
+			expect(current_path).to eq(root_path)
+			click_link('Testy Cat')
+			expect(page).to have_content 'Buy pigs'
+			expect(page).to have_content "Freddy Francisco Senior is married with four children"
 		end
 
-		it 'has can delete a category from loan' do
-			visit edit_borrower_loan_path(@loan)
-			expect(page).to have_content "Test Category"
-			click_link "Delete"
-			expect(page).to_not have_content "Delete"
-		end
-
-		xit 'can add a category to a loan' do
-			Category.create(name: 'Test Category')
-			Category.create(name: 'Testy Cat')
-			Category.create(name: 'Tasty')
-
-			visit edit_borrower_loan_path(@loan)
-			expect(page).to_not have_content 'Delete'
-			click_link "Tasty"
-			expect(page).to have_content 'Delete'
+		it 'add new loan and is seen in newest category' do
+			visit new_borrower_loan_path
+      fill_in "Title", with: "Buy a Sheep"
+			fill_in "Description", with: "Need to buy a sheep for wool"
+			fill_in "Amount", with: "800"
+			fill_in "Requested by", with: "2014-09-10"
+			fill_in "Repayments begin", with: "2015-09-10"
+			fill_in "Monthly payment", with: "100"
+			select("#{@category.name}", :from => 'loan_categories')
+			click_button "Create loan"
+			visit root_path
+			click_link('Newest')
+			expect(page).to have_content 'Buy a Sheep'
 		end
 	end
 end

@@ -14,10 +14,18 @@
     <% end %>
   </ul>
     <% @categories.each_with_index do |category, i| %>
-          <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
-            <div class="loans transitions-enabled">
-              <%= render partial: 'loan_box', collection: @loans_by_category[category.name], as: :loan %>
+          <% if category.name == "Newest" %>
+            <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+              <div class="loans transitions-enabled">
+                <%= render partial: 'loan_box', collection: @newest_loans_by_category[category.name], as: :loan %>
+              </div>
             </div>
-          </div>
+          <% else %>
+            <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+              <div class="loans transitions-enabled">
+                <%= render partial: 'loan_box', collection: @loans_by_category[category.name], as: :loan %>
+              </div>
+            </div>
+          <% end %>
     <% end %>
 </div>

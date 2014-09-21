@@ -4,5 +4,6 @@
 [id: 3, name: "Education"],
 [id: 4, name: "Women Owned Businesses"],
 [id: 5, name: "Conflict Areas"],
-[id: 6, name: "Shelter"]
+[id: 6, name: "Shelter"],
+[id: 7, name: "Newest"]
 ]

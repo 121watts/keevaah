@@ -1,7 +1,13 @@
 <div class="page-border">
-  <div class="page-header">
-    <h1>My Contributions</h1>
-  </div>
+  <div class="page-border">
+    <div class="page-header">
+      <h1>Profile</h1>
+      <div id="profile">
+        <%= link_to "Edit My Profile", edit_user_path(current_user), :class => 'btn btn-primary' %><br/><br/>
+        <%= current_user.first_name %><%= current_user.last_name %>
+        <%= current_user.email %>
+      </div>
+    </div>
   <table class="table table-striped">
     <% if @contributions.any? %>
       <thead>
@@ -11,7 +17,6 @@
           <th>Amount Contributed</th>
           <th>Loan Amount</th>
           <th>Status</th>
-
         </tr>
       </thead>
       <tbody>

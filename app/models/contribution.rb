@@ -12,8 +12,8 @@ class Contribution < ActiveRecord::Base
   validate :not_exceed_loan_amount
 
   def not_exceed_loan_amount
-    if self.loan
-      if self.amount > self.loan.pending
+    if self.loan && self.amount
+      if self.amount.to_i > self.loan.pending
         errors.add(:amount, "contribution amount cannot exceed the remaining balance of the loan")
       end
     end

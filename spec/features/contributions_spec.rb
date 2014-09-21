@@ -23,7 +23,7 @@ describe 'when viewing the loans' do
 		end
 
 		it 'can see the contributions they have made' do
-			click_on "My Contributions"
+			click_on "My Profile"
 			expect(page).to have_content("Contributions")
 		end
 
@@ -39,12 +39,12 @@ describe 'when viewing the loans' do
 		end
 
     it 'can see loan name from contribution page' do
-			click_on "My Contributions"
+			click_on "My Profile"
       expect(page).to have_content('Buy pigs')
     end
 
     it 'can see borrower name, and loan deets on details page' do
-			click_on "My Contributions"
+			click_on "My Profile"
       click_link "#{@loan.title}"
 			expect(page).to have_content(@loan.user.first_name)
       expect(page).to have_content("$#{@loan.amount/100}")

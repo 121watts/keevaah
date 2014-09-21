@@ -9,6 +9,15 @@ class Contribution < ActiveRecord::Base
   belongs_to :cart
 
   validates_presence_of :loan_id
+  validate :not_exceed_loan_amount
+
+  def not_exceed_loan_amount
+    if self.loan && self.amount
+      if self.amount.to_i > self.loan.pending
+        errors.add(:amount, "contribution amount cannot exceed the remaining balance of the loan")
+      end
+    end
+  end
 
   def set_default_status
     self.status ||= "pending"
@@ -24,6 +33,11 @@ class Contribution < ActiveRecord::Base
 
   def update_to_cancelled
     update_attribute(:status, 'cancelled')
+  end
+
+  def total
+    total = 0
+    total += self.amount.to_i
   end
 
 end

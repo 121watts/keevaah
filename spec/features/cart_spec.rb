@@ -15,7 +15,7 @@ describe 'Shopping Contributions', type: :feature do
     expect(page).to have_content "You've added a $25.00 contribution to your cart"
   end
 
-  xit 'cannot add the same contribution multiple times' do
+  it 'cannot add the same contribution multiple times' do
     visit loans_path
     first(:button, 'Loan Now').click
     first(:button, 'Loan Now').click
@@ -47,15 +47,11 @@ describe 'Shopping Contributions', type: :feature do
     expect(page).to have_content "Your cart is empty."
   end
 
-  xit 'can change the contribution amount' do
+  it 'can change the contribution amount' do
     visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'
-
-    within('form.increment') {
-      click_button '+'
-    }
-
-    within('td.quantity') { expect(page).to have_content '2' }
+    select("45", :from => 'contribution_amount')
+    expect(page).to have_content "45"
   end
 end

@@ -108,13 +108,13 @@ describe 'borrower experience' do
     end
 
     it 'can view edit personal info' do
-      click_on "Edit Info"
+      click_on "Edit My Profile"
       expect(current_path).to eq edit_user_path(@user)
       expect(page).to have_button "Update"
     end
 
     it 'can edit account info' do
-      click_on "Edit Info"
+      click_on "Edit My Profile"
       fill_in 'First name', with: 'Carlos'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
@@ -131,7 +131,7 @@ describe 'borrower experience' do
     end
 
     it 'can link to a details page for each loan' do
-      
+
       click_link "#{@loan.title}"
       expect(current_path).to eq(borrower_loan_path(@loan))
       expect(page).to have_content(@loan.title)
@@ -143,7 +143,7 @@ describe 'borrower experience' do
     end
 
     it 'cannot add a nickame of 1 characer' do
-      click_on 'Edit'
+      click_on 'Edit My Profile'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
       fill_in 'Nickname', with: 'a'
@@ -152,7 +152,7 @@ describe 'borrower experience' do
     end
 
     it 'cannot add a nickame of > 32 characers' do
-      click_on 'Edit'
+      click_on 'Edit My Profile'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
       fill_in 'Nickname', with: (0..33).map{'a'}.join

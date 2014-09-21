@@ -1,23 +1,26 @@
-<h1>Borrower Dashboard</h1>
+<div class="page-border">
+  <div class="page-header">
+    <h1>Borrower Dashboard</h1>
 
-<div id="Make a loan">
-  <%= link_to "Apply For A New Loan", action: "new"  %>
-</div>
+    <div id="Make a loan">
+      <%= link_to 'Apply For A New Loan', new_borrower_loan_path, :class => 'btn btn-primary' %>
+    </div><br/>
 
-<p id="profile">
-  <%= link_to "Edit Info", edit_user_path(current_user) %>
-  <%= current_user.first_name %><%= current_user.last_name %>
-  <%= current_user.email %>
-</p>
-
-<div id="current_loans">
+    <div id="profile">
+      <%= link_to "Edit My Profile", edit_user_path(current_user), :class => 'btn btn-primary' %><br/><br/>
+      <%= current_user.first_name %><%= current_user.last_name %>
+      <%= current_user.email %>
+    </div>
+  </div>
   <h3>Loans:</h3>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Categories</th>
         <th>Amount</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +28,15 @@
         <tr>
           <td><%= link_to loan.title, borrower_loan_path(loan) %></td>
           <td><%= loan.description %></td>
-          <td><%= loan.amount_in_dollars %></td>
+          <td><%= loan.display_categories %></td>
+          <td><%= loan.unit_price_dollars %></td>
+          <td>
+            <%= link_to 'Edit', edit_borrower_loan_path(loan), :class => 'btn btn-primary' %>
+            <%= link_to 'Cancel', borrower_loan_path(loan),
+              :method => :delete,
+              :data => { :confirm => 'Are you sure?' },
+              :class => 'btn btn-mini btn-danger' %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -14,7 +14,7 @@
   password: "password",
   password_confirmation: "password",
   role: "lender",
-  nickname: 'McLender']
+  nickname: 'hildawg']
 ]
 
 @borrowers = []
@@ -29,14 +29,14 @@
   ]
 end
 
-@admins = [
+@borrower = [
   [
   first_name: "Jeff",
   last_name: "Casimir",
   email: "demo+jeff@jumpstartlab.com",
   password: "password",
   password_confirmation: "password",
-  role: "admin",
+  role: "borrower",
   nickname: 'j3'],
 
   [
@@ -45,7 +45,7 @@ end
   email: "demo+jorge@jumpstartlab.com",
   password: "password",
   password_confirmation: "password",
-  role: "admin",
+  role: "borrower",
   nickname: 'novohispano'],
 
   [
@@ -54,7 +54,7 @@ end
   email: "demo+josh@jumpstartlab.com",
   password: "password",
   password_confirmation: "password",
-  role: "admin",
+  role: "borrower",
   nickname: 'josh'],
 
   [
@@ -63,7 +63,7 @@ end
   email: "demo+watts@jumpstartlab.com",
   password: "password",
   password_confirmation: "password",
-  role: "admin",
+  role: "borrower",
   nickname: 'watts'],
 
   [
@@ -72,6 +72,6 @@ end
   email: "something@jumpstartlab.com",
   password: "password",
   password_confirmation: "password",
-  role: "admin",
+  role: "borrower",
   nickname: 'hildawg']
 ]

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       if current_user.role == 'borrower'
         redirect_to borrower_path
       else
-        redirect_to lender_dashboard
+        redirect_to contributions_path
       end
     else
       render :edit

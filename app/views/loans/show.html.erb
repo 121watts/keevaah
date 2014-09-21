@@ -1,13 +1,36 @@
 <%- model_class = Loan -%>
-<div class="page-header">
-  <h1><%= @loan.title %></h1>
-</div>
+<div class="page-border">
+  <div class="page-header">
+    <h1><%= @loan.title %></h1>
+  </div>
 
-<dl class="dl-horizontal">
-  <dt><strong>Description:</strong></dt>
-  <dd><%= @loan.description %></dd>
-  <dt><strong>Categories:</strong></dt>
-  <dd><%= @loan.display_categories %></dd>
-  <dt><strong>Price:</strong></dt>
-  <dd><%= @loan.unit_price_dollars %></dd>
-</dl>
+  <dl class="dl-horizontal">
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @loan.description %></dd>
+    <dt><strong>Categories:</strong></dt>
+    <dd><%= @loan.display_categories %></dd>
+    <dt><strong>Amount:</strong></dt>
+    <dd><%= @loan.amount_in_dollars %></dd>
+    <dt><strong>Your monthly payment:</strong></dt>
+    <dd><%= @loan.monthly_payment_in_dollars %></dd>
+    <dt><strong>Requested By:</strong></dt>
+    <dd><%= @loan.requested_by %></dd>
+    <dt><strong>Repayments begin:</strong></dt>
+    <dd><%= @loan.repayments_begin %></dd>
+    <dt><strong>Loan Status</strong></dt>
+    <dd><%= @loan.aasm_state %></dd>
+    <dt><strong>Image:</strong></dt>
+    <dd><%= image_tag @loan.image.url(:small) %></dd>
+  </dl>
+
+  <span class="add-loan">
+    <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
+      <%= f.hidden_field :loan_id, value: @loan.id %>
+      <%= f.hidden_field :quantity, value: 1 %>
+      <!-- <%= f.hidden_field :amount, value: (25..500).step(5).map{ |n| n } %><br/> -->
+      <%= button_tag type: 'submit', class: 'btn btn-primary btn-add-loan' do %>
+        <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
+      <% end %>
+    <% end %>
+  </span>
+</div>

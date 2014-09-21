@@ -5,7 +5,7 @@
       <%= m %><br/>
     <% end %>
   </div>
-  <%= form_for @loan, url: borrower_loan_path(@loan) do |f| %>
+    <%= form_for @loan, url: borrower_loan_path(@loan) do |f| %>
     <%= f.label      :title %><br/>
     <%= f.text_field :title %><br/>
 

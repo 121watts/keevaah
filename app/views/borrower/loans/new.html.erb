@@ -21,7 +21,7 @@
     <%= f.text_field  :description %><br/>
 
     <%= f.label             :loan_category %><br/>
-    <%= f.collection_select :categories, Category.all, :id, :name %><br/>
+    <%= f.collection_select :categories, Category.all, :id, :name, include_blank: true  %><br/>
 
     <%= f.label       :amount %><br/>
     <%= f.text_field  :amount %><br/>

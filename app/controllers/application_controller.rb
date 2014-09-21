@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def cart
-    cart ||= (_session_cart || _create_cart)
+    cart ||= (_create_cart || _session_cart)
   end
 
   helper_method def cart_count

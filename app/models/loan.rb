@@ -40,16 +40,25 @@ class Loan < ActiveRecord::Base
     end
   end
 
+	def fulfilled?
+		self.aasm_state = "fulfilled"
+	end
+
 	def contributed
 		self.contributions.inject(0) { |i, contribution| i += contribution.amount.to_i }
 	end
 
 	def pending
-		self.amount - self.contributed
+		if (self.amount - self.contributed == 0)
+			fulfill!
+			self.amount - self.contributed
+		else
+			self.amount - self.contributed
+		end
 	end
 
 	def progress
-		self.contributed / self.amount
+		((self.contributed.to_f / self.amount.to_f) * 100).to_i
 	end
 
 	def contribution_from(current_user)

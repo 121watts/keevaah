@@ -19,8 +19,9 @@
           <tr>
             <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
             <td><%= contribution.loan.description %></td>
-            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
             <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+            <td><%= contribution.loan.aasm_state %></td>
           </tr>
         <% end %>
           <tr>
@@ -28,7 +29,7 @@
             <td></td>
             <td></td>
             <td><span id="cart-total">
-              <%= number_to_currency(@contributions.each {|contribution|contribution.total}) %> TOTAL</span></td>
+              <%= number_to_currency(@contribtuion_total) %> TOTAL</span></td>
             <td></td>
           </tr>
       </tbody>

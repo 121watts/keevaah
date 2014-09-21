@@ -40,15 +40,11 @@ class LoansController < ApplicationController
 
 	private
 
-	def loans
-		@loans = Loan.all
-	end
-
 	def loan_requests
-		Loan.request
+		Loan.request.sort_by {|loan| loan.progress}.reverse
 	end
 
 	def newest_loans
-		newest_loans = Loan.order(created_at: :desc).limit(10)
+		newest_loans = Loan.request.order(created_at: :desc).limit(10)
 	end
 end

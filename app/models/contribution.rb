@@ -9,6 +9,15 @@ class Contribution < ActiveRecord::Base
   belongs_to :cart
 
   validates_presence_of :loan_id
+  validate :not_exceed_loan_amount
+
+  def not_exceed_loan_amount
+    if self.loan
+      if self.amount > self.loan.pending
+        errors.add(:amount, "contribution amount cannot exceed the remaining balance of the loan")
+      end
+    end
+  end
 
   def set_default_status
     self.status ||= "pending"

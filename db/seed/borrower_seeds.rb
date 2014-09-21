@@ -14,7 +14,7 @@
   password: "password",
   password_confirmation: "password",
   role: "lender",
-  nickname: 'McLender']
+  nickname: 'hildawg']
 ]
 
 @borrowers = []
@@ -29,7 +29,7 @@
   ]
 end
 
-@borrowers = [
+@borrower = [
   [
   first_name: "Jeff",
   last_name: "Casimir",

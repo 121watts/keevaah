@@ -16,7 +16,7 @@
             <td>
               <%= form_for :contribution, url: contribution_path(contribution), method: :patch do |f| %>
                 <%= f.hidden_field :id, value: contribution.id %>
-                <%= f.select :amount, (25..contribution.loan.amount/100).step(5).map{ |n| n }, selected: contribution.amount %><br/>
+                <%= f.select :amount, (25..contribution.loan.amount/100).step(5).map{ |n| n }, selected: contribution.amount.to_i/100 %><br/>
                 <%= f.submit "Edit Amount", class: "btn" %>
               <% end %>
             </td>

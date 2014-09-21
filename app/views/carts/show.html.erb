@@ -14,7 +14,7 @@
           <tr>
             <td><%= contribution.loan.title %></td>
             <td>
-              <select>
+             <select>
                 <option><%= number_to_currency(contribution.amount.to_i/100) %></option>
                   <% contribution_int = contribution.amount.to_i  %>
                 <% until contribution_int == contribution.loan.amount do %>

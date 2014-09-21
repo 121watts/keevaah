@@ -2,14 +2,14 @@ class LoansController < ApplicationController
 	def show
     @loan = Loan.find(params[:id]).decorate
 	end
-
+	
 	def index
 		@categories = Category.all.decorate
 		@q = Loan.search(params[:q])
 		if params[:q]
-			@loans = @q.result.includes(:categories).all
+			@loans = @q.result.includes(:categories).all.decorate
 		else
-		  @loans = Loan.includes(:categories).all
+		  @loans = Loan.includes(:categories).all.decorate
 	  end
 
 		# group by category
@@ -28,9 +28,8 @@ class LoansController < ApplicationController
 		newest_loans.each do |loan|
 			loan.categories.each do |category|
 				newest_category = Category.find_by(name: "Newest")
-
 				if newest_category
-					LoanCategory.destroy_all(category_id: newest_category.id)	
+					LoanCategory.destroy_all(category_id: newest_category.id)
 					loan.categories << newest_category
 					@newest_loans_by_category[newest_category.name] ||= []
 					@newest_loans_by_category[newest_category.name] << loan.decorate
@@ -42,7 +41,7 @@ class LoansController < ApplicationController
 	private
 
 	def loans
-		@loans = Loan.all
+		@loans = Loan.all.decorate
 	end
 
 	def loan_requests

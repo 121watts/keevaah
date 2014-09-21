@@ -2,6 +2,14 @@ require 'rails_helper'
 
 describe 'when viewing the loans' do
 
+	context 'as a guest' do
+		before(:each) do
+			@loan = create(:loan, title: "Loan 1")
+		end
+
+		#put test for seeing all loans here
+	end
+
 	context 'as a borrower' do
 
 		before(:each) do

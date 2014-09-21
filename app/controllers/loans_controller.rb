@@ -2,14 +2,14 @@ class LoansController < ApplicationController
 	def show
     @loan = Loan.find(params[:id]).decorate
 	end
-
+	
 	def index
 		@categories = Category.all.decorate
 		@q = Loan.search(params[:q])
 		if params[:q]
-			@loans = @q.result.includes(:categories).all
+			@loans = @q.result.includes(:categories).all.decorate
 		else
-		  @loans = Loan.includes(:categories).all
+		  @loans = Loan.includes(:categories).all.decorate
 	  end
 
 		# group by category

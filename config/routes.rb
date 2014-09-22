@@ -12,14 +12,11 @@ Rails.application.routes.draw do
   resource :account, only: [:show, :edit, :update]
   resource :cart, only: [:show, :update, :destroy]
   resources :contributions, only: [:index, :show, :update] do
+    post '/cancel' => 'contributions#cancel', as: :cancel
     collection do
       post :checkout
       get :review
     end
-  end
-
-  resources :orders, only: [:index, :new, :create, :show] do
-    get '/cancel' => 'orders#cancel', as: :cancel
   end
 
   namespace :borrower do

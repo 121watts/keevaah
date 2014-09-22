@@ -9,7 +9,7 @@
       </div>
     </div>
   <table class="table table-striped">
-    <% if @contributions.any? %>
+    <% if @contributions %>
       <thead>
         <tr>
           <th>Title</th>
@@ -23,19 +23,21 @@
       <tbody>
         <% @contributions.each do |contribution| %>
           <tr>
-            <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
-            <td><%= contribution.loan.description %></td>
-            <td><%= contribution.loan.decorate.unit_price_dollars %></td>
-            <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
-            <td><%= contribution.status.capitalize %></td>
-            <td>
-              <div class="form-actions">
-                <%= link_to 'Cancel', contribution_cancel_path(contribution),
-                  :method => 'post',
-                  :data => { :confirm => 'Are you sure?' },
-                  :class => 'btn btn-danger' %>
-              </div>
-            </td>
+            <% if contribution.loan %>
+              <td><%= link_to contribution.loan.title, contribution_path(contribution) %></td>
+              <td><%= contribution.loan.description %></td>
+              <td><%= contribution.loan.decorate.unit_price_dollars %></td>
+              <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+              <td><%= contribution.status.capitalize %></td>
+              <td>
+                <div class="form-actions">
+                  <%= link_to 'Cancel', contribution_cancel_path(contribution),
+                    :method => 'post',
+                    :data => { :confirm => 'Are you sure?' },
+                    :class => 'btn btn-danger' %>
+                </div>
+              </td>
+            <% end %>
           </tr>
         <% end %>
           <tr>

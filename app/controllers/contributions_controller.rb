@@ -25,7 +25,7 @@ class ContributionsController < ApplicationController
       amount = Contribution.find(params[:contribution_ids][i].to_i).amount.to_i
       loan = contribution.loan
       if amount <= loan.pending
-        contribution.update(amount: amount, user_id: current_user.id, status: 'paid')
+        contribution.update(amount: amount, loan_id: loan.id, user_id: current_user.id, status: 'paid')
       end
     end
     session[:cart_id] = nil

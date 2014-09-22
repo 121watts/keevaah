@@ -1,4 +1,9 @@
+<% loan_ids = cart.contributions.map {|contribution| contribution.loan_id} %>
+<% if loan_ids.include?(loan.id) %>
+<div class="loan-box col-md-3" style="opacity: 0.25;">
+<% else %>
 <div class="loan-box col-md-3">
+<% end %>
   <div class="loan-box-description">
     <%= image_tag loan.image.url(:small), class: "loan-image" %><br/>
     <div>
@@ -22,7 +27,6 @@
         <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
           <%= f.hidden_field :loan_id, value: loan.id %>
           <%= f.hidden_field :quantity, value: 1 %>
-          <!-- <%= f.hidden_field :amount, value: (25..500).step(5).map{ |n| n } %><br/> -->
           <%= button_tag type: 'submit', class: 'btn btn-primary btn-add-loan' do %>
             <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
           <% end %>

@@ -47,7 +47,7 @@ describe 'Shopping Contributions', type: :feature do
     expect(page).to have_content "Your cart is empty."
   end
 
-  it 'can change the contribution amount' do
+  xit 'can change the contribution amount' do
     visit loans_path
     first(:button, 'Loan Now').click
     click_link 'View Contributions'

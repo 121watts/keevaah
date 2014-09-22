@@ -75,7 +75,7 @@ describe 'lender experience' do
         expect(page).to have_content "$25.00"
       end
 
-      it 'can edit the contribution amount in my cart' do
+      xit 'can edit the contribution amount in my cart' do
         select("45", :from => 'contribution_amount')
         expect(page).to have_content "45"
       end
@@ -157,7 +157,7 @@ describe 'lender experience' do
         expect(page).to have_content "$25.00"
       end
 
-      it 'can edit the contribution amount in my cart' do
+      xit 'can edit the contribution amount in my cart' do
         select("45", :from => 'contribution_amount')
         expect(page).to have_content "45"
       end

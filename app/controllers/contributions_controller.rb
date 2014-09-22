@@ -32,7 +32,9 @@ class ContributionsController < ApplicationController
     redirect_to root_path
   end
 
-  def destroy
-    current_user.loans.find(params[:id]).destroy
+  def cancel
+    contribution = current_user.contributions.find(params[:contribution_id])
+    contribution.update_to_cancelled
+    redirect_to :back
   end
 end

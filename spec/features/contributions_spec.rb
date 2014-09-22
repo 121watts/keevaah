@@ -51,5 +51,12 @@ describe 'when viewing the loans' do
       expect(page).to have_content(@loan.title)
 			expect(page).to have_content(@loan.description)
     end
+
+		it 'can cancel a contribution' do
+			click_on "My Profile"
+			expect(page).to have_content('Buy pigs')
+			first(:link, 'Cancel').click
+			expect(page).to have_content('Cancelled')
+		end
   end
 end

@@ -85,7 +85,7 @@ describe 'borrower experience' do
 
     it "has a borrower dashboard" do
       expect(current_path).to eq(borrower_path)
-      expect(page).to have_content("Borrower Dashboard")
+      expect(page).to have_content("Dashboard")
       expect(page).to have_content("Loans")
     end
 
@@ -103,7 +103,6 @@ describe 'borrower experience' do
       login(email: borrower.email, password: borrower.password)
       expect(page).to have_content(borrower.first_name)
       expect(page).to have_content(borrower.last_name)
-      expect(page).to have_content(borrower.email)
     end
 
     it 'can view edit personal info' do

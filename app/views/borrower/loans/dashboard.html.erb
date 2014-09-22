@@ -1,15 +1,13 @@
 <div class="page-border">
+  <h1 class="col-md-12 dashboard"><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h1>
+
   <div class="page-header">
-    <h1>Borrower Dashboard</h1>
-
-    <div id="Make a loan">
+    <div class= "col-md-6 dashboard" id="make-a-loan">
       <%= link_to 'Apply For A New Loan', new_borrower_loan_path, :class => 'btn btn-primary' %>
-    </div><br/>
+    </div></br>
 
-    <div id="profile">
+    <div class = "col-md-6 dashboard">
       <%= link_to "Edit My Profile", edit_user_path(current_user), :class => 'btn btn-primary' %><br/><br/>
-      <%= current_user.first_name %><%= current_user.last_name %>
-      <%= current_user.email %>
     </div>
   </div>
 

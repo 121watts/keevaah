@@ -24,7 +24,7 @@
     <%= f.collection_select :categories, Category.all, :id, :name, include_blank: true  %><br/>
 
     <%= f.label       :amount %><br/>
-    <%= f.text_field  :amount, id: "amount"  %><br/>
+    <%= f.text_field  :amount %><br/>
 
     <%= f.label       :requested_by %><br/>
     <%= f.date_field  :requested_by %><br/>
@@ -47,8 +47,8 @@
   <script src="http://code.jquery.com/jquery-1.5.js"></script>
     <script>
       $(document).ready(function(){
-        var amountBox    = $('#amount') // Textarea input box
-        var totalAmount  = $('#amount').value; //Total characters allowed in textarea
+        var amountBox    = $('#loan_amount') // Textarea input box
+        var totalAmount  = $('#loan_amount').value; //Total characters allowed in textarea
         var MinAmountBox    = $('#minimum-monthly-payment'); // Remaining chars count will be displayed here
         var SugAmountBox    = $('#suggested-monthly-payment'); // Remaining chars count will be displayed here
 

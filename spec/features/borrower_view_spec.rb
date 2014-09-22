@@ -21,7 +21,6 @@ describe 'When viewing the borrower dashboard' do
 			visit borrower_path
 			expect(page).to have_content("Gen")
 			expect(page).to have_content("Casagrande")
-			expect(page).to have_content("yourdad123@aol.com")
 		end
 	end
 

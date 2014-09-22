@@ -90,13 +90,12 @@ describe 'borrower experience' do
     end
 
     it 'can view their loans' do
-      click_on "My Loans"
-      expect(page).to have_content "My Loans"
+      click_on "My Dashboard"
+      expect(page).to have_content "Loans"
       expect(page).to have_content "Title"
       expect(page).to have_content "Description"
       expect(page).to have_content "Amount"
       expect(page).to have_content "Categories"
-      expect(page).to have_content "Status"
     end
 
     it 'can view date joined, first name, last name, email, and nickname' do

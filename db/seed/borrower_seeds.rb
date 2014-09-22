@@ -29,7 +29,7 @@
   ]
 end
 
-@borrower = [
+@borrowers <<
   [
   first_name: "Jeff",
   last_name: "Casimir",
@@ -37,41 +37,4 @@ end
   password: "password",
   password_confirmation: "password",
   role: "borrower",
-  nickname: 'j3'],
-
-  [
-  first_name: "Jorge",
-  last_name: "Tellez",
-  email: "demo+jorge@jumpstartlab.com",
-  password: "password",
-  password_confirmation: "password",
-  role: "borrower",
-  nickname: 'novohispano'],
-
-  [
-  first_name: "Josh",
-  last_name: "Cheek",
-  email: "demo+josh@jumpstartlab.com",
-  password: "password",
-  password_confirmation: "password",
-  role: "borrower",
-  nickname: 'josh'],
-
-  [
-  first_name: "Watts",
-  last_name: "Watkins",
-  email: "demo+watts@jumpstartlab.com",
-  password: "password",
-  password_confirmation: "password",
-  role: "borrower",
-  nickname: 'watts'],
-
-  [
-  first_name: "Hil",
-  last_name: "Denton",
-  email: "something@jumpstartlab.com",
-  password: "password",
-  password_confirmation: "password",
-  role: "borrower",
-  nickname: 'hildawg']
-]
+  nickname: 'j3']

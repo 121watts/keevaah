@@ -68,15 +68,15 @@ context 'as a registered borrower without a loan' do
       it 'can see created loans on the borrower dashboard' do
         expect(page).to have_content(@loan.title)
         expect(page).to have_content(@loan.description)
-        # expect(page).to have_content(percentage completed)
+        expect(page).to have_content(@loan.progress)
         expect(page).to have_content($500)
       end
 
-      xit 'can view loan requests' do
-        click_link("Requests")
+      it 'can view loan requests' do
+        click_link("Request")
         expect(page).to have_content(@loan.title)
         expect(page).to have_content(@loan.description)
-        # expect(page).to have_content(percentage completed)
+        expect(page).to have_content(@loan.progress)
         expect(page).to have_content($500)
       end
 
@@ -89,7 +89,7 @@ context 'as a registered borrower without a loan' do
         expect(page).to have_content(@loan.amount_in_dollars)
         expect(page).to have_content(@loan.repayments_begin)
         expect(page).to have_content(@loan.monthly_payment_in_dollars)
-        # expect(page).to have_content(status)
+        expect(page).to have_content(@loan.aasm_state)
       end
 
       it 'can edit a loan' do
@@ -127,46 +127,44 @@ let(:borrower) { create(:borrower) }
   it 'can see list of thier loan(s) on the borrower dashboard' do
     expect(page).to have_content(@loan.title)
     expect(page).to have_content(@loan.description)
-    # expect(page).to have_content(percentage completed)
+    expect(page).to have_content(@loan.progress)
     expect(page).to have_content($500)
   end
 
-  xit 'can view loan requests' do
+  it 'can view loan requests' do
     @loan = create(:loan)
-    click_link("Requests")
+    click_link("Request")
     expect(page).to have_content(@loan.title)
     expect(page).to have_content(@loan.description)
-    # expect(page).to have_content(percentage completed)
+    expect(page).to have_content(@loan.progress)
     expect(page).to have_content($500)
   end
 
-  xit 'can view fulfilled loans' do
+  it 'can view fulfilled loans' do
     @loan.fulfill
-    click_link("Fullfilled")
+    click_link("Fulfilled")
     expect(page).to have_content(@loan.title)
     expect(page).to have_content(@loan.description)
-    # expect(page).to have_content(percentage completed)
+    expect(page).to have_content(@loan.progress)
     expect(page).to have_content($500)
   end
 
-  xit 'can view loans in repayment' do
+  it 'can view loans in repayment' do
     @loan.fulfill
     @loan.start_repay
-    click_link("In Repayment")
+    click_link("Repayment")
     expect(page).to have_content(@loan.title)
     expect(page).to have_content(@loan.description)
-    # expect(page).to have_content(percentage completed)
     expect(page).to have_content($500)
   end
 
-  xit 'can view loans that have been repaid' do
+  it 'can view loans that have been repaid' do
     @loan.fulfill
     @loan.start_repay
     @loan.pay_off
     click_link("Repaid")
     expect(page).to have_content(@loan.title)
     expect(page).to have_content(@loan.description)
-    # expect(page).to have_content(percentage completed)
     expect(page).to have_content($500)
   end
 

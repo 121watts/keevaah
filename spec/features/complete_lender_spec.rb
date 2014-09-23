@@ -168,6 +168,13 @@ describe 'lender experience' do
         expect(page).to have_content "Your cart is empty."
       end
 
+      it 'can log-out and then log-in with cart persisting' do
+        click_on "Logout"
+        login(email: @user.email, password: @user.password)
+        expect(page).to have_content "1"
+
+      end
+
       it 'can checkout' do
         click_on "Checkout"
         expect(current_path).to eq review_contributions_path
@@ -176,7 +183,6 @@ describe 'lender experience' do
 
       xit 'can enter in credit card information on checkout page' do
         click_on "Checkout"
-        save_and_open_page
         fill_in "Credit Card Number", with: "4242 4242 4242 4242"
       end
 

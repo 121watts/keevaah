@@ -29,8 +29,13 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def cart
-    cart ||= (_create_cart || _session_cart)
+    if current_user
+      cart = Cart.find_by(user_id: current_user.id) || (_create_cart || _session_cart)
+    else
+      cart ||= (_create_cart || _session_cart)
+    end
   end
+
 
   helper_method def cart_count
     # @cart.contributions ? @cart.contributions.count : 0
@@ -51,12 +56,23 @@ class ApplicationController < ActionController::Base
 
   def _session_cart
     return unless session[:cart_id]
-    current_cart ||= Cart.find(session[:cart_id])
+    current_cart ||= @new_found_cart
+
+    if current_user
+      found_cart = Cart.find(session[:cart_id])
+      updated_cart = found_cart.update!(user_id: current_user.id)
+    end
+    @new_found_cart = Cart.find(session[:cart_id])
   end
 
   def _create_cart
     return if session[:cart_id]
-    current_cart = Cart.create!
+
+    if current_user
+      current_cart = Cart.create!(user_id: current_user.id)
+    else
+      current_cart = Cart.create!
+    end
     session[:cart_id] = current_cart.id
     current_cart
   end

@@ -1,116 +1,127 @@
+// IMPORTS //
+@import "bootstrap-sprockets";
+@import 'bootstrap';
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(http://fonts.googleapis.com/css?family=Parisienne);
+@import url(http://fonts.googleapis.com/css?family=Aclonica);
+//
+
 // FONTS //
-$font-family-sans-serif: 'Aclonica', sans-serif;
 
-// FLASH MSG //
-div.flash.success { border: 2px solid green; color: green;}
-div.flash.error   { border: 2px solid red; 	 color: red;}
+$font-family-sans-serif: 'Helvetica', sans-serif;
 
+// div.flash.success { border: 2px solid green; color: green;}
+// div.flash.error   { border: 2px solid red; 	 color: red;}
+//
 // BODY //
 body {
- 	padding-top: 85px;
+   padding-top: 85px;
+   color: #828587;
 }
 
-$body-bg: #F8F8FF;
-
-.page-border {
-	background-color: white;
-	border: 3px solid #024;
-	padding: 20px;
-	margin-top: 20px;
-	box-shadow: 10px 10px 5px #888;
-}
-.search-bar {
-  padding: 21.5px 489px;
-  font-size: 18px;
-  line-height: 20px;
-}
-
-// NAVBAR //
-
-$navbar-height: 75px;
-$navbar-inverse-bg: #F8F8FF;
-$navbar-inverse-bc: #F8F8FF;
-$navbar-inverse-link-color: #000;
-$navbar-inverse-brand-color: #000;
+$body-bg: white;
 
 
-.navbar-brand {
-	font-weight: bold;
-  font-size: 43px;
-  vertical-align: middle;
-  line-height: 20px;
-  padding: 27.5px 15px;
-}
-
-.navbar-inverse{
-  border-bottom-width: 0px;
-}
-
-.navbar-fixed-top{
-  border-width: 0 0 0px;
-}
-
-.navbar-fixed-top-border{
-  border-width: 0 0 15px;
-}
-
-.brand-text {
-	font-family: 'Aclonica', sans-serif;
-}
-
-#mini-keevahh-logo{
-  margin-top: -10px;
-}
-
-
-// LOGIN / REGISTER //
-.login-reg-page {
-	box-shadow: 10px 10px 5px #888;
-	margin-top: 20px;
-}
-
-#error-explanation {
-	color: red;
-}
-
-// CATEGORIES //
+// // NAVBAR //
+//
+  // $navbar-height: 75px;
+  // $navbar-inverse-bg: #F8F8FF;
+  // $navbar-inverse-bc: #F8F8FF;
+  // $navbar-inverse-link-color: #000;
+  // $navbar-inverse-brand-color: #000;
+//
+//
+// .navbar-brand {
+//   font-weight: bold;
+//   font-size: 43px;
+//   vertical-align: middle;
+//   line-height: 20px;
+//   padding: 27.5px 15px;
+// }
+//
+// .navbar-inverse{
+//   border-bottom-width: 0px;
+// }
+//
+// .navbar-fixed-top{
+//   border-width: 0 0 0px;
+// }
+//
+// .navbar-fixed-top-border{
+//   border-width: 0 0 15px;
+// }
+//
+// .brand-text {
+//   font-family: 'Aclonica', sans-serif;
+// }
+//
+// #mini-keevahh-logo{
+//   margin-top: -10px;
+// }
+//
 
 
-.header{
-  display: flex;
-  align-items: center;
-  background-color: #54D359
-}
-
-#header-title-left{
-  // display: inline;
-  // top: 50%;
-}
-
-#header-title-right{
-  // display: inline;
-  // top: 50%;
-}
-
-#logo {
-  width: 458px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.category-name {
-	display: block;
-	text-align: center;
-	margin: 25px 0 15px 0;
-	font-weight: bold;
-	font-size: 1.5em;
-	color: white;
-	width: 100%;
-	background-color: #024;
-	box-shadow: 10px 10px 5px #888;
-}
-
+// .page-border {
+//   background-color: white;
+//   border: 3px solid #024;
+//   padding: 20px;
+//   margin-top: 20px;
+//   box-shadow: 10px 10px 5px #888;
+// }
+// .search-bar {
+//   padding: 21.5px 489px;
+//   font-size: 18px;
+//   line-height: 20px;
+// }
+//
+// // LOGIN / REGISTER //
+// .login-reg-page {
+//   box-shadow: 10px 10px 5px #888;
+//   margin-top: 20px;
+// }
+//
+// #error-explanation {
+//   color: red;
+// }
+//
+// // CATEGORIES //
+//
+//
+// .header{
+//   display: flex;
+//   align-items: center;
+//   background-color: #54D359
+// }
+//
+// #header-title-left{
+//   // display: inline;
+//   // top: 50%;
+// }
+//
+// #header-title-right{
+//   // display: inline;
+//   // top: 50%;
+// }
+//
+// #logo {
+//   width: 458px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto
+// }
+//
+// .category-name {
+//   display: block;
+//   text-align: center;
+//   margin: 25px 0 15px 0;
+//   font-weight: bold;
+//   font-size: 1.5em;
+//   color: white;
+//   width: 100%;
+//   background-color: #024;
+//   box-shadow: 10px 10px 5px #888;
+// }
+//
 .tab-panel {
   display: none;
 }
@@ -119,149 +130,476 @@ $navbar-inverse-brand-color: #000;
 }
 
 .loans {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .loan-box {
-  width: 225px;
-  height: 435px;
+  background: transparent;
   padding-top: 15px;
 }
 
-.loan-box-description {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid #ABB5BE;
-  margin-left: -14px;
-  margin-top: -14px;
+
+a{
+  color: #828587
+}
+
+.loan-box:hover{
+  a{
+    color:  #5cb85c;
+    text-decoration: none;  
+  }
+}
+
+.loan-box-insides {
+  background: transparent;
+  border: 1px solid rgba(218, 217, 222, 1);
+  border-radius: 6px;
+}
+
+.loan-box-text{
+  padding: 10px;
 }
 
 .loan-image {
-	width: 100%;
-	height: 33%;
+  width: 100%;
+  height: 33%;
+  border: 1px solid rgba(218, 217, 222, 0);
+  border-radius: 6px;
 }
 
 .loan-title {
-  text-align: -webkit-center;
-  font-size: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-size: 14px;
 }
-
+//
 .loan-description {
   margin-left: 3%;
-  margin-right: 3%;
-  font-size: 0.750em;
-  bottom: 19%;
-  background: white;
-  background: rgba(255, 255, 255, 0.5);
-  height: 105px;
+  margin-bottom: 20px;
+  font-size: 12px;
 }
 
-.loan-box-price {
-  margin-top: 7%;
-  text-align: center;
+
+.loan-box-footer{
+  padding: 10px;
+  font-size: 10px;
 }
 
-.loan-price {
-  margin-right: 10%;
-  color: rgb(78, 87, 79);
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
+.progress{
+  height: 15px;
+  border-radius: 25px;
+  margin-bottom: 10px;
 }
 
-.add-loan {
-	margin-top: 0.6%;
-  display: inline-block;
+.progress-bar{
+  font-size: 10px;
+  line-height: 15px;
+  background: #5cb85c;
 }
 
-.checkout {
-  margin-top: 0.6%;
-  box-shadow: 3px 3px 3px #888;
-  display: inline-block;
-}
 
-.btn-checkout {
-  display: none;
-}
+//
+// .checkout {
+//   margin-top: 0.6%;
+//   box-shadow: 3px 3px 3px #888;
+//   display: inline-block;
+// }
+//
+// .btn-checkout {
+//   display: none;
+// }
+//
+// a.add-loan-text:hover {
+//   color: #000;
+//   text-decoration: none;
+// }
+//
+// // CART //
+// #my-cart-title {
+//   text-align: center;
+// }
+//
+// .quantity-buttons {
+//
+// }
+//
+// .quantity-button {
+//   margin: 3px;
+//   padding: 0;
+//   display: inline;
+// }
+//
+// .inline {
+//   display: inline;
+// }
+//
+// #cart-total {
+//   color: red;
+// }
+//
+// #checkout-button {
+//   text-align:center;
+// }
+//
+// // CHECKOUT PAGE //
+// #order-summary {
+//   border: 3px solid #024;
+//   padding-bottom: 10px;
+//   box-shadow: 10px 10px 5px #888;
+//   background-color: white;
+// }
+//
+// #order-title {
+//   text-align: center;
+// }
+//
+// .cart-total {
+//   color: red;
+// }
+//
+// .checkout-dropdown {
+//   border: 2px solid black;
+//   padding: 10px;
+//   margin-top: 20px;
+//   background-color: white;
+// }
+//
+// .radio {
+//   margin-left: 25px;
+// }
+//
+// #create-order-text {
+//   color: #066;
+// }
+//
+// .create-order {
+//   border: 3px solid #066;
+//   background-color: #f5fffc;
+//   box-shadow: 10px 10px 5px #888;
+//   padding: 10px;
+//   text-align: center;
+// }
+//
+// // borrower: _FORM //
+// .form-title {
+//   font-size: 18px;
+// }
+//
+// // FOOTER //
+// .footer {
+//   clear: both;
+//   margin-top: 50px;
+//   padding: 10px;
+//   background-color: #aaa;
+//   color: white;
+//   text-align: center;
+//   width: 100%;
+//   height: 45px;
+// }
+//
+// #turing-link {
+//   color: #eee;
+// }
+//
+// // IMPORTS //
+// @import "bootstrap-sprockets";
+// @import 'bootstrap';
+// @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+// @import url(http://fonts.googleapis.com/css?family=Parisienne);
+// @import url(http://fonts.googleapis.com/css?family=Aclonica);
+//
+// .btn-checkout {
+//   display: none;
+// }
+//
+// .dashboard{
+//   text-align: center;
+// }
+// .page-header{
+//   padding-bottom: 0px;
+// }
+//
+// #minimum-monthly-payment{
+//   color: red;
+// }
+//
+//
+// // FLASH MSG //
+// div.flash.success { border: 2px solid green; color: green;}
+// div.flash.error   { border: 2px solid red; 	 color: red;}
+//
+// // BODY //
+// body {
+//  	padding-top: 85px;
+// }
+//
+// $body-bg: #F8F8FF;
+//
+// .page-border {
+// 	background-color: white;
+// 	border: 3px solid #024;
+// 	padding: 20px;
+// 	margin-top: 20px;
+// 	box-shadow: 10px 10px 5px #888;
+// }
+// .search-bar {
+//   padding: 21.5px 489px;
+//   font-size: 18px;
+//   line-height: 20px;
+// }
+//
+// // NAVBAR //
+//
+// $navbar-height: 75px;
+// $navbar-inverse-bg: #F8F8FF;
+// $navbar-inverse-bc: #F8F8FF;
+// $navbar-inverse-link-color: #000;
+// $navbar-inverse-brand-color: #000;
+//
+//
+// .navbar-brand {
+// 	font-weight: bold;
+//   font-size: 43px;
+//   vertical-align: middle;
+//   line-height: 20px;
+//   padding: 27.5px 15px;
+// }
+//
+// .navbar-inverse{
+//   border-bottom-width: 0px;
+// }
+//
+// .navbar-fixed-top{
+//   border-width: 0 0 0px;
+// }
+//
+// .navbar-fixed-top-border{
+//   border-width: 0 0 15px;
+// }
+//
+// .brand-text {
+// 	font-family: 'Aclonica', sans-serif;
+// }
+//
+// #mini-keevahh-logo{
+//   margin-top: -10px;
+// }
+//
+//
+// // LOGIN / REGISTER //
+// .login-reg-page {
+// 	box-shadow: 10px 10px 5px #888;
+// 	margin-top: 20px;
+// }
+//
+// #error-explanation {
+// 	color: red;
+// }
+//
+// // CATEGORIES //
+//
+//
+// .header{
+//   display: flex;
+//   align-items: center;
+//   background-color: #54D359
+// }
+//
+// #header-title-left{
+//   // display: inline;
+//   // top: 50%;
+// }
+//
+// #header-title-right{
+//   // display: inline;
+//   // top: 50%;
+// }
+//
+// #logo {
+//   width: 458px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto
+// }
+//
+// .category-name {
+// 	display: block;
+// 	text-align: center;
+// 	margin: 25px 0 15px 0;
+// 	font-weight: bold;
+// 	font-size: 1.5em;
+// 	color: white;
+// 	width: 100%;
+// 	background-color: #024;
+// 	box-shadow: 10px 10px 5px #888;
+// }
+//
+// .tab-panel {
+//   display: none;
+// }
+// .tab-panel.active {
+//   display: block;
+// }
+//
+// .loans {
+// 	margin: 0 auto;
+// }
+//
+// .loan-box {
+//   width: 225px;
+//   height: 435px;
+//   padding-top: 15px;
+// }
+//
+// .loan-box-description {
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.1);
+//   border: 1px solid #ABB5BE;
+//   margin-left: -14px;
+//   margin-top: -14px;
+// }
+//
+// .loan-image {
+// 	width: 100%;
+// 	height: 33%;
+// }
+//
+// .loan-title {
+//   text-align: -webkit-center;
+//   font-size: 12px;
+//   background: rgba(255, 255, 255, 0.5);
+// }
+//
+// .loan-description {
+//   margin-left: 3%;
+//   margin-right: 3%;
+//   font-size: 0.750em;
+//   bottom: 19%;
+//   background: white;
+//   background: rgba(255, 255, 255, 0.5);
+//   height: 105px;
+// }
+//
+// .loan-box-price {
+//   margin-top: 7%;
+//   text-align: center;
+// }
+//
+// .loan-price {
+//   margin-right: 10%;
+//   color: rgb(78, 87, 79);
+//   font-size: 14px;
+//   font-weight: bold;
+//   text-align: center;
+// }
+//
+// .add-loan {
+// 	margin-top: 0.6%;
+//   display: inline-block;
+// }
+//
+// .checkout {
+//   margin-top: 0.6%;
+//   box-shadow: 3px 3px 3px #888;
+//   display: inline-block;
+// }
+//
+// .btn-checkout {
+//   display: none;
+// }
+//
+// a.add-loan-text:hover {
+// 	color: #000;
+// 	text-decoration: none;
+// }
+//
+// // CART //
+// #my-cart-title {
+// 	text-align: center;
+// }
+//
+// .quantity-buttons {
+//
+// }
+//
+// .quantity-button {
+// 	margin: 3px;
+// 	padding: 0;
+// 	display: inline;
+// }
+//
+// .inline {
+// 	display: inline;
+// }
+//
+// #cart-total {
+// 	color: red;
+// }
+//
+// #checkout-button {
+// 	text-align:center;
+// }
+//
+// // CHECKOUT PAGE //
+// #order-summary {
+// 	border: 3px solid #024;
+// 	padding-bottom: 10px;
+// 	box-shadow: 10px 10px 5px #888;
+// 	background-color: white;
+// }
+//
+// #order-title {
+// 	text-align: center;
+// }
+//
+// .cart-total {
+// 	color: red;
+// }
+//
+// .checkout-dropdown {
+// 	border: 2px solid black;
+// 	padding: 10px;
+// 	margin-top: 20px;
+// 	background-color: white;
+// }
+//
+// .radio {
+// 	margin-left: 25px;
+// }
+//
+// #create-order-text {
+// 	color: #066;
+// }
+//
+// .create-order {
+// 	border: 3px solid #066;
+// 	background-color: #f5fffc;
+// 	box-shadow: 10px 10px 5px #888;
+// 	padding: 10px;
+// 	text-align: center;
+// }
+//
+// // borrower: _FORM //
+// .form-title {
+// 	font-size: 18px;
+// }
 
-a.add-loan-text:hover {
-	color: #000;
-	text-decoration: none;
-}
+  // .btn-checkout {
+  //   display: none;
+  // }
+  //
+  // .dashboard{
+  //   text-align: center;
+  // }
+  // .page-header{
+  //   padding-bottom: 0px;
+  // }
+  //
+  // #minimum-monthly-payment{
+  //   color: red;
+  // }
 
-// CART //
-#my-cart-title {
-	text-align: center;
-}
-
-.quantity-buttons {
-
-}
-
-.quantity-button {
-	margin: 3px;
-	padding: 0;
-	display: inline;
-}
-
-.inline {
-	display: inline;
-}
-
-#cart-total {
-	color: red;
-}
-
-#checkout-button {
-	text-align:center;
-}
-
-// CHECKOUT PAGE //
-#order-summary {
-	border: 3px solid #024;
-	padding-bottom: 10px;
-	box-shadow: 10px 10px 5px #888;
-	background-color: white;
-}
-
-#order-title {
-	text-align: center;
-}
-
-.cart-total {
-	color: red;
-}
-
-.checkout-dropdown {
-	border: 2px solid black;
-	padding: 10px;
-	margin-top: 20px;
-	background-color: white;
-}
-
-.radio {
-	margin-left: 25px;
-}
-
-#create-order-text {
-	color: #066;
-}
-
-.create-order {
-	border: 3px solid #066;
-	background-color: #f5fffc;
-	box-shadow: 10px 10px 5px #888;
-	padding: 10px;
-	text-align: center;
-}
-
-// borrower: _FORM //
-.form-title {
-	font-size: 18px;
-}
-
+//
 // FOOTER //
 .footer {
 	clear: both;
@@ -276,26 +614,4 @@ a.add-loan-text:hover {
 
 #turing-link {
 	color: #eee;
-}
-
-// IMPORTS //
-@import "bootstrap-sprockets";
-@import 'bootstrap';
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
-@import url(http://fonts.googleapis.com/css?family=Parisienne);
-@import url(http://fonts.googleapis.com/css?family=Aclonica);
-
-.btn-checkout {
-  display: none;
-}
-
-.dashboard{
-  text-align: center;
-}
-.page-header{
-  padding-bottom: 0px;
-}
-
-#minimum-monthly-payment{
-  color: red;
 }

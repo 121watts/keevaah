@@ -17,7 +17,7 @@ class Loan < ActiveRecord::Base
 	belongs_to :user
 
 	has_attached_file :image,
-										styles: {:medium => "340x340>", :small => "150x150>", :thumb => "100x100>"},
+										styles: {:medium => "340x340#", :small => "150x150#", :thumb => "100x100#"},
 										default_url: "/assets/images/happy-borrower.jpg",
 										storage: :s3,
                    	s3_credentials: { :access_key_id => ENV['S3_KEY'],

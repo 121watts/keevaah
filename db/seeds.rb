@@ -9,6 +9,10 @@ require_relative './seed/contribution_seeds'
 end
 
 # USERS
+@users.each do |user|
+  User.create(user)
+end
+
 @lenders.each do |user|
   User.create(user)
 end
@@ -25,6 +29,13 @@ end
 #   loan_params[:image] = File.open("#{$RAILS_ROOT}public/assets/images/seed/loan_#{i + 1}.jpg")
 #   Loan.create!(loan_params)
 # end
+
+@loans.each_with_index do |loan, i|
+  loan_params = loan[0]
+  loan = Loan.create!(loan_params)
+  loan.image = URI.parse("http://s3.amazonaws.com/Keevaah_seed_photos/seed/loan_#{i + 1}.jpg")
+  loan.save
+end
 
 
 # CONTRIBUTIONS

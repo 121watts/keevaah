@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       post :checkout
       get :review
+      get :confirm
     end
   end
 

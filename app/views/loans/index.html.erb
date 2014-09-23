@@ -14,15 +14,24 @@
     <% end %>
   </ul>
     <% @categories.each_with_index do |category, i| %>
-      <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
-        <div class="loans transitions-enabled">
-        <% if category.name == "Newest" %>
-          <%= render partial: 'loan_box', collection: @newest_loans_by_category[category.name], as: :loan %>
-        <% elsif category.name == "All" %>
-          <%= render partial: 'loan_box', collection: @loans, as: :loan %>
-        <% else %>
-          <%= render partial: 'loan_box', collection: @loans_by_category[category.name], as: :loan %>
-        <% end %>
-      </div>
+      <% if category.name == "Newest" %>
+        <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+          <div class="loans transitions-enabled">
+            <%= render partial: 'loan_box', collection: @newest_loans_by_category[category.name], as: :loan %>
+          </div>
+        </div>
+      <% elsif category.name == "All" %>
+        <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+          <div class="loans transitions-enabled">
+            <%= render partial: 'loan_box', collection: @loans, as: :loan %>
+          </div>
+        </div>
+      <% else %>
+        <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
+          <div class="loans transitions-enabled">
+            <%= render partial: 'loan_box', collection: @loans_by_category[category.name], as: :loan %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 </div>

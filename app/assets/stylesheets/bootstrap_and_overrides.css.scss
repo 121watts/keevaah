@@ -138,6 +138,18 @@ $body-bg: white;
   padding-top: 15px;
 }
 
+
+a{
+  color: #828587
+}
+
+.loan-box:hover{
+  a{
+    color:  #5cb85c;
+    text-decoration: none;  
+  }
+}
+
 .loan-box-insides {
   background: transparent;
   border: 1px solid rgba(218, 217, 222, 1);

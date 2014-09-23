@@ -24,7 +24,7 @@ describe 'when viewing the loans' do
 
 		it 'can see the contributions they have made' do
 			click_on "My Profile"
-			expect(page).to have_content("Contributions")
+			expect(page).to have_content("My Cart")
 		end
 
 		it 'can see a total for all contribution' do

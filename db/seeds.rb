@@ -23,14 +23,7 @@ end
     user_.loans.create(@loans.sample) if user_
 end
 
-# PICTURES
-# @loans.each_with_index do |loan, i|
-#   loan_params = loan[0]
-#   loan_params[:image] = File.open("#{$RAILS_ROOT}public/assets/images/seed/loan_#{i + 1}.jpg")
-#   Loan.create!(loan_params)
-# end
-
-@loans.each_with_index do |loan, i|
+@loans[0..20].each_with_index do |loan, i|
   loan_params = loan[0]
   loan = Loan.create!(loan_params)
   loan.image = URI.parse("http://s3.amazonaws.com/Keevaah_seed_photos/seed/loan_#{i + 1}.jpg")
@@ -39,6 +32,8 @@ end
 
 
 # CONTRIBUTIONS
+amounts_array = (2500..50000).step(2500).to_a
+lenders = User.where(role: "lender")
 100.times do
-  Contribution.create(user_id: rand(1..3), loan_id: rand(50),amount: rand(2500.. 50000), status: "paid")
+  Contribution.create(user_id: lenders.sample, loan_id: rand(50), amount: amounts_array.sample, status: "paid")
 end

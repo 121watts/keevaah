@@ -17,8 +17,19 @@
   nickname: 'hildawg']
 ]
 
+50.times do |i|
+  @lenders << [
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password',
+    role: 'lender'
+  ]
+end
+
 @borrowers = []
-200.times do |i|
+30.times do |i|
   @borrowers << [
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -54,21 +65,21 @@ password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Florgie",
-last_name: " ",
+last_name: "Lastname",
 email: "florgie@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Meng",
-last_name: " ",
+last_name: "Lastname",
 email: "meng@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Murodgul",
-last_name: " ",
+last_name: "Lastname",
 email: "murodgul@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
@@ -82,21 +93,21 @@ password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Akou",
-last_name: " ",
+last_name: "Lastname",
 email: "akou@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Alejandro",
-last_name: " ",
+last_name: "Lastname",
 email: "alejandro@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Mercedes",
-last_name: " ",
+last_name: "Lastname",
 email: "mercedes@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
@@ -110,7 +121,7 @@ password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Tamila",
-last_name: " ",
+last_name: "Lastname",
 email: "tamila@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
@@ -124,7 +135,7 @@ password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Abdulqader",
-last_name: " ",
+last_name: "Lastname",
 email: "abdulqader@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
@@ -138,49 +149,49 @@ password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Rosa",
-last_name: " ",
+last_name: "Lastname",
 email: "rosa@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Juliet",
-last_name: " ",
+last_name: "Lastname",
 email: "juliet@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Sidy",
-last_name: " ",
+last_name: "Lastname",
 email: "sidy@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Zainab",
-last_name: " ",
+last_name: "Lastname",
 email: "zainab@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Ly",
-last_name: " ",
+last_name: "Lastname",
 email: "ly@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Artidoro",
-last_name: " ",
+last_name: "Lastname",
 email: "Artidoro@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",
 role: "borrower"],
 
 [first_name: "Gopal",
-last_name: " ",
+last_name: "Lastname",
 email: "Gopal@jumpstartlab.com",
 password: "password",
 password_confirmation: "password",

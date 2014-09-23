@@ -17,7 +17,7 @@
              <select>
                 <option><%= number_to_currency(contribution.amount.to_i/100) %></option>
                   <% contribution_int = contribution.amount.to_i  %>
-                <% until contribution_int == contribution.loan.amount do %>
+                <% until contribution_int == contribution.loan.pending do %>
                   <% contribution_int = contribution_int + 2500 %>
                 <option><%= number_to_currency(contribution_int/100) %></option>
                 <% end %>

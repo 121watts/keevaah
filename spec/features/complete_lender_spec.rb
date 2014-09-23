@@ -67,7 +67,7 @@ describe 'lender experience' do
         @contribution = create(:contribution, loan_id: @loan.id)
         visit loans_path
         first(:button, 'Loan Now').click
-        click_link 'View Contributions'
+        click_link 'My Cart'
       end
 
       it 'can view contributions in my cart' do
@@ -149,7 +149,7 @@ describe 'lender experience' do
       before(:each) do
         visit loans_path
         first(:button, 'Loan Now').click
-        click_link 'View Contributions'
+        click_link 'My Cart'
       end
 
       it 'can view contributions in my cart' do

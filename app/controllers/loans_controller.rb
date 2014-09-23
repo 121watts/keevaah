@@ -5,13 +5,7 @@ class LoansController < ApplicationController
 
 	def index
 		@categories = Category.all.decorate
-		@q = Loan.search(params[:q])
-		if params[:q]
-			@loans = @q.result.includes(:categories).all.decorate
-		else
-		  @loans = Loan.includes(:categories).all.decorate
-	  end
-		# group by category
+	  @loans = Loan.includes(:categories).all.decorate
 		@loans_by_category = {}
 		loan_requests.each do |loan|
 			loan.categories.each do |category|

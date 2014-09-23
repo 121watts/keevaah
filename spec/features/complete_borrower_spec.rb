@@ -32,14 +32,14 @@ context 'as a registered borrower without a loan' do
 
     it 'can create a loan' do
       click_link "Apply For A New Loan"
-      fill_in "Title", with: "Buy a Sheep"
-      fill_in "Description", with: "Need to buy a sheep for wool"
-      fill_in "Amount", with: "800"
-      fill_in "Requested by", with: "2014-09-10"
-      fill_in "Repayments begin", with: "2015-09-10"
-      fill_in "Monthly payment", with: "100"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
       select("#{@category.name}", :from => 'loan_categories')
-      click_button "Create loan"
+      click_button "Submit"
       expect(current_path).to eq(borrower_loans_path)
       expect(page).to have_content 'Buy a Sheep'
       expect(page).to have_content "Need to buy a sheep for wool"

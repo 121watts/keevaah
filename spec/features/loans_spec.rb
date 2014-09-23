@@ -63,14 +63,14 @@ describe 'when viewing the loans' do
 
 		it 'can create a new loan' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: "800"
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in 'loan[description]', with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
 			select("#{@category.name}", :from => 'loan_categories')
-			click_button "Create loan"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'Buy a Sheep'
 			expect(page).to have_content "Need to buy a sheep for wool"
@@ -82,78 +82,78 @@ describe 'when viewing the loans' do
 
 		it	'cannot create an loan without a title' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: ""
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: "800"
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
-			click_button "Create loan"
+			fill_in "loan[title]", with: ""
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
 		it'cannot create an loan without a description' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: ""
-			fill_in "Amount", with: "800"
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
-			click_button "Create loan"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: ""
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
 		it	'cannot create an loan without an amount' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: ""
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
-			click_button "Create loan"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: ""
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
 		it	'cannot create an loan without a requested by date' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: ""
-			fill_in "Requested by", with: ""
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
-			click_button "Create loan"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: ""
+			fill_in "loan[requested_by]", with: ""
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
 		it	'cannot create an loan without a repayments begin date' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: ""
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: ""
-			fill_in "Monthly payment", with: "100"
-			click_button "Create loan"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: ""
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: ""
+			fill_in "loan[monthly_payment]", with: "100"
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
 		it	'cannot create an loan without a monthly payment' do
 			visit new_borrower_loan_path
-			fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: ""
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: ""
-			click_button "Create loan"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: ""
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: ""
+			click_button "Submit"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
@@ -161,9 +161,9 @@ describe 'when viewing the loans' do
 
 		it 'can update an loan' do
 			visit edit_borrower_loan_path(@loan)
-			fill_in "Title", with: "Fancy New Donut"
-			fill_in "Description", with: "It's pretty fancy"
-			fill_in "Amount", with: "800"
+			fill_in "loan[title]", with: "Fancy New Donut"
+			fill_in "loan[description]", with: "It's pretty fancy"
+			fill_in "loan[amount]", with: "800"
 			click_button "Update Loan"
 			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'Fancy New Donut'
@@ -174,9 +174,9 @@ describe 'when viewing the loans' do
 
 		it 'cannot update a loan without a title' do
 			visit edit_borrower_loan_path(@loan)
-			fill_in "Title", with: ""
-			fill_in "Description", with: "It's pretty fancy"
-			fill_in "Amount", with: "800"
+			fill_in "loan[title]", with: ""
+			fill_in "loan[description]", with: "It's pretty fancy"
+			fill_in "loan[amount]", with: "800"
 			click_button "Update Loan"
 			expect(current_path).to eq(borrower_loan_path(@loan))
 			expect(page).to have_content 'blank'
@@ -184,19 +184,19 @@ describe 'when viewing the loans' do
 
 		it 'cannot update a loan without a description' do
 			visit edit_borrower_loan_path(@loan)
-			fill_in "Title", with: "Poopers"
-			fill_in "Description", with: ""
-			fill_in "Amount", with: "800"
+			fill_in "loan[title]", with: "Poopers"
+			fill_in "loan[description]", with: ""
+			fill_in "loan[amount]", with: "800"
 			click_button "Update Loan"
 			expect(current_path).to eq(borrower_loan_path(@loan))
 			expect(page).to have_content 'blank'
 		end
 
-		it 'cannot update a loan without a Amount' do
+		it 'cannot update a loan without a loan[amount]' do
 			visit edit_borrower_loan_path(@loan)
-			fill_in "Title", with: "Poopers"
-			fill_in "Description", with: "Tasty"
-			fill_in "Amount", with: ""
+			fill_in "loan[title]", with: "Poopers"
+			fill_in "loan[description]", with: "Tasty"
+			fill_in "loan[amount]", with: ""
 			click_button "Update Loan"
 			expect(current_path).to eq(borrower_loan_path(@loan))
 			expect(page).to have_content 'blank'
@@ -224,14 +224,14 @@ describe 'when viewing the loans' do
 
 		it 'add new loan and is seen in newest category' do
 			visit new_borrower_loan_path
-      fill_in "Title", with: "Buy a Sheep"
-			fill_in "Description", with: "Need to buy a sheep for wool"
-			fill_in "Amount", with: "800"
-			fill_in "Requested by", with: "2014-09-10"
-			fill_in "Repayments begin", with: "2015-09-10"
-			fill_in "Monthly payment", with: "100"
+      fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
 			select("#{@category.name}", :from => 'loan_categories')
-			click_button "Create loan"
+			click_button "Submit"
 			visit root_path
 			click_link('Newest')
 			expect(page).to have_content 'Buy a Sheep'

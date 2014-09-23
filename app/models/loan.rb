@@ -56,7 +56,7 @@ class Loan < ActiveRecord::Base
 
 	def pending
 		if (self.amount - self.contributed == 0)
-			fulfill!
+			fulfill! if may_fulfill?
 			self.amount - self.contributed
 		else
 			self.amount - self.contributed

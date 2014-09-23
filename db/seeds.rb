@@ -34,7 +34,7 @@ end
 # CONTRIBUTIONS
 amounts_array = (2500..50000).step(2500).to_a
 lenders = User.where(role: "lender")
-40.times do
+20.times do
   Contribution.create(user_id: lenders.sample, loan_id: rand(20), amount: amounts_array.sample, status: "paid")
 end
 4.times do

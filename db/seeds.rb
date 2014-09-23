@@ -18,10 +18,10 @@ end
 end
 
 # BORROWERS and LOANS
-@borrowers.each do |user|
-    user_ = User.create(user).first
-    user_.loans.create(@loans.sample) if user_
-end
+# @borrowers.each do |user|
+#     user_ = User.create(user).first
+#     user_.loans.create(@loans.sample) if user_
+# end
 
 @loans[0..20].each_with_index do |loan, i|
   loan_params = loan[0]
@@ -34,9 +34,9 @@ end
 # CONTRIBUTIONS
 amounts_array = (2500..50000).step(2500).to_a
 lenders = User.where(role: "lender")
-100.times do
-  Contribution.create(user_id: lenders.sample, loan_id: rand(50), amount: amounts_array.sample, status: "paid")
+40.times do
+  Contribution.create(user_id: lenders.sample, loan_id: rand(20), amount: amounts_array.sample, status: "paid")
 end
 4.times do
-  Contribution.create(user_id: User.where(first_name: "Lender"), loan_id: rand(50), amount: amounts_array.sample, status: "paid")
+  Contribution.create(user_id: User.where(first_name: "Lender"), loan_id: rand(20), amount: amounts_array.sample, status: "paid")
 end

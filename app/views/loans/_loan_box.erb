@@ -13,7 +13,7 @@
         <% end %>
       </div>
       <div class="loan-description">
-        <%= truncate(loan.description, :length => 350) %>
+        <%= truncate(loan.description, :length => 250) %>
       </div>
     </div>
 
@@ -22,8 +22,9 @@
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=loan.progress%>%;"><%=loan.progress%>%</div>
       </div>
-      <span class="loan-price"><%= loan.unit_price_dollars %></span>
-      <span class="add-loan">
+      <div class="days_left">This loan expires in <%= (loan.requested_by - Date.today).to_i %> days</div>
+      <div class="remaining"><%= number_to_currency(loan.pending/100) %> Remaining</div>
+      <div class="add-loan">
         <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
           <%= f.hidden_field :loan_id, value: loan.id %>
           <%= f.hidden_field :quantity, value: 1 %>
@@ -31,7 +32,7 @@
             <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
           <% end %>
         <% end %>
-      </span>
+      </div>
     </div>
   </div>
 </div>

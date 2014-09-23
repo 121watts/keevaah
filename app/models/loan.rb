@@ -16,7 +16,13 @@ class Loan < ActiveRecord::Base
 	has_many :contributions
 	belongs_to :user
 
-	has_attached_file :image, styles: {:small => "150x150>", :thumb => "100x100>"}, default_url: "/assets/images/happy-borrower.jpg"
+	has_attached_file :image,
+										styles: {:medium => "340x340>", :small => "150x150>", :thumb => "100x100>"},
+										default_url: "/assets/images/happy-borrower.jpg",
+										storage: :s3,
+                   	s3_credentials: { :access_key_id => ENV['S3_KEY'],
+															  			:secret_access_key => ENV['S3_SECRET']},
+										bucket: ENV['AWS_BUCKET']
 	validates_attachment :image, content_type: {content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]}
 
 	include AASM

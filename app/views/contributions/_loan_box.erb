@@ -1,42 +1,40 @@
 <% cart.contributions.map {|contribution| contribution.loan_id} %>
-<div class="loan-box col-xs-12">
-  <div class="loan-box-insides">
-    <div class="lender col-xs-6">
+<div class="lender-box col-xs-12">
+  <div class="lender-image col-xs-4">
       <%= image_tag contribution.loan.image.url(:small), class: "lender-image" %><br/>
-    </div>
-    <div class="loan-box-text col-xs-6">
-      <div class="loan-title lender">
-        <strong>Loan Title: <%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
-      </div>
-      <div class="loan-description lender">Loan Description:
-        <%= contribution.loan.description %>
-      </div>
-      <div class="loan-unit-price lender">
-        <%= contribution.loan.decorate.unit_price_dollars %>
-      </div>
-      <div class="currency lender">
-        <%= number_to_currency(contribution.amount.to_i/100) %>
-      </div>
-      <div class="status lender">
-        <%= contribution.status.capitalize %>
-      </div>
-    </div>
+  </div>
 
+  <div class="lender-info col-xs-4">
+    <div class="lender-title">
+      <strong>Loan Title: <%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
+    </div>
+    <div class="lender-description">Loan Description:
+      <%= contribution.loan.description %>
+    </div>
+    <div class="lender-unit-price ">
+      <%= contribution.loan.decorate.unit_price_dollars %>
+    </div>
+  </div>
 
-    <div class="loan-box-footer lender col-xs-6">
-      <div class="row">
-        <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br> days</div>
-        <div class="remaining col-md-3 col-sm-3 col-xs-3"><strong>Remaining:</strong></br> %></div>
-        <div class="form-actions">
-          <%= link_to 'Cancel', contribution_cancel_path(contribution),
-            :method => 'post',
-            :data => { :confirm => 'Are you sure?' },
-            :class => 'btn btn-danger' %>
-        </div>
-      </div>
-      <div class="cart-total">
-        <%= number_to_currency(@contribtuion_total) %> TOTAL
-      </div>
+  <div class="lender-analytics col-xs-4">
+    <div class="lender-currency">
+      <%= number_to_currency(contribution.amount.to_i/100) %>
+    </div>
+    <div class="lender-status">
+      <%= contribution.status.capitalize %>
+    </div>
+    <div class="lender-expires-remains">
+      <strong>Expires in:</strong></br> days</div>
+      <strong>Remaining:</strong></br> %></div>
+    </div>
+    <div class="lender-cancel">
+      <%= link_to 'Cancel', contribution_cancel_path(contribution),
+        :method => 'post',
+        :data => { :confirm => 'Are you sure?' },
+        :class => 'btn-xs btn-danger' %>
+    </div>
+    <div class="lender-total">
+      <%= number_to_currency(@contribtuion_total) %> TOTAL
     </div>
   </div>
 </div>

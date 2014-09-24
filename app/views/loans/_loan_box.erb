@@ -1,8 +1,8 @@
 <% loan_ids = cart.contributions.map {|contribution| contribution.loan_id} %>
 <% if loan_ids.include?(loan.id) %>
-<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12" style="opacity: 0.25;">
+<div class="loan-box col-lg-3 col-md-3 col-sm-4 col-xs-12" style="opacity: 0.25;">
 <% else %>
-<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12">
+<div class="loan-box col-lg-3 col-md-3 col-sm-4 col-xs-12">
 <% end %>
   <div class="loan-box-insides">
     <%= link_to loan do %>
@@ -12,7 +12,7 @@
           <strong><%= truncate(loan.title, :length => 20) %></strong>
         </div>
         <div class="loan-description">
-          <%= truncate(loan.description, :length => 250) %>
+          <%= truncate(loan.description, :length => 200) %>
         </div>
     <% end %>
   </div>
@@ -25,7 +25,7 @@
       <div class="row">
         <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br><%= (loan.requested_by - Date.today).to_i %> days</div>
         <div class="remaining col-md-3 col-sm-3 col-xs-3"><strong>Remaining:</strong></br><%= number_to_currency(loan.pending/100) %></div>
-        <div class="add-loan col-md-5 col-sm-4 col-xs-5">
+        <div class="add-loan col-md-4 col-sm-4 col-xs-5">
           <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
             <%= f.hidden_field :loan_id, value: loan.id %>
             <%= f.hidden_field :quantity, value: 1 %>

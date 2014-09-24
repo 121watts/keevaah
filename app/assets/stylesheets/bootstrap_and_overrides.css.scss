@@ -113,47 +113,6 @@ a{
 }
 ////////////////////// LOAN BOXES///////////////////////////////
 
-
-
-// // NAVBAR //
-//
-  // $navbar-height: 75px;
-  // $navbar-inverse-bg: #F8F8FF;
-  // $navbar-inverse-bc: #F8F8FF;
-  // $navbar-inverse-link-color: #000;
-  // $navbar-inverse-brand-color: #000;
-//
-//
-// .navbar-brand {
-//   font-weight: bold;
-//   font-size: 43px;
-//   vertical-align: middle;
-//   line-height: 20px;
-//   padding: 27.5px 15px;
-// }
-//
-// .navbar-inverse{
-//   border-bottom-width: 0px;
-// }
-//
-// .navbar-fixed-top{
-//   border-width: 0 0 0px;
-// }
-//
-// .navbar-fixed-top-border{
-//   border-width: 0 0 15px;
-// }
-//
-// .brand-text {
-//   font-family: 'Aclonica', sans-serif;
-// }
-//
-// #mini-keevahh-logo{
-//   margin-top: -10px;
-// }
-//
-
-
 // .page-border {
 //   background-color: white;
 //   border: 3px solid #024;
@@ -305,20 +264,20 @@ a{
 // }
 //
 // // FOOTER //
-// .footer {
-//   clear: both;
-//   margin-top: 50px;
-//   padding: 10px;
-//   background-color: #aaa;
-//   color: white;
-//   text-align: center;
-//   width: 100%;
-//   height: 45px;
-// }
-//
-// #turing-link {
-//   color: #eee;
-// }
+.footer {
+  clear: both;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #aaa;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 45px;
+}
+
+#turing-link {
+  color: #eee;
+}
 //
 // // IMPORTS //
 // @import "bootstrap-sprockets";

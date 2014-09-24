@@ -6,7 +6,7 @@
 
   <div class="lender-info col-xs-6">
     <div class="lender-title">Loan Title:
-      <strong> <%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
+      <strong> <%= link_to contribution.loan.title, loan_path(contribution.loan_id) %></strong>
     </div>
     <div class="lender-description">Loan Description:
       <%= contribution.loan.description %>

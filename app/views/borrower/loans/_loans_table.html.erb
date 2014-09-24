@@ -8,18 +8,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= link_to loan.title, borrower_loan_path(loan) %></td>
-      <td><%= loan.description %></td>
-      <td><%= loan.display_categories %></td>
-      <td><%= loan.unit_price_dollars %></td>
-      <td>
-        <%= link_to 'Edit', edit_borrower_loan_path(loan), :class => 'btn btn-primary' %>
-        <%= link_to 'Cancel', borrower_loan_path(loan),
-          :method => :delete,
-          :data => { :confirm => 'Are you sure?' },
-          :class => 'btn btn-mini btn-danger' %>
-      </td>
+    <%= @loans.each do |loan| %>
+      <tr>
+        <td><%= link_to loan.title, borrower_loan_path(loan) %></td>
+        <td><%= loan.description %></td>
+        <td><%= loan.display_categories %></td>
+        <td><%= loan.unit_price_dollars %></td>
+        <td>
+          <%= link_to 'Edit', edit_borrower_loan_path(loan), :class => 'btn btn-primary' %>
+          <%= link_to 'Cancel', borrower_loan_path(loan),
+            :method => :delete,
+            :data => { :confirm => 'Are you sure?' },
+            :class => 'btn btn-mini btn-danger' %>
+        </td>
+      <% end %>
     </tr>
   </tbody>
 </table>

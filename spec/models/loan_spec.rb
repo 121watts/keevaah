@@ -68,7 +68,7 @@ RSpec.describe Loan, type: :model  do
 
 		it "changes from request to fulfilled when the contributions equal request amount" do
 			assert loan.request?
-			Contribution.create!(loan_id: 1, amount: 77500)
+			Contribution.create!(loan_id: 1, amount: 77500, status: "paid")
 			assert_equal 0, loan.pending
 			assert loan.fulfilled?
 		end

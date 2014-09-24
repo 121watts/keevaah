@@ -51,8 +51,8 @@ class Loan < ActiveRecord::Base
 	end
 
 	def contributed
-		if self.contributions.find_by(status: "paid")
-			self.contributions.find_by(status: "paid").inject(0) { |i, contribution| i += contribution.amount.to_i }
+		if self.contributions.where(status: "paid")
+			self.contributions.where(status: "paid").inject(0) { |i, contribution| i += contribution.amount.to_i }
 		else
 			0
 		end

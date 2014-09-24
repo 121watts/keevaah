@@ -1,6 +1,6 @@
 <div class="page-border">
   <h1 class="col-md-12 dashboard"><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h1>
-  <% if current_user.loans %>
+  <% if current_user.loans.any? %>
     <h3>Loans</h3>
       <table class="table table-striped">
         <thead>

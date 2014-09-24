@@ -1,5 +1,11 @@
 require 'simplecov'
-SimpleCov.start
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+SimpleCov.start do
+  add_filter '/config/*'
+  add_filter '/vendor/'
+  add_filter '/helpers/*'
+end
 RSpec.configure do |config|
 
   config.mock_with :rspec do |c|

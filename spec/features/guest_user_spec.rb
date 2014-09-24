@@ -63,7 +63,7 @@ describe 'user experience' do
     end
 
     it 'cannot backdoor to borrower pages' do
-      visit borrower_loans_path
+      visit borrower_path
       expect(current_path).to eq(login_path)
     end
 

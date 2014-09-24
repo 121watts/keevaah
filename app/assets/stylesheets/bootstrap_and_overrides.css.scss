@@ -42,6 +42,9 @@ $body-bg: white;
 
 .nav-tabs > li > a {
   margin-right: 0px;
+  :hover{
+    color: #5cb85c;
+  }
 }
 
 ////////////////////// LOAN BOXES///////////////////////////////
@@ -116,48 +119,6 @@ a{
   background: #5cb85c;
 }
 ////////////////////// LOAN BOXES///////////////////////////////
-
-
-
-
-// // NAVBAR //
-//
-  // $navbar-height: 75px;
-  // $navbar-inverse-bg: #F8F8FF;
-  // $navbar-inverse-bc: #F8F8FF;
-  // $navbar-inverse-link-color: #000;
-  // $navbar-inverse-brand-color: #000;
-//
-//
-// .navbar-brand {
-//   font-weight: bold;
-//   font-size: 43px;
-//   vertical-align: middle;
-//   line-height: 20px;
-//   padding: 27.5px 15px;
-// }
-//
-// .navbar-inverse{
-//   border-bottom-width: 0px;
-// }
-//
-// .navbar-fixed-top{
-//   border-width: 0 0 0px;
-// }
-//
-// .navbar-fixed-top-border{
-//   border-width: 0 0 15px;
-// }
-//
-// .brand-text {
-//   font-family: 'Aclonica', sans-serif;
-// }
-//
-// #mini-keevahh-logo{
-//   margin-top: -10px;
-// }
-//
-
 
 // .page-border {
 //   background-color: white;
@@ -308,19 +269,32 @@ a{
 // .form-title {
 //   font-size: 18px;
 // }
-
-// FOOTER //
+//
+// // FOOTER //
 .footer {
-	clear: both;
-	margin-top: 50px;
-	padding: 10px;
-	background-color: #aaa;
-	color: white;
-	text-align: center;
-	width: 100%;
-	height: 45px;
+  clear: both;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #aaa;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 45px;
 }
 
 #turing-link {
-	color: #eee;
+  color: #eee;
 }
+// .dashboard{
+//   text-align: center;
+// }
+// .page-header{
+//   padding-bottom: 0px;
+// }
+//
+// #minimum-monthly-payment{
+//   color: red;
+// }
+//
+//
+  

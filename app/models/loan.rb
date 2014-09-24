@@ -18,8 +18,8 @@ class Loan < ActiveRecord::Base
 
 	has_attached_file :image,
 										styles: {:medium => "340x340#", :small => "150x150#", :thumb => "100x100#"},
-										default_url: " q/assets/images/happy-borrower.jpg",
-										storage: :s3,
+										# default_url: "/assets/images/happy-borrower.jpg",
+										default_url: "http://s3.amazonaws.com/Keevaah_seed_photos/seed/loan_1.jpg",
                    	s3_credentials: { :access_key_id => ENV['S3_KEY'],
 															  			:secret_access_key => ENV['S3_SECRET']},
 										bucket: ENV['AWS_BUCKET']

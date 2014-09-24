@@ -111,14 +111,18 @@ a{
   height: 15px;
   border-radius: 25px;
   margin-bottom: 10px;
+
 }
 
 .progress-bar{
   font-size: 10px;
   line-height: 15px;
-  background: #5cb85c;
+  min-width: 20px;
 }
 ////////////////////// LOAN BOXES///////////////////////////////
+#cart-total {
+  color: #d9534f;
+}
 
 // .page-border {
 //   background-color: white;
@@ -218,9 +222,7 @@ a{
 //   display: inline;
 // }
 //
-// #cart-total {
-//   color: red;
-// }
+
 //
 // #checkout-button {
 //   text-align:center;
@@ -297,4 +299,3 @@ a{
 // }
 //
 //
-  

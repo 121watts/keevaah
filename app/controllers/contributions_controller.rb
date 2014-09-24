@@ -33,7 +33,6 @@ class ContributionsController < ApplicationController
   end
 
   def confirmation
-    # binding.pry
     @contributions = cart.contributions
     @suggestions = Loan.last(3)
     # session[:cart_id] = nil

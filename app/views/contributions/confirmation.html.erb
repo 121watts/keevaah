@@ -22,7 +22,7 @@
           <td><%= link_to (image_tag(contribution.loan.image.url(:small))), loan_path(contribution.loan) %></td>
           <td><%= link_to "#{contribution.loan.title}", loan_path(contribution.loan) %></td>
           <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
-          <td><div class="progress-big">
+          <td><div class="progress">
             <div class="progress-bar progress-bar-success"
               role="progressbar"
               aria-valuenow="60"
@@ -49,8 +49,13 @@
         </tr>
       </table>
     <div id="checkout-button"><%= link_to "Home", root_path, class: 'btn btn-info' %></div>
-    <div class="loans transitions-enabled">
-      <%= render partial: 'loan_box', collection: @loans, as: :loan %>
+
+    <div id="MOAR-LOANS">
+      <h1>Feeling good?</h1>
+      <h3>Based on your recent generocity, you might like to contribute to these other loans:</h3>
+      <div class="loans transitions-enabled">
+        <%= render partial: 'loan_box', collection: @suggestions, as: :loan %>
+      </div>
     </div>
 
 

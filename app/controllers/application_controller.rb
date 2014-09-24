@@ -12,8 +12,18 @@ class ApplicationController < ActionController::Base
     current_user && current_user.role == 'borrower'
   end
 
+  def is_lender?
+    current_user && current_user.role == 'lender'
+  end
+
   def check_user
     unless current_user
+      login_with_flash
+    end
+  end
+
+  def check_lender
+    unless is_lender?
       login_with_flash
     end
   end

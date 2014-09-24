@@ -32,17 +32,16 @@ context 'as a registered borrower without a loan' do
 
     it 'can create a loan' do
       click_link "Apply For A New Loan"
-      fill_in "Title", with: "Buy a Sheep"
-      fill_in "Description", with: "Need to buy a sheep for wool"
-      fill_in "Amount", with: "800"
-      fill_in "Requested by", with: "2014-09-10"
-      fill_in "Repayments begin", with: "2015-09-10"
-      fill_in "Monthly payment", with: "100"
+			fill_in "loan[title]", with: "Buy a Sheep"
+			fill_in "loan[description]", with: "Need to buy a sheep for wool"
+			fill_in "loan[amount]", with: "800"
+			fill_in "loan[requested_by]", with: "2014-09-10"
+			fill_in "loan[repayments_begin]", with: "2015-09-10"
+			fill_in "loan[monthly_payment]", with: "100"
       select("#{@category.name}", :from => 'loan_categories')
-      click_button "Create loan"
-      expect(current_path).to eq(borrower_loans_path)
+      click_button "Submit"
+      expect(current_path).to eq(borrower_path)
       expect(page).to have_content 'Buy a Sheep'
-      expect(page).to have_content "Need to buy a sheep for wool"
       click_link("Keevahh")
       expect(current_path).to eq(root_path)
       expect(page).to have_content 'Buy a Sheep'
@@ -50,7 +49,7 @@ context 'as a registered borrower without a loan' do
     end
 
     it 'can edit account info' do
-      click_on "Edit My Profile"
+      click_on "Edit Profile"
       fill_in 'First name', with: 'Carlos'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
@@ -63,19 +62,11 @@ context 'as a registered borrower without a loan' do
     context 'after creating a loan' do
       before(:each) do
         @loan = create(:loan)
-        visit borrower_loans_path
-      end
-      it 'can see created loans on the borrower dashboard' do
-        expect(page).to have_content(@loan.title)
-        expect(page).to have_content(@loan.description)
-        expect(page).to have_content(@loan.progress)
-        expect(page).to have_content($500)
+        visit borrower_path
       end
 
-      it 'can view loan requests' do
-        click_link("Request")
+      it 'can see created loans on the borrower dashboard' do
         expect(page).to have_content(@loan.title)
-        expect(page).to have_content(@loan.description)
         expect(page).to have_content(@loan.progress)
         expect(page).to have_content($500)
       end
@@ -90,19 +81,6 @@ context 'as a registered borrower without a loan' do
         expect(page).to have_content(@loan.repayments_begin)
         expect(page).to have_content(@loan.monthly_payment_in_dollars)
         expect(page).to have_content(@loan.aasm_state)
-      end
-
-      it 'can edit a loan' do
-        click_link("Edit")
-        fill_in "Title", with: "Buy Pigs"
-        fill_in "Description", with: "Bacon YuMM!"
-        fill_in "Amount", with: "800"
-        click_button "Update Loan"
-        expect(current_path).to eq(borrower_loans_path)
-        expect(page).to have_content 'Buy Pigs'
-        expect(page).to have_content "Bacon YuMM!"
-        expect(page).not_to have_content 'Buy pigs for breeding and then selling'
-        expect(page).not_to have_content "Freddy Francisco Senior"
       end
 
       it 'can cancel a loan request' do
@@ -126,45 +104,15 @@ let(:borrower) { create(:borrower) }
 
   it 'can see list of thier loan(s) on the borrower dashboard' do
     expect(page).to have_content(@loan.title)
-    expect(page).to have_content(@loan.description)
     expect(page).to have_content(@loan.progress)
     expect(page).to have_content($500)
   end
 
-  it 'can view loan requests' do
+  it 'can view loans by status' do
     @loan = create(:loan)
-    click_link("Request")
+    expect(page).to have_content(@loan.aasm_state.capitalize)
     expect(page).to have_content(@loan.title)
-    expect(page).to have_content(@loan.description)
     expect(page).to have_content(@loan.progress)
-    expect(page).to have_content($500)
-  end
-
-  it 'can view fulfilled loans' do
-    @loan.fulfill
-    click_link("Fulfilled")
-    expect(page).to have_content(@loan.title)
-    expect(page).to have_content(@loan.description)
-    expect(page).to have_content(@loan.progress)
-    expect(page).to have_content($500)
-  end
-
-  it 'can view loans in repayment' do
-    @loan.fulfill
-    @loan.start_repay
-    click_link("Repayment")
-    expect(page).to have_content(@loan.title)
-    expect(page).to have_content(@loan.description)
-    expect(page).to have_content($500)
-  end
-
-  it 'can view loans that have been repaid' do
-    @loan.fulfill
-    @loan.start_repay
-    @loan.pay_off
-    click_link("Repaid")
-    expect(page).to have_content(@loan.title)
-    expect(page).to have_content(@loan.description)
     expect(page).to have_content($500)
   end
 
@@ -187,7 +135,7 @@ let(:borrower) { create(:borrower) }
   end
 
   it 'can edit account info' do
-    click_on "Edit My Profile"
+    click_on "Edit Profile"
     fill_in 'First name', with: 'Carlos'
     fill_in 'Password', with: '123'
     fill_in 'Password confirmation', with: '123'

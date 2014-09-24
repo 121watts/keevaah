@@ -8,9 +8,10 @@
         <th>Loan</th>
         <th></th>
         <th>     </th>
-        <th>Amount Contributed</th>
-        <th>Percentage Bar</th>
-        <th>Update Amount</th>
+        <th>Percentage Complete</th>
+        <th>Contribution Amount</th>
+        <th></th>
+        <th></th>
       </tr>
       <% if @contributions.any? %>
         <%= cart_form.fields_for :contributions do |contribution_fields| %>
@@ -23,26 +24,29 @@
               <div class="loan-box">
                 <%= link_to loan_path(contribution_fields.object.loan) do %>
                   <div class="loan-description"><%= contribution_fields.object.loan.title %></div><br/>
-                  <div class="loan-amount"><strong><%= number_to_currency(contribution_fields.object.loan.contributed/100) %></strong> out of <strong><%= number_to_currency(contribution_fields.object.loan.amount/100) %></strong> contributed</div><br/>
+                  <div class="loan-amount"><strong><%= number_to_currency(contribution_fields.object.loan.contributed/100) %></strong> out of <strong><%= number_to_currency(contribution_fields.object.loan.amount/100) %></strong> contributed so far</div><br/>
                 <% end %>
               </div>
             </td>
             <td>
 
             </td>
-            <td class="col-md-2">
-              <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
-            </td>
             <td class="col-md-4">
               <div class="progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=contribution_fields.object.loan.progress%>%;"><%=contribution_fields.object.loan.progress%>%</div>
                 <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=contribution_fields.object.progress %>%;"><%=contribution_fields.object.progress%>%</div>
               </div>
+              <div>This loan with be <strong><%=contribution_fields.object.progress%>%</strong> complete with your contribution</div>
             </td>
-            <td class="col-md-3"><%= cart_form.submit class: 'btn btn-warning btn-add-loan btn-sm'  %></td>
+            <td class="col-md-2" id="contribution_amount">
+              <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
+            </td>
+            <td></td>
+            <td class="col-md-3 "><%= cart_form.submit class: 'btn btn-warning btn-sm'  %></td>
           </tr>
         <% end %>
         <tr>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>

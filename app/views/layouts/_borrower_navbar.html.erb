@@ -17,9 +17,11 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	        <li><%= link_to "My Dashboard", borrower_path %></li>
+	        <li><%= link_to "Apply For A New Loan", new_borrower_loan_path %></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <% if current_user %>
+						<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
             <li><%= link_to "Logout", logout_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Login", login_path %></li>

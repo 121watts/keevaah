@@ -2,36 +2,26 @@
   <div class="container" style="width: 100%">
     <%= link_to "<< Back to Menu", root_path %>
     <span id="my-cart-title"><h2>My Cart</h2></span>
+    <%= form_for(cart, url: cart_path, method: :put) do |cart_form| %>
     <table class="table table-striped">
       <tr>
         <th>Title</th>
         <th>Amount Contributed</th>
-        <th>Loan Amount</th>
-        <th>Remove?</th>
+        <th>Max Contribution</th>
+        <th>Update Amount</th>
       </tr>
       <% if @contributions.any? %>
-        <% @contributions.each do |contribution| %>
+          <%= cart_form.fields_for :contributions do |contribution_fields| %>
+          <% contribution_decorator = ContributionDecorator.new(contribution_fields.object) %>
           <tr>
-            <td><%= contribution.loan.title %></td>
+            <td><%= contribution_fields.object.loan.title %></td>
             <td>
-             <select>
-                <option><%= number_to_currency(contribution.amount.to_i/100) %></option>
-                  <% contribution_int = contribution.amount.to_i  %>
-                <% until contribution_int == contribution.loan.pending do %>
-                  <% contribution_int = contribution_int + 2500 %>
-                <option><%= number_to_currency(contribution_int/100) %></option>
-                <% end %>
-              </select>
+              <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
             </td>
-            <td><%= contribution.loan.amount_in_dollars %></td>
-            <td>
-              <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>
-                <%= f.hidden_field :contribution_id, value: contribution.id %>
-                <%= f.submit "Remove", class: "btn btn-danger" %>
-              <% end %>
-            </td>
+            <td><%= contribution_fields.object.loan.pending %></td>
+            <td><%= cart_form.submit %></td>
           </tr>
-        <% end %>
+          <% end %>
         <tr>
           <td></td>
           <td></td>
@@ -39,14 +29,11 @@
           <td><span id="cart-total"><%= number_to_currency(cart.total) %> TOTAL</span></td>
           <td></td>
         </tr>
+      </table>
+            <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success' %></div>
       <% else %>
-        <tr>
           <td colspan="5" style="text-align:center;">Your cart is empty.</td>
-        </tr>
       <% end %>
-    </table>
-    <% if @contributions.any? %>
-      <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success center' %></div>
-    <% end %>
+  <% end %>
   </div>
 </div>

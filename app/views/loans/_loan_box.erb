@@ -26,12 +26,14 @@
         <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br><%= (loan.requested_by - Date.today).to_i %> days</div>
         <div class="remaining col-md-3 col-sm-3 col-xs-3"><strong>Remaining:</strong></br><%= number_to_currency(loan.pending/100) %></div>
         <div class="add-loan col-md-5 col-sm-4 col-xs-5">
-          <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
-            <%= f.hidden_field :loan_id, value: loan.id %>
-            <%= f.hidden_field :quantity, value: 1 %>
-            <%= button_tag type: 'submit', class: 'btn btn-success btn-add-loan btn-sm' do %>
-              <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
+          <% unless current_user && current_user.role == "borrower" %>
+            <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
+              <%= f.hidden_field :loan_id, value: loan.id %>
+              <%= f.hidden_field :quantity, value: 1 %>
+              <%= button_tag type: 'submit', class: 'btn btn-success btn-add-loan btn-sm' do %>
+                <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
             <% end %>
+          <% end %>
           <% end %>
         </div>
       </div>

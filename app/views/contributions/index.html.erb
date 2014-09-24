@@ -8,9 +8,12 @@
         <%= current_user.email %>
       </div>
     </div>
-  <div class="col-md-12">
-      <div class="loans transitions-enabled">
-        <%= render partial: 'loan_box', collection: @contributions, as: :contribution %>
-      </div>
+  <div class="lender col-xs-12">
+    <div class="loans transitions-enabled">
+      <%= render partial: 'lender_box', collection: @contributions, as: :contribution %>
+    </div>
+  </div>
+  <div class="lender-total col-xs-12">TOTAL:
+    <%= number_to_currency(@contribtuion_total) %>
   </div>
 </div>

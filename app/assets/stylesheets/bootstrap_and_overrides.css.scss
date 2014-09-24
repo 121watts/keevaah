@@ -117,6 +117,9 @@ a{
 
 
 ////////////////////// LOAN BOXES///////////////////////////////
+.lender{
+  padding-bottom: 5%;
+}
 .lender-box{
 
 }
@@ -130,27 +133,45 @@ a{
 }
 
 .lender-title{
-
+  color: black;
 }
 
 .lender-description{
-
+  font-family: inherit;
+  font-size: smaller;
 }
 
 .lender-unit-price{
+  color: forestgreen;
+}
 
+.lender-status{
+  color: chocolate;
 }
 
 .lender-currency{
+  color: forestgreen;
+}
+
+.lender-expires{
+  color: blueviolet;
+}
+
+.lender-remaining{
+  color: darkseagreen;
+}
+
+.lender-cancel{
 
 }
 
-.lender-expires-remains{
-
-}
-
-.lender-total-cancel{
-
+.lender-total{
+  padding-left: 42%;
+  font-weight: 300;
+  font-family: sans-serif;
+  font: -webkit-xxx-large;
+  font-size: xx-large;
+  color: darkgreen;
 }
 
 

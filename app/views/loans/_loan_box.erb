@@ -1,37 +1,39 @@
 <% loan_ids = cart.contributions.map {|contribution| contribution.loan_id} %>
 <% if loan_ids.include?(loan.id) %>
-<div class="loan-box col-md-3" style="opacity: 0.25;">
+<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12" style="opacity: 0.25;">
 <% else %>
-<div class="loan-box col-md-3">
+<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12">
 <% end %>
-  <div class="loan-box-description">
-    <%= image_tag loan.image.url(:small), class: "loan-image" %><br/>
-    <div>
-      <div class="loan-title">
-          <%= link_to loan do %>
+  <div class="loan-box-insides">
+    <%= link_to loan do %>
+      <%= image_tag loan.image.url(:small), class: "loan-image" %><br/>
+      <div class="loan-box-text">
+        <div class="loan-title">
           <strong><%= truncate(loan.title, :length => 20) %></strong>
-        <% end %>
-      </div>
-      <div class="loan-description">
-        <%= truncate(loan.description, :length => 250) %>
-      </div>
-    </div>
+        </div>
+        <div class="loan-description">
+          <%= truncate(loan.description, :length => 250) %>
+        </div>
+    <% end %>
+  </div>
 
 
-    <div class="loan-box-price">
+    <div class="loan-box-footer">
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=loan.progress%>%;"><%=loan.progress%>%</div>
       </div>
-      <div class="days_left">This loan expires in <%= (loan.requested_by - Date.today).to_i %> days</div>
-      <div class="remaining"><%= number_to_currency(loan.pending/100) %> Remaining</div>
-      <div class="add-loan">
-        <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
-          <%= f.hidden_field :loan_id, value: loan.id %>
-          <%= f.hidden_field :quantity, value: 1 %>
-          <%= button_tag type: 'submit', class: 'btn btn-primary btn-add-loan' do %>
-            <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
+      <div class="row">
+        <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br><%= (loan.requested_by - Date.today).to_i %> days</div>
+        <div class="remaining col-md-3 col-sm-3 col-xs-3"><strong>Remaining:</strong></br><%= number_to_currency(loan.pending/100) %></div>
+        <div class="add-loan col-md-5 col-sm-4 col-xs-5">
+          <%= form_for(:cart, url: cart_path, method: :put) do |f| %>
+            <%= f.hidden_field :loan_id, value: loan.id %>
+            <%= f.hidden_field :quantity, value: 1 %>
+            <%= button_tag type: 'submit', class: 'btn btn-success btn-add-loan btn-sm' do %>
+              <span class='glyphicon glyphicon glyphicon-globe'></span> Loan Now
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

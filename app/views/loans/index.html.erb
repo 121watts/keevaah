@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <ul class="nav nav-tabs" role="tablist">
     <% @categories.each_with_index do |category, i| %>
-      <li class="<%= i==0 ? 'active' : '' %>">
+      <li class="category-tabs<%= i==0 ? ' active' : '' %>">
         <a class="tab-control" href="#tab-<%=i + 1 %>"><%= category.name%></a>
       </li>
     <% end %>

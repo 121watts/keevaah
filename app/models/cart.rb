@@ -1,6 +1,8 @@
 class Cart < ActiveRecord::Base
-  
+
   has_many :contributions
+
+  accepts_nested_attributes_for :contributions
 
   def add_contribution(contribution)
     if validate_contribution?(contribution)

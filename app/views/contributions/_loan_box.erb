@@ -1,10 +1,10 @@
 <% cart.contributions.map {|contribution| contribution.loan_id} %>
 <div class="lender-box col-xs-12">
-  <div class="lender-image col-xs-4">
+  <div class="lender-image col-xs-2">
       <%= image_tag contribution.loan.image.url(:small), class: "lender-image" %><br/>
   </div>
 
-  <div class="lender-info col-xs-4">
+  <div class="lender-info col-xs-3">
     <div class="lender-title">
       <strong>Loan Title: <%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
     </div>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="lender-analytics col-xs-4">
+  <div class="lender-analytics col-xs-3">
     <div class="lender-currency">
       <%= number_to_currency(contribution.amount.to_i/100) %>
     </div>
@@ -27,14 +27,15 @@
       <strong>Expires in:</strong></br> days</div>
       <strong>Remaining:</strong></br> %></div>
     </div>
-    <div class="lender-cancel">
+  </div>
+
+  <div class="lender-total-cancel col-xs-4">
+    <%= number_to_currency(@contribtuion_total) %> TOTAL
+    <div>
       <%= link_to 'Cancel', contribution_cancel_path(contribution),
         :method => 'post',
         :data => { :confirm => 'Are you sure?' },
         :class => 'btn-xs btn-danger' %>
-    </div>
-    <div class="lender-total">
-      <%= number_to_currency(@contribtuion_total) %> TOTAL
     </div>
   </div>
 </div>

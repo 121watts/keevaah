@@ -1,4 +1,4 @@
-<h1>CHECKOUT PAGE!</h1>
+<h1>Confirmation and Payment</h1>
 
 
 
@@ -7,37 +7,71 @@
   <tr>
     <th></th>
     <th>Loan Name</th>
-    <th>Loan Amount</th>
-    <th>Contribution Amount</th>
     <th></th>
+    <th>Contribution Amount</th>
   </tr>
   <% for contribution in @contributions %>
     <tr>
       <td><%= hidden_field_tag "contribution_ids[]", contribution.id %></td>
       <td><%=h contribution.loan.title %></td>
-      <td><%=h number_to_currency contribution.loan.amount.to_i/100 %></td>
+      <td><%= %></td>
       <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
     </tr>
     <% end %>
     <tr>
       <td></td>
       <td></td>
-      <td>TOTAL:</td>
+      <td> <strong>TOTAL:</strong> </td>
       <td class="cart-total"><%= number_to_currency cart.total %></td>
     </tr>
 </table>
-<div class="col-md-5">
+<div class="col-md-8 pull-left">
+  <p>
+    Your contribution is the best. You are helping this person immensely. I hope this helps you assuage your white guilt. Have a nice day!
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper quis erat id pharetra. Donec vel augue varius, elementum est ac, interdum metus. Aenean eget quam vel felis tristique ultrices. In auctor ante eget augue tincidunt fringilla. Aenean malesuada tellus eget massa lobortis, nec feugiat dui imperdiet. Quisque tincidunt sagittis eros, vitae faucibus purus faucibus et. Nullam varius a metus vel volutpat. Praesent nec semper magna. Etiam cursus nisi nec urna condimentum auctor.
+  </p>
+  <p>
+    Aliquam non turpis dapibus, volutpat augue ac, iaculis velit. Curabitur auctor eget enim a luctus. Nullam tincidunt nunc et lectus malesuada cursus. Quisque id urna erat. Fusce posuere quam risus, vitae facilisis tellus placerat at. Nulla tortor felis, mattis ut nulla eu, rutrum accumsan sapien. Nullam fringilla lectus eget ultrices tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur diam libero, placerat at sem id, rhoncus consectetur odio. Phasellus vestibulum posuere ante a rutrum. Donec sit amet nulla sed nunc mattis ornare quis eu purus. Morbi bibendum tincidunt orci, et vulputate enim tincidunt eu. Nulla vitae feugiat massa. Morbi finibus mollis tortor vel finibus.
+  </p>
+</div>
+<div class="col-md-4 pull-right">
   <%= hidden_field_tag :stripe_card_token %>
   <div class="form-group">
-    <label for="CardCardNumber">Credit Card Number</label>
-    <%= text_field_tag 'credit_card', nil, class: "form-control", id: "credit_card", stripe: "number" %>
-    <label for="ExpirationDate">Expiration Date</label>
-    <%= text_field_tag 'exp-month', nil, class: "form-control", id: "exp-month", stripe: "number" %>
-    <%= text_field_tag 'exp-year', nil, class: "form-control", id: "exp-year", stripe: "number" %>
-    <label for="CVV">CVV</label>
-    <%= text_field_tag 'CVV', nil, class: "form-control", id: "cvv", stripe: "number" %>
+    <label for="CardCardNumber">Credit Card Number </label></br>
+    <%= text_field_tag 'credit_card', nil, class: "col-lg-6", id: "credit_card", stripe: "number" %></br><br>
+    <label for="CVV">CVV</label></br>
+    <%= text_field_tag 'CVV', nil, class: "col-lg-2", id: "cvv", stripe: "number" %></br></br>
+    <label for="ExpirationDate">Expiration Date</label></br>
+
+    <select id='month'>
+      <option value=''>--Select Month--</option>
+      <option value='1'>Janaury</option>
+      <option value='2'>February</option>
+      <option value='3'>March</option>
+      <option value='4'>April</option>
+      <option value='5'>May</option>
+      <option value='6'>June</option>
+      <option value='7'>July</option>
+      <option value='8'>August</option>
+      <option value='9'>September</option>
+      <option value='10'>October</option>
+      <option value='11'>November</option>
+      <option value='12'>December</option>
+    </select></br>
+
+    <select id='year'>
+      <option value=''> --Select Year-- </option>
+      <option value='15'>2015</option>
+      <option value='16'>2016</option>
+      <option value='17'>2017</option>
+      <option value='18'>2018</option>
+      <option value='19'>2019</option>
+      <option value='20'>2020</option>
+    </select></br></br>
+    <%= submit_tag "Checkout", class: "btn btn-primary" %>
   </div>
 </div><!-- /col-md-5 -->
 </br></br>
-<%= submit_tag "Confirm and Checkout" %>
 <% end %>

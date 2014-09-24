@@ -9,10 +9,8 @@
       </div>
     </div>
   <div class="col-md-12">
-    <% @contributions.each do |contribution| %>
       <div class="loans transitions-enabled">
         <%= render partial: 'loan_box', collection: @contributions, as: :contribution %>
       </div>
-    <% end %>
   </div>
 </div>

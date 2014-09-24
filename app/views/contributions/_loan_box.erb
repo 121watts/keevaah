@@ -1,26 +1,29 @@
 <% cart.contributions.map {|contribution| contribution.loan_id} %>
-<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12">
+<div class="loan-box col-xs-12">
   <div class="loan-box-insides">
-    <div class="loan-box-text">
-      <div class="loan-title">
-        <strong><%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
+    <div class="lender col-xs-6">
+      <%= image_tag contribution.loan.image.url(:small), class: "lender-image" %><br/>
+    </div>
+    <div class="loan-box-text col-xs-6">
+      <div class="loan-title lender">
+        <strong>Loan Title: <%= link_to contribution.loan.title, contribution_path(contribution) %></strong>
       </div>
-      <div class="loan-description">
+      <div class="loan-description lender">Loan Description:
         <%= contribution.loan.description %>
       </div>
-      <div class="loan-unit-price">
+      <div class="loan-unit-price lender">
         <%= contribution.loan.decorate.unit_price_dollars %>
       </div>
-      <div class="currency">
+      <div class="currency lender">
         <%= number_to_currency(contribution.amount.to_i/100) %>
       </div>
-      <div class="status">
+      <div class="status lender">
         <%= contribution.status.capitalize %>
       </div>
     </div>
 
 
-    <div class="loan-box-footer">
+    <div class="loan-box-footer lender col-xs-6">
       <div class="row">
         <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br> days</div>
         <div class="remaining col-md-3 col-sm-3 col-xs-3"><strong>Remaining:</strong></br> %></div>

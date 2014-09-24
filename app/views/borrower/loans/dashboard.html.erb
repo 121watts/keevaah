@@ -1,29 +1,48 @@
 <div class="page-border">
   <h1 class="col-md-12 dashboard"><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h1>
-
-  <div class="page-header">
-    <div class= "col-md-6 dashboard" id="make-a-loan">
-      <%= link_to 'Apply For A New Loan', new_borrower_loan_path, :class => 'btn btn-primary' %>
-    </div></br>
-
-    <div class = "col-md-6 dashboard">
-      <%= link_to "Edit My Profile", edit_user_path(current_user), :class => 'btn btn-primary' %><br/><br/>
-    </div>
-  </div>
-
-  <h3>Loans</h3>
-  <ul class="nav nav-tabs" role="tablist">
-    <% @loan_states.each_with_index do |state, i| %>
-      <li class="<%= i==0 ? 'active' : '' %>">
-        <a class="tab-control" href="#tab-<%=i + 1 %>"><%= state.capitalize %></a>
-      </li>
-    <% end %>
-  </ul>
-  <% @loan_states.each_with_index do |state, i| %>
-      <div class="tab-panel<%= i==0 ? ' active' : ''%>" id="tab-<%= i+1 %>">
-        <div class="loans transitions-enabled">
-          <%= render partial: 'loans_table', collection: @loans_by_state[state], as: :loan %>
-        </div>
-      </div>
+  <% if current_user.loans %>
+    <h3>Loans</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>What You Requested</th>
+            <th>Percent Contributed</th>
+            <th>What's Left</th>
+            <th>Status</th>
+            <th>Cancel?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.loans.each do |loan| %>
+            <tr>
+              <% if loan %>
+                <td><%= link_to loan.title, borrower_loan_path(loan) %></td>
+                <td><%= number_to_currency(loan.amount.to_i/100) %></td>
+                <td><%= loan.progress %> % </td>
+                <td><%= number_to_currency(loan.pending.to_i/100) %></td>
+                <td><%= loan.aasm_state.capitalize %></td>
+                <td>
+                    <%= link_to 'Cancel', borrower_loan_path(loan),
+                    method: 'delete',
+                    data: { confirm: 'Are you sure you want to cancel this loan request?' },
+                    class: 'btn btn-danger' %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+        </tbody>
+      </table>
+  <% else %>
+  <br><br><br><br>
+  <h3>You currently have no loans if you would like some money please click below</h3>
+     <br><br>
+    <%= link_to 'Apply For A New Loan', new_borrower_loan_path, :class => 'btn btn-primary' %>
   <% end %>
 </div>

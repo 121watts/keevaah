@@ -19,7 +19,7 @@ describe 'when viewing the loans' do
 			@loan = create(:loan)
 			@loan.categories << @category
 			login(email: @borrower.email, password: @borrower.password)
-			visit borrower_loans_path
+			visit borrower_path
 		end
 
 		it 'should exist' do
@@ -28,7 +28,6 @@ describe 'when viewing the loans' do
 
 		it 'should see existing loans' do
 			expect(page).to have_content @loan.title
-			expect(page).to have_content @loan.description
 		end
 
 		it 'has a link to an loan' do
@@ -39,26 +38,12 @@ describe 'when viewing the loans' do
 			click_link @loan.title
 			expect(current_path).to eq(borrower_loan_path(@loan))
 			expect(page).to have_content @loan.title
-			expect(page).to have_content @loan.description
-		end
-
-		it 'shows the category associated with an loan' do
-			visit borrower_loans_path
-			expect(page).to have_content @loan.title
-			expect(page).to have_content @category.name
 		end
 
 		it 'links successfully to loan' do
 			click_link @loan.title
 			expect(current_path).to eq(borrower_loan_path(@loan))
 			expect(page).to have_content @loan.title
-			expect(page).to have_content @loan.description
-		end
-
-		it 'shows the category associated with an loan' do
-			visit borrower_loans_path
-			expect(page).to have_content @loan.title
-			expect(page).to have_content @category.name
 		end
 
 		it 'can create a new loan' do
@@ -71,9 +56,8 @@ describe 'when viewing the loans' do
 			fill_in "loan[monthly_payment]", with: "100"
 			select("#{@category.name}", :from => 'loan_categories')
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
+			expect(current_path).to eq(borrower_path)
 			expect(page).to have_content 'Buy a Sheep'
-			expect(page).to have_content "Need to buy a sheep for wool"
 			click_link("Keevahh")
 			expect(current_path).to eq(root_path)
 			expect(page).to have_content 'Buy a Sheep'
@@ -89,7 +73,6 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: "2015-09-10"
 			fill_in "loan[monthly_payment]", with: "100"
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
@@ -102,7 +85,6 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: "2015-09-10"
 			fill_in "loan[monthly_payment]", with: "100"
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
@@ -115,7 +97,6 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: "2015-09-10"
 			fill_in "loan[monthly_payment]", with: "100"
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
@@ -128,7 +109,6 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: "2015-09-10"
 			fill_in "loan[monthly_payment]", with: "100"
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
@@ -141,7 +121,6 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: ""
 			fill_in "loan[monthly_payment]", with: "100"
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
 		end
 
@@ -154,72 +133,7 @@ describe 'when viewing the loans' do
 			fill_in "loan[repayments_begin]", with: "2015-09-10"
 			fill_in "loan[monthly_payment]", with: ""
 			click_button "Submit"
-			expect(current_path).to eq(borrower_loans_path)
 			expect(page).to have_content 'blank'
-		end
-
-
-		it 'can update an loan' do
-			visit edit_borrower_loan_path(@loan)
-			fill_in "loan[title]", with: "Fancy New Donut"
-			fill_in "loan[description]", with: "It's pretty fancy"
-			fill_in "loan[amount]", with: "800"
-			click_button "Update Loan"
-			expect(current_path).to eq(borrower_loans_path)
-			expect(page).to have_content 'Fancy New Donut'
-			expect(page).to have_content "It's pretty fancy"
-			expect(page).not_to have_content 'OMG Donut'
-			expect(page).not_to have_content "Just like, wow."
-		end
-
-		it 'cannot update a loan without a title' do
-			visit edit_borrower_loan_path(@loan)
-			fill_in "loan[title]", with: ""
-			fill_in "loan[description]", with: "It's pretty fancy"
-			fill_in "loan[amount]", with: "800"
-			click_button "Update Loan"
-			expect(current_path).to eq(borrower_loan_path(@loan))
-			expect(page).to have_content 'blank'
-		end
-
-		it 'cannot update a loan without a description' do
-			visit edit_borrower_loan_path(@loan)
-			fill_in "loan[title]", with: "Poopers"
-			fill_in "loan[description]", with: ""
-			fill_in "loan[amount]", with: "800"
-			click_button "Update Loan"
-			expect(current_path).to eq(borrower_loan_path(@loan))
-			expect(page).to have_content 'blank'
-		end
-
-		it 'cannot update a loan without a loan[amount]' do
-			visit edit_borrower_loan_path(@loan)
-			fill_in "loan[title]", with: "Poopers"
-			fill_in "loan[description]", with: "Tasty"
-			fill_in "loan[amount]", with: ""
-			click_button "Update Loan"
-			expect(current_path).to eq(borrower_loan_path(@loan))
-			expect(page).to have_content 'blank'
-		end
-
-		it 'can delete an loan' do
-			visit borrower_loan_path(@loan)
-			click_link "Delete"
-			expect(current_path).to eq(borrower_loans_path)
-			expect(page).not_to have_content "Buy a pig"
-			expect(page).not_to have_content "Need to buy a pig for ham"
-		end
-
-		it 'can edit a category' do
-			Category.create(id: 5, name: 'Testy Cat')
-			visit edit_borrower_loan_path(@loan)
-			select("Testy Cat", :from => 'loan_categories')
-			click_button("Update Loan")
-			click_link("Keevahh")
-			expect(current_path).to eq(root_path)
-			click_link('Testy Cat')
-			expect(page).to have_content 'Buy pigs'
-			expect(page).to have_content "Freddy Francisco Senior is married with four children"
 		end
 
 		it 'add new loan and is seen in newest category' do

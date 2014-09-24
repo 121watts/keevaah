@@ -10,7 +10,7 @@
             <th>Percent Contributed</th>
             <th>What's Left</th>
             <th>Status</th>
-            <th></th>
+            <th>Cancel?</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +22,12 @@
                 <td><%= loan.progress %> % </td>
                 <td><%= number_to_currency(loan.pending.to_i/100) %></td>
                 <td><%= loan.aasm_state.capitalize %></td>
+                <td>
+                    <%= link_to 'Cancel', borrower_loan_path(loan),
+                    method: 'delete',
+                    data: { confirm: 'Are you sure you want to cancel this loan request?' },
+                    class: 'btn btn-danger' %>
+                </td>
               <% end %>
             </tr>
           <% end %>

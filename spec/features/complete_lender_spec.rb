@@ -171,7 +171,7 @@ describe 'lender experience' do
       it 'is directed back to the homepage after making an order' do
         click_on "Checkout"
         click_button "Checkout"
-        expect(current_path).to eq root_path
+        expect(current_path).to eq confirmation_contributions_path
       end
     end
   end

@@ -20,7 +20,7 @@
     <dt><strong>Loan Status</strong></dt>
     <dd><%= @loan.aasm_state %></dd>
     <dt><strong>Image:</strong></dt>
-    <dd><%= image_tag @loan.image.url(:small) %></dd>
+    <dd><%= image_tag @loan.image.url(:medium) %></dd>
   </dl>
 
   <span class="add-loan">

@@ -28,5 +28,15 @@ describe 'Checking out', type: :feature do
       click_button "Login"
       expect(current_path).to eq review_contributions_path
     end
+
+    it "can check out and get a confirmation page" do
+      login(email: @lender.email, password: @lender.password)
+      visit root_path
+      click_on "Loan Now"
+      click_on "My Cart"
+      click_on "Checkout"
+      click_on "Checkout"
+      expect(current_path).to eq(confirmation_contributions_path)
+    end
   end
 end

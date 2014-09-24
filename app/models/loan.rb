@@ -18,8 +18,8 @@ class Loan < ActiveRecord::Base
 
 	has_attached_file :image,
 										styles: {:medium => "340x340#", :small => "150x150#", :thumb => "100x100#"},
-										default_url: "#{ENV['AWS_BUCKET']}/seed/loan_1.jpg",
-										storage: :s3,
+										# default_url: "/assets/images/happy-borrower.jpg",
+										default_url: "http://s3.amazonaws.com/Keevaah_seed_photos/seed/loan_1.jpg",
                    	s3_credentials: { :access_key_id => ENV['S3_KEY'],
 															  			:secret_access_key => ENV['S3_SECRET']},
 										bucket: ENV['AWS_BUCKET']
@@ -51,7 +51,11 @@ class Loan < ActiveRecord::Base
 	end
 
 	def contributed
-		self.contributions.inject(0) { |i, contribution| i += contribution.amount.to_i }
+		if self.contributions.where(status: "paid")
+			self.contributions.where(status: "paid").inject(0) { |i, contribution| i += contribution.amount.to_i }
+		else
+			0
+		end
 	end
 
 	def pending

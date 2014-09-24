@@ -29,8 +29,13 @@ class ContributionsController < ApplicationController
         contribution.update(amount: amount, loan_id: loan.id, user_id: current_user.id, status: 'paid')
       end
     end
-    session[:cart_id] = nil
-    redirect_to root_path
+    redirect_to confirmation_contributions_path
+  end
+
+  def confirmation
+    @contributions = cart.contributions
+    @suggestions = Loan.last(3)
+    # session[:cart_id] = nil
   end
 
   def confirm

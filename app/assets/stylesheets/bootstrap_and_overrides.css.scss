@@ -120,8 +120,7 @@ a{
   min-width: 20px;
 }
 
-
-////////////////////// LOAN BOXES///////////////////////////////
+//////////////////LENDER BOXES////////////////////////
 .lender{
   padding-bottom: 5%;
 }
@@ -186,6 +185,19 @@ a{
 ////////////////////// LOAN BOXES///////////////////////////////
 #cart-total {
   color: #d9534f;
+}
+#checkout-button {
+  text-align:right;
+  margin-right: 70px;
+}
+
+#delete-button{
+  margin-left:15px;
+  margin-top: 30px;
+}
+
+#update-button{
+  margin-left:15px;
 }
 
 // .page-border {
@@ -288,9 +300,7 @@ a{
 //
 
 //
-// #checkout-button {
-//   text-align:center;
-// }
+
 //
 // // CHECKOUT PAGE //
 // #order-summary {

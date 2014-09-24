@@ -5,8 +5,8 @@ describe 'when viewing the loan requests' do
 
     before(:each) do
       @category = Category.create(id: 1, name: "Ag, bro")
-      @loan = create(:loan, title: "Excitement")
-      @loan2 = create(:loan, title: "Loan 2")
+      @loan = create(:loan, title: "Loan 1")
+      @loan2 = create(:loan, title: "SDAFFSADGSD")
       @category.loans << @loan
       @category.loans << @loan2
 
@@ -28,10 +28,10 @@ describe 'when viewing the loan requests' do
     end
 
     it 'links successfully to the loan' do
-      click_link "#{@loan.title}"
-      expect(current_path).to eq(loan_path(@loan))
-      expect(page).to have_content "#{@loan.title}"
-      expect(page).to_not have_content "#{@loan2.title}"
+      click_link "#{@loan2.title}"
+      expect(current_path).to eq(loan_path(@loan2))
+      expect(page).to have_content "#{@loan2.title}"
+      expect(page).to_not have_content "#{@loan.title}"
     end
 
     it "lists remaining dollars until loan fulfillment" do

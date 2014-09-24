@@ -29,7 +29,7 @@ class Borrower::LoansController < BorrowersController
 		@loan = current_user.loans.new(loan_params)
 		if @loan.save
 			@loan_category = LoanCategory.create(loan_id: @loan.id, category_id: params[:loan][:categories])
-			redirect_to borrower_loans_path
+			redirect_to borrower_path
 		else
 			render :new
 		end
@@ -44,7 +44,7 @@ class Borrower::LoansController < BorrowersController
     @loan = current_user.loans.find(params[:id]).decorate
 		if @loan.update(loan_params)
 			@loan_category = LoanCategory.create(loan_id: @loan.id, category_id: params[:loan][:categories])
-			redirect_to borrower_loans_path
+			redirect_to borrower_path
 		else
 			render :edit
 		end
@@ -59,16 +59,16 @@ class Borrower::LoansController < BorrowersController
 	def destroy
 		if current_user.loans.find_by(id: params[:id], aasm_state: "request")
 			current_user.loans.find(params[:id]).destroy
-			redirect_to borrower_loans_path
+			redirect_to borrower_path
 		else
-			redirect_to borrower_loans_path, notice: "You cannot cancel a loan that has been fulfilled"
+			redirect_to borrower_path, notice: "You cannot cancel a loan that has been fulfilled"
 		end
 	end
 
 	def retire
 		@loan = Loan.find(params[:loan_id])
 		@loan.retire
-		redirect_to borrower_loans_path
+		redirect_to borrower_path
 	end
 
 	private

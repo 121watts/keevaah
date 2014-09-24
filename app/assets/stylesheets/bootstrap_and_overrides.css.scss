@@ -59,7 +59,7 @@ $body-bg: white;
 
 
 a{
-  color: #828587
+  color: #828587;
 }
 
 .loan-box:hover{
@@ -79,6 +79,7 @@ a{
   padding: 10px;
 }
 
+
 .loan-image {
   width: 100%;
   height: 33%;
@@ -97,6 +98,9 @@ a{
   font-size: 12px;
 }
 
+.loan-amount{
+  margin-left: 3%;
+}
 
 .loan-box-footer{
   padding: 10px;
@@ -107,14 +111,18 @@ a{
   height: 15px;
   border-radius: 25px;
   margin-bottom: 10px;
+
 }
 
 .progress-bar{
   font-size: 10px;
   line-height: 15px;
-  background: #5cb85c;
+  min-width: 20px;
 }
 ////////////////////// LOAN BOXES///////////////////////////////
+#cart-total {
+  color: #d9534f;
+}
 
 // .page-border {
 //   background-color: white;
@@ -214,9 +222,7 @@ a{
 //   display: inline;
 // }
 //
-// #cart-total {
-//   color: red;
-// }
+
 //
 // #checkout-button {
 //   text-align:center;

@@ -40,4 +40,7 @@ class Contribution < ActiveRecord::Base
     total += self.amount.to_i
   end
 
+  def progress
+    ((self.amount.to_f / self.loan.amount.to_f) * 100).to_i
+  end
 end

@@ -39,7 +39,7 @@
 <div class="col-md-4 pull-right">
   <%= hidden_field_tag :stripe_card_token %>
   <div class="form-group">
-    <label for="CardCardNumber">Credit Card Number                CVV</label></br>
+    <label for="CardCardNumber">Credit Card Number </label></br>
     <%= text_field_tag 'credit_card', nil, class: "col-lg-6", id: "credit_card", stripe: "number" %></br><br>
     <label for="CVV">CVV</label></br>
     <%= text_field_tag 'CVV', nil, class: "col-lg-2", id: "cvv", stripe: "number" %></br></br>

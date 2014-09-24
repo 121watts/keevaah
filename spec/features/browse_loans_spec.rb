@@ -5,7 +5,7 @@ describe 'when viewing the loan requests' do
 
     before(:each) do
       @category = Category.create(id: 1, name: "Ag, bro")
-      @loan = create(:loan, title: "Loan 1")
+      @loan = create(:loan, title: "Excitement")
       @loan2 = create(:loan, title: "Loan 2")
       @category.loans << @loan
       @category.loans << @loan2

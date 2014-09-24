@@ -1,7 +1,4 @@
 <h1>CHECKOUT PAGE!</h1>
-
-
-
 <%= form_tag checkout_contributions_path do %>
 <table class="table table-striped order-table">
   <tr>
@@ -39,5 +36,22 @@
   </div>
 </div><!-- /col-md-5 -->
 </br></br>
-<%= submit_tag "Confirm and Checkout" %>
+<%= button_tag "Confirm and Checkout", :class => "btn btn-success btn-md", "data-target".to_sym => "#myModal", "data-toggle".to_sym => "modal"  %>
+
 <% end %>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        WHERE IN THE WORLD IS CARMEN SAN DIEGO
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

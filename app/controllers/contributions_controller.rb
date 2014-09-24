@@ -32,6 +32,12 @@ class ContributionsController < ApplicationController
     redirect_to root_path
   end
 
+  def confirm
+    @contribution = cart.contributions.last
+    # session[:cart_id] = nil
+    # redirect_to root_path
+  end
+
   def cancel
     contribution = current_user.contributions.find(params[:contribution_id])
     contribution.update_to_cancelled

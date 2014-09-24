@@ -12,6 +12,7 @@
         <th>Contribution Amount</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
       <% if @contributions.any? %>
         <%= cart_form.fields_for :contributions do |contribution_fields| %>
@@ -42,9 +43,16 @@
               <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
             </td>
             <td></td>
-            <td class="col-md-3 "><%= cart_form.submit class: 'btn btn-warning btn-sm'  %></td>
-          </tr>
+            <td class="col-md-3 "><%= cart_form.submit class: 'btn btn-warning btn-sm', id: "update-button"   %>
         <% end %>
+        <% cart.contributions.each do |contribution|%>
+            <%= link_to 'Remove from cart', contribution_path(contribution),
+          method: 'delete',
+          data: { confirm: 'Are you sure you want to cancel this loan request?' },
+          class: 'btn btn-sm btn-default', id: "delete-button" %>
+        </td>
+        <% end %>
+        </tr>
         <tr>
           <td></td>
           <td></td>

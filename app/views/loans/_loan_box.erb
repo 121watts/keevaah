@@ -6,7 +6,7 @@
 <% end %>
   <div class="loan-box-insides">
     <%= link_to loan do %>
-      <%= image_tag loan.image.url(:small), class: "loan-image" %><br/>
+      <%= image_tag loan.image.url(:medium), class: "loan-image" %><br/>
       <div class="loan-box-text">
         <div class="loan-title">
           <strong><%= truncate(loan.title, :length => 20) %></strong>

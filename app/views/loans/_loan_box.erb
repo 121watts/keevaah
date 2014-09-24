@@ -20,7 +20,7 @@
 
     <div class="loan-box-footer">
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=loan.progress%>%;"><%=loan.progress%>%</div>
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=loan.progress%>%;"><%=loan.progress%>%</div>
       </div>
       <div class="row">
         <div class="days-left col-md-4 col-sm-3 col-xs-4"><strong>Expires in:</strong></br><%= (loan.requested_by - Date.today).to_i %> days</div>

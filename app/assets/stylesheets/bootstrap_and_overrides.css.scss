@@ -126,6 +126,19 @@ a{
 #cart-total {
   color: #d9534f;
 }
+#checkout-button {
+  text-align:right;
+  margin-right: 70px;
+}
+
+#delete-button{
+  margin-left:15px;
+  margin-top: 30px;
+}
+
+#update-button{
+  margin-left:15px;
+}
 
 // .page-border {
 //   background-color: white;
@@ -227,9 +240,7 @@ a{
 //
 
 //
-// #checkout-button {
-//   text-align:center;
-// }
+
 //
 // // CHECKOUT PAGE //
 // #order-summary {

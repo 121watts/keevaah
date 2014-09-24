@@ -3,25 +3,36 @@
     <%= link_to "<< Back to Menu", root_path %>
     <span id="my-cart-title"><h2>My Cart</h2></span>
     <%= form_for(cart, url: cart_path, method: :put) do |cart_form| %>
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <tr>
-        <th>Title</th>
+        <th></th>
+        <th>Loan</th>
         <th>Amount Contributed</th>
         <th>Max Contribution</th>
         <th>Update Amount</th>
       </tr>
       <% if @contributions.any? %>
-          <%= cart_form.fields_for :contributions do |contribution_fields| %>
+        <%= cart_form.fields_for :contributions do |contribution_fields| %>
           <% contribution_decorator = ContributionDecorator.new(contribution_fields.object) %>
           <tr>
-            <td><%= contribution_fields.object.loan.title %></td>
-            <td>
+            <td class="col-md-2">
+              <%= link_to (image_tag(contribution_fields.object.loan.image.url(:small))), loan_path(contribution_fields.object.loan) %>
+            </td>
+            <td class="col-md-2">
+              <div class="loan-box">
+                <%= link_to loan_path(contribution_fields.object.loan) do %>
+                  <div class="loan-description"><%= contribution_fields.object.loan.title %></div><br/>
+                  <div class="loan-amount"><strong><%= number_to_currency(contribution_fields.object.loan.amount/100) %></strong> out of <strong><%= number_to_currency(contribution_fields.object.loan.pending/100) %></strong> </div><br/>
+                <% end %>
+              </div>
+            </td>
+            <td class="col-md-2">
               <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
             </td>
-            <td><%= contribution_fields.object.loan.pending %></td>
-            <td><%= cart_form.submit %></td>
+            <td class="col-md-2"><%= contribution_fields.object.loan.pending %></td>
+            <td class="col-md-2"><%= cart_form.submit %></td>
           </tr>
-          <% end %>
+        <% end %>
         <tr>
           <td></td>
           <td></td>

@@ -1,8 +1,8 @@
 <% loan_ids = cart.contributions.map {|contribution| contribution.loan_id} %>
 <% if loan_ids.include?(loan.id) %>
-<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12" style="opacity: 0.25;">
+<div class="loan-box col-lg-3 col-md-3 col-sm-4 col-xs-12" style="opacity: 0.25;">
 <% else %>
-<div class="loan-box col-lg-3 col-md-4 col-sm-4 col-xs-12">
+<div class="loan-box col-lg-3 col-md-3 col-sm-4 col-xs-12">
 <% end %>
   <div class="loan-box-insides">
     <%= link_to loan do %>
@@ -12,7 +12,7 @@
           <strong><%= truncate(loan.title, :length => 20) %></strong>
         </div>
         <div class="loan-description">
-          <%= truncate(loan.description, :length => 250) %>
+          <%= truncate(loan.description, :length => 200) %>
         </div>
     <% end %>
   </div>

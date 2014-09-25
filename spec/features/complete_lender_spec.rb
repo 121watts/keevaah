@@ -41,7 +41,6 @@ describe 'lender experience' do
       expect(page).to have_content(@loan.amount_in_dollars)
       expect(page).to have_content(@loan.repayments_begin)
       expect(page).to have_content(@loan.monthly_payment_in_dollars)
-      expect(page).to have_content(@loan.aasm_state)
     end
 
     it 'can add a contibution to the cart on the homepage' do
@@ -117,7 +116,6 @@ describe 'lender experience' do
       expect(page).to have_content(@loan.amount_in_dollars)
       expect(page).to have_content(@loan.repayments_begin)
       expect(page).to have_content(@loan.monthly_payment_in_dollars)
-      expect(page).to have_content(@loan.aasm_state)
     end
 
     it 'can edit account info' do

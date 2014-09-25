@@ -16,7 +16,6 @@ class ContributionsController < ApplicationController
 
   def review
     check_lender
-    # redirect_to q if current_user.nil?
     @contributions = cart.contributions
   end
 

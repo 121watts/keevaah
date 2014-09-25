@@ -30,7 +30,7 @@ describe 'when viewing the loan requests' do
     it 'links successfully to the loan' do
       click_link "#{@loan2.title}"
       expect(current_path).to eq(loan_path(@loan2))
-      expect(page).to have_content "#{@loan2.title}"
+      expect(page).to have_content "#{@loan2.title.capitalize}"
       expect(page).to_not have_content "#{@loan.title}"
     end
 

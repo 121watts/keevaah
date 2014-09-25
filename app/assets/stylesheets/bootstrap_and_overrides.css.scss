@@ -57,7 +57,6 @@ $body-bg: white;
   padding-top: 15px;
 }
 
-
 a{
   color: #828587;
 }
@@ -78,7 +77,6 @@ a{
 .loan-box-text{
   padding: 10px;
 }
-
 
 .loan-image {
   width: 100%;
@@ -119,6 +117,20 @@ a{
   line-height: 15px;
   min-width: 20px;
 }
+
+.days-left{
+  padding: 0px 0px 0px 10px;
+
+.remaining{
+  padding: 0px;
+}
+
+.add-loan{
+  padding-left: 2px;
+  padding-right: 8px;
+}
+////////////////////// LOAN BOXES///////////////////////////////
+
 
 //////////////////LENDER BOXES////////////////////////
 .lender{
@@ -181,8 +193,6 @@ a{
   color: darkgreen;
 }
 
-
-////////////////////// LOAN BOXES///////////////////////////////
 #cart-total {
   color: #d9534f;
 }
@@ -200,108 +210,33 @@ a{
   margin-left:15px;
 }
 
-// .page-border {
-//   background-color: white;
-//   border: 3px solid #024;
-//   padding: 20px;
-//   margin-top: 20px;
-//   box-shadow: 10px 10px 5px #888;
-// }
-// .search-bar {
-//   padding: 21.5px 489px;
-//   font-size: 18px;
-//   line-height: 20px;
-// }
-//
-// // LOGIN / REGISTER //
-// .login-reg-page {
-//   box-shadow: 10px 10px 5px #888;
-//   margin-top: 20px;
-// }
-//
-// #error-explanation {
-//   color: red;
-// }
-//
-// // CATEGORIES //
-//
-//
-// .header{
-//   display: flex;
-//   align-items: center;
-//   background-color: #54D359
-// }
-//
-// #header-title-left{
-//   // display: inline;
-//   // top: 50%;
-// }
-//
-// #header-title-right{
-//   // display: inline;
-//   // top: 50%;
-// }
-//
-// #logo {
-//   width: 458px;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto
-// }
-//
-// .category-name {
-//   display: block;
-//   text-align: center;
-//   margin: 25px 0 15px 0;
-//   font-weight: bold;
-//   font-size: 1.5em;
-//   color: white;
-//   width: 100%;
-//   background-color: #024;
-//   box-shadow: 10px 10px 5px #888;
-// }
-//
+#error-explanation {
+  color: red;
+}
 
+// // FOOTER //
+.footer {
+  clear: both;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: #aaa;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 45px;
+}
 
-//
+#turing-link {
+  color: #eee;
+}
+
 // .checkout {
 //   margin-top: 0.6%;
 //   box-shadow: 3px 3px 3px #888;
 //   display: inline-block;
 // }
 //
-// .btn-checkout {
-//   display: none;
-// }
-//
-// a.add-loan-text:hover {
-//   color: #000;
-//   text-decoration: none;
-// }
-//
-// // CART //
-// #my-cart-title {
-//   text-align: center;
-// }
-//
-// .quantity-buttons {
-//
-// }
-//
-// .quantity-button {
-//   margin: 3px;
-//   padding: 0;
-//   display: inline;
-// }
-//
-// .inline {
-//   display: inline;
-// }
-//
 
-//
-
-//
 // // CHECKOUT PAGE //
 // #order-summary {
 //   border: 3px solid #024;
@@ -345,31 +280,4 @@ a{
 // .form-title {
 //   font-size: 18px;
 // }
-//
-// // FOOTER //
-.footer {
-  clear: both;
-  margin-top: 50px;
-  padding: 10px;
-  background-color: #aaa;
-  color: white;
-  text-align: center;
-  width: 100%;
-  height: 45px;
-}
-
-#turing-link {
-  color: #eee;
-}
-// .dashboard{
-//   text-align: center;
-// }
-// .page-header{
-//   padding-bottom: 0px;
-// }
-//
-// #minimum-monthly-payment{
-//   color: red;
-// }
-//
 //

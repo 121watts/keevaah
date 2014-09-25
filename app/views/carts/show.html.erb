@@ -43,16 +43,13 @@
               <%= contribution_fields.select(:amount, contribution_decorator.contribution_range) %>
             </td>
             <td></td>
-            <td class="col-md-3 "><%= cart_form.submit class: 'btn btn-warning btn-sm', id: "update-button"   %>
-        <% end %>
-          <% cart.contributions.each do |contribution|%>
-            <%= form_for(:cart, url: cart_path, method: :delete) do |f| %>
-              <%= f.hidden_field :contribution_id, value: contribution.id %>
-              <%= f.submit "Remove From Cart", class: "btn btn-sm btn-default", id: "delete-button" %>
-            <% end %>
+            <td class="col-md-3 ">
+              <%= cart_form.submit class: 'btn btn-warning btn-sm', id: "update-button"   %>
+              <%= link_to 'Remove From Cart', contribution_delete_path(contribution_fields.object),:method => 'post',:data => { :confirm => 'Are you sure?' },class: "btn btn-sm btn-default",id: "delete-button" %>
             </td>
-          <% end %>
+        <% end %>
         </tr>
+
         <tr>
           <td></td>
           <td></td>
@@ -63,7 +60,7 @@
           <td><span>TOTAL:</span> <span id="cart-total"><strong><%= number_to_currency(cart.total) %></strong></span></td>
         </tr>
       </table>
-            <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success' %></div>
+        <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success' %></div>
       <% else %>
           <td colspan="5" style="text-align:center;">Your cart is empty.</td>
       <% end %>

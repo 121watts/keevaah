@@ -111,12 +111,74 @@ a{
   height: 15px;
   border-radius: 25px;
   margin-bottom: 10px;
+  background-color: whitesmoke;
 }
 
 .progress-bar{
   font-size: 10px;
   line-height: 15px;
   min-width: 20px;
+}
+
+//////////////////LENDER BOXES////////////////////////
+.lender{
+  padding-bottom: 5%;
+}
+.lender-box{
+  display: inline-block;
+  padding-bottom: 3%;
+  border-bottom-style: outset;
+  padding-top: 3%;
+}
+
+.lender-image{
+
+}
+
+.lender-info{
+
+}
+
+.lender-title{
+  color: black;
+}
+
+.lender-description{
+  font-family: inherit;
+  font-size: smaller;
+}
+
+.lender-unit-price{
+  color: forestgreen;
+}
+
+.lender-status{
+  color: chocolate;
+}
+
+.lender-currency{
+  color: forestgreen;
+}
+
+.lender-expires{
+  color: blueviolet;
+}
+
+.lender-remaining{
+  color: darkseagreen;
+}
+
+.lender-cancel{
+
+}
+
+.lender-total{
+  padding-left: 42%;
+  font-weight: 300;
+  font-family: sans-serif;
+  font: -webkit-xxx-large;
+  font-size: xx-large;
+  color: darkgreen;
 }
 
 

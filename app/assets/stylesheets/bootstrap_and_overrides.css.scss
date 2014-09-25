@@ -111,7 +111,6 @@ a{
   height: 15px;
   border-radius: 25px;
   margin-bottom: 10px;
-
 }
 
 .progress-bar{
@@ -121,10 +120,22 @@ a{
 }
 
 
-
 ////////////////////// LOAN BOXES///////////////////////////////
 #cart-total {
   color: #d9534f;
+}
+#checkout-button {
+  text-align:right;
+  margin-right: 70px;
+}
+
+#delete-button{
+  margin-left:15px;
+  margin-top: 30px;
+}
+
+#update-button{
+  margin-left:15px;
 }
 
 // .page-border {
@@ -227,9 +238,7 @@ a{
 //
 
 //
-// #checkout-button {
-//   text-align:center;
-// }
+
 //
 // // CHECKOUT PAGE //
 // #order-summary {

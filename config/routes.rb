@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     collection do
       post :checkout
       get :review
+      get :confirmation
     end
   end
 
@@ -30,18 +31,7 @@ Rails.application.routes.draw do
     end
 
     resources :categories, except: [:show]
-    # resources :order_loans, only: [:destroy, :update]
-  	# resources :orders, except: [:new, :destroy] do
-	  #   get '/update_status' => 'orders#update_status', as: :update_status
-	  #   get '/cancel' => 'orders#cancel', as: :cancel
-	  #   get '/remove_loan/:loan_id' => 'orders#remove_loan', as: :remove_loan
-	  # end
-    #
-    # get '/ordered' => 'orders#ordered', as: :ordered
-    # get '/paid' => 'orders#paid', as: :paid
-    # get '/completed' => 'orders#completed', as: :completed
-    # get '/cancelled' => 'orders#cancelled', as: :cancelled
-  end
+end
 
   get '/code', to: redirect('https://github.com/MarcGarreau/grubhub_v2')
 end

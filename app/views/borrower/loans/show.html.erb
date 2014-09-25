@@ -19,9 +19,9 @@
     <dt><strong>Loan Status</strong></dt>
     <dd><%= @loan.aasm_state %></dd>
     <dt><strong>Image:</strong></dt>
-    <dd><%= image_tag @loan.image.url(:small) %></dd>
+    <dd><%= image_tag @loan.image.url(:medium) %></dd>
   </dl>
-  
+
   <div class="form-actions">
     <%= link_to 'Edit',
       edit_borrower_loan_path(@loan), :class => 'btn btn-primary' %>

@@ -73,10 +73,4 @@ RSpec.describe Loan, type: :model  do
 			assert loan.fulfilled?
 		end
 	end
-
-
-	# contributions mean that less money is needed to fulfill a loan
-	# can only make a contribution if the amount is less than what is owed
-	# cannot contribute more than requested for loan
-	# can only contribute to loans with status request
 end

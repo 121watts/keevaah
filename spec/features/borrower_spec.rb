@@ -58,7 +58,7 @@ describe 'borrower experience' do
     end
 
     it 'cannot backdoor to borrower pages' do
-      visit borrower_loans_path
+      visit borrower_path
       expect(current_path).to eq(login_path)
     end
 
@@ -80,22 +80,21 @@ describe 'borrower experience' do
       @loan = create(:loan)
       @loan.categories << @category
       @user = borrower
+      @user.loans << @loan
       login(email: borrower.email, password: borrower.password)
     end
 
     it "has a borrower dashboard" do
       expect(current_path).to eq(borrower_path)
       expect(page).to have_content("Dashboard")
-      expect(page).to have_content("Loans")
+      expect(page).to have_content("Apply")
     end
 
     it 'can view their loans' do
       click_on "My Dashboard"
       expect(page).to have_content "Loans"
       expect(page).to have_content "Title"
-      expect(page).to have_content "Description"
-      expect(page).to have_content "Amount"
-      expect(page).to have_content "Categories"
+      expect(page).to have_content "Percent"
     end
 
     it 'can view date joined, first name, last name, email, and nickname' do
@@ -106,13 +105,13 @@ describe 'borrower experience' do
     end
 
     it 'can view edit personal info' do
-      click_on "Edit My Profile"
+      click_on "Edit Profile"
       expect(current_path).to eq edit_user_path(@user)
       expect(page).to have_button "Update"
     end
 
     it 'can edit account info' do
-      click_on "Edit My Profile"
+      click_on "Edit Profile"
       fill_in 'First name', with: 'Carlos'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
@@ -122,9 +121,8 @@ describe 'borrower experience' do
       expect(page).to have_content('Carlos')
     end
 
-    it 'can see list of thier loan(s) on the borrower dashboard' do
+    it 'can see list of their loan(s) on the borrower dashboard' do
       expect(page).to have_content(@loan.title)
-      expect(page).to have_content(@loan.description)
       expect(page).to have_content($500)
     end
 
@@ -141,7 +139,7 @@ describe 'borrower experience' do
     end
 
     it 'cannot add a nickame of 1 characer' do
-      click_on 'Edit My Profile'
+      click_on 'Edit Profile'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
       fill_in 'Nickname', with: 'a'
@@ -150,7 +148,7 @@ describe 'borrower experience' do
     end
 
     it 'cannot add a nickame of > 32 characers' do
-      click_on 'Edit My Profile'
+      click_on 'Edit Profile'
       fill_in 'Password', with: '123'
       fill_in 'Password confirmation', with: '123'
       fill_in 'Nickname', with: (0..33).map{'a'}.join

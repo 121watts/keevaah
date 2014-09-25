@@ -44,7 +44,7 @@ end
   [
   first_name: "Jeff",
   last_name: "Casimir",
-  email: "demo+jeff@jumpstartlab.com",
+  email: "borrower@keevaah.com",
   password: "password",
   password_confirmation: "password",
   role: "borrower",

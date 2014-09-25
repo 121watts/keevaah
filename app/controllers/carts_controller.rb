@@ -4,8 +4,13 @@ class CartsController < ApplicationController
   end
 
   def update
-    add_contribution || delete_contribution
-    redirect_to :back
+    if params[:cart][:contributions_attributes]
+      cart.update(cart_params)
+      redirect_to cart_path(cart)
+    else
+      add_contribution || delete_contribution
+      redirect_to :back
+    end
   end
 
   def destroy
@@ -30,5 +35,9 @@ class CartsController < ApplicationController
     contribution = Contribution.find(params[:cart][:contribution_id])
     cart.remove_contribution(contribution)
     flash[:success] = "Removed contribution from cart"
+  end
+
+  def cart_params
+     params.require(:cart).permit(contributions_attributes: [:amount, :id])
   end
 end

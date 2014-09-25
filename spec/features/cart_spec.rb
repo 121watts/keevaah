@@ -38,20 +38,12 @@ describe 'Shopping Contributions', type: :feature do
     expect(page).to have_content "$25.00"
   end
 
-  xit 'can delete contributions from the cart' do
+  it 'can delete contributions from the cart' do
     visit loans_path
     first(:button, 'Loan Now').click
     click_link 'My Cart'
     click_on 'Remove'
     expect(page).to_not have_content @loan.title
     expect(page).to have_content "Your cart is empty."
-  end
-
-  xit 'can change the contribution amount' do
-    visit loans_path
-    first(:button, 'Loan Now').click
-    click_link 'My Cart'
-    select("45", :from => 'contribution_amount')
-    expect(page).to have_content "45"
   end
 end

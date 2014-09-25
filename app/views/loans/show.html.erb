@@ -11,6 +11,7 @@
       <th>Percentage Complete</th>
       <th>Requested By:</th>
       <th>Repayments Will Begin On:</th>
+      <th>Monthly Payment</th>
     </tr>
       <tr>
         <td class="col-md-2">
@@ -41,6 +42,7 @@
         <td class="col-md-2"><%= @loan.requested_by %></td>
 
         <td class="col-md-2"><%= @loan.repayments_begin %></td>
+        <td class="col-md-2"><%= number_to_currency(@loan.monthly_payment/100) %></td>
     </tr>
     <tr>
       <td></td>
@@ -48,6 +50,8 @@
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
+
       <td>
         <span class="add-loan">
           <%= form_for(:cart, url: cart_path, method: :put) do |f| %>

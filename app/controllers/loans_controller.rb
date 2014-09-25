@@ -26,7 +26,7 @@ class LoansController < ApplicationController
 		end
 
 		#all loans
-		loan_requests.each do |loan|
+	loan_requests.each do |loan|
 			loan.decorate
 		end
 	end

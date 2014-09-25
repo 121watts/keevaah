@@ -9,7 +9,7 @@ describe 'When viewing the borrower dashboard' do
 
 		it "has a dashboard with loans specific to that borrower" do
 			visit borrower_path
-			expect(page).to have_content("Gen Casagrande Dashboard")
+			expect(page).to have_content("Gen Casagrande's Dashboard")
 		end
 
 		it "has a link to create a loan" do

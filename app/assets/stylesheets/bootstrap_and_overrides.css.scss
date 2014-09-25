@@ -36,12 +36,18 @@ $body-bg: white;
   border-radius: 4px 4px 0px 0px;
 }
 
+.nav-tabs{
+  border: 0px;
+}
+
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
   background-color: #5cb85c;
   border: 1px solid transparent;
 }
 
 .nav-tabs > li > a {
+  padding: 10px 30px;
   margin-right: 0px;
   :hover{
     color: #5cb85c;

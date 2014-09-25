@@ -8030,96 +8030,118 @@ button.close {
     display: none !important;
   }
 }
-/* line 13, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 10, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar-brand {
+  margin-left: 0px;
+  font-size: 18px;
+  line-height: 50px;
+  height: 50px;
+  color: #777777;
+}
+/* line 18, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar-brand:hover, .navbar-brand:focus {
+  text-decoration: none;
+  color: white;
+}
+
+/* line 30, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+.navbar-inverse {
+  background-color: #0f2105;
+  border-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* line 40, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 div.flash.success {
-  border: 2px solid green;
-  color: green;
+  border: 2px solid #5cb85c;
+  color: #5cb85c;
 }
 
-/* line 14, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 41, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 div.flash.error {
-  border: 2px solid red;
-  color: red;
+  border: 2px solid #d9534f;
+  color: #d9534f;
 }
 
-/* line 17, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 44, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body {
   padding-top: 85px;
   color: #828587;
 }
 
-/* line 26, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 53, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .tab-panel {
   display: none;
 }
 
-/* line 30, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 57, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .tab-panel.active {
   display: block;
 }
 
-/* line 34, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 61, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .category-tabs {
   border: 1px solid #dad9de;
   border-radius: 4px 4px 0px 0px;
 }
 
-/* line 39, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 66, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .nav-tabs {
   border: 0px;
 }
 
-/* line 44, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 71, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: #5cb85c;
   border: 1px solid transparent;
 }
 
-/* line 49, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 76, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .nav-tabs > li > a {
   padding: 10px 30px;
   margin-right: 0px;
 }
-/* line 52, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 79, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .nav-tabs > li > a :hover {
   color: #5cb85c;
 }
 
-/* line 58, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 85, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loans {
   margin: 0 auto;
 }
 
-/* line 62, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 89, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-box {
   background: transparent;
   padding-top: 15px;
 }
 
-/* line 67, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 94, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 a {
   color: #828587;
 }
 
-/* line 72, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 99, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-box:hover a {
   color: #5cb85c;
   text-decoration: none;
 }
 
-/* line 78, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 105, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-box-insides {
   background: transparent;
   border: 1px solid #dad9de;
   border-radius: 6px;
 }
 
-/* line 84, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 111, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-box-text {
   padding: 10px;
 }
 
-/* line 88, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 115, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-image {
   width: 100%;
   height: 33%;
@@ -8127,67 +8149,67 @@ a {
   border-radius: 6px 6px 0px 0px;
 }
 
-/* line 95, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 122, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-title {
   text-align: center;
   font-size: 14px;
 }
 
-/* line 100, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 127, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-description {
   margin-left: 3%;
   margin-bottom: 20px;
   font-size: 12px;
 }
 
-/* line 106, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 133, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-amount {
   margin-left: 3%;
 }
 
-/* line 110, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 137, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .loan-box-footer {
   padding: 10px;
   font-size: 10px;
 }
 
-/* line 115, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 142, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .progress {
   height: 15px;
   border-radius: 25px;
   margin-bottom: 10px;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
 
-/* line 122, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 149, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .progress-bar {
   font-size: 10px;
   line-height: 15px;
   min-width: 20px;
 }
 
-/* line 128, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 155, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .days-left {
   padding: 0px 0px 0px 10px;
 }
 
-/* line 132, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 159, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .remaining {
   padding: 0px;
 }
 
-/* line 136, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 163, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .add-loan {
   padding-left: 2px;
   padding-right: 8px;
 }
 
-/* line 144, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 171, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender {
   padding-bottom: 5%;
 }
 
-/* line 147, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 174, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-box {
   display: inline-block;
   padding-bottom: 3%;
@@ -8195,92 +8217,80 @@ a {
   padding-top: 3%;
 }
 
-/* line 162, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 189, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-title {
-  color: black;
+  color: #000;
 }
 
-/* line 166, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 193, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-description {
   font-family: inherit;
   font-size: smaller;
 }
 
-/* line 171, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 198, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-unit-price {
-  color: forestgreen;
+  color: #266a2e;
 }
 
-/* line 175, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 202, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-status {
-  color: chocolate;
+  color: #d2691e;
 }
 
-/* line 179, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 206, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-currency {
-  color: forestgreen;
+  color: #266a2e;
 }
 
-/* line 183, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 210, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-expires {
-  color: blueviolet;
+  color: #4c50a9;
 }
 
-/* line 187, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 214, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-remaining {
-  color: darkseagreen;
+  color: #8fbc8f;
 }
 
-/* line 195, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 222, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .lender-total {
   padding-left: 42%;
   font-weight: 300;
   font-family: sans-serif;
   font: -webkit-xxx-large;
   font-size: xx-large;
-  color: darkgreen;
+  color: #d9534f;
 }
 
-/* line 204, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 231, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #cart-total {
   color: #d9534f;
 }
 
-/* line 207, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 235, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #checkout-button {
   text-align: right;
   margin-right: 70px;
 }
 
-/* line 212, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 240, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #delete-button {
   margin-left: 15px;
   margin-top: 30px;
 }
 
-/* line 217, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 245, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #update-button {
   margin-left: 15px;
 }
 
-/* line 221, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 249, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #error-explanation {
-  color: red;
+  color: #d9534f;
 }
 
-/* line 226, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-.footer {
-  clear: both;
-  margin-top: 50px;
-  padding: 10px;
-  background-color: #aaa;
-  color: white;
-  text-align: center;
-  width: 100%;
-  height: 45px;
-}
-
-/* line 237, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-#turing-link {
-  color: #eee;
+/* line 253, /Users/hildenton/Desktop/Turing_Projects/the_pivot/app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+#best-contribution {
+  color: #5cb85c;
 }

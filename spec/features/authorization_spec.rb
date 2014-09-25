@@ -5,7 +5,7 @@ describe 'Authorization', type: :feature do
     it 'cannot view a page requiring authorization' do
       visit borrower_path
       expect(current_path).to eq login_path
-      expect(page).to have_content 'You must be logged in to access that.'
+      expect(page).to have_content 'Register'
     end
   end
 

@@ -38,7 +38,7 @@
 $font-family-sans-serif: 'Helvetica', sans-serif;
 
 div.flash.success { border: 2px solid #5cb85c; color: #5cb85c;}
-div.flash.error   { border: 2px solid #f0ad4e; 	 color: #f0ad4e;}
+div.flash.error   { border: 2px solid #d9534f; 	 color: #d9534f;}
 //
 // BODY //
 body {
@@ -225,12 +225,13 @@ a{
   font-family: sans-serif;
   font: -webkit-xxx-large;
   font-size: xx-large;
-  color: #f0ad4e;
+  color: #d9534f;
 }
 
 #cart-total {
   color: #d9534f;
 }
+
 #checkout-button {
   text-align:right;
   margin-right: 70px;
@@ -246,7 +247,11 @@ a{
 }
 
 #error-explanation {
-  color: #f0ad4e;
+  color: #d9534f;
+}
+
+#best-contribution{
+  color: #5cb85c;
 }
 
 // // FOOTER //

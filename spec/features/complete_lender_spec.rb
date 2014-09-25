@@ -33,7 +33,7 @@ describe 'lender experience' do
     end
 
     it 'can link to a details page for each loan' do
-      click_link 'Buy pigs for bree...'
+      click_link 'Buy pigs for bree'
       expect(current_path).to eq(loan_path(@loan))
       expect(page).to have_content(@loan.title)
       expect(page).to have_content(@loan.description)
@@ -108,7 +108,7 @@ describe 'lender experience' do
     end
 
     it 'can link to a details page for each loan' do
-      click_link "Buy pigs for bree..."
+      click_link "Buy pigs for bree"
       expect(current_path).to eq(loan_path(@loan))
       expect(page).to have_content(@loan.title)
       expect(page).to have_content(@loan.description)

@@ -1,6 +1,6 @@
 <div class="page-border">
   <div class="container" style="width: 100%">
-    <%= link_to "<< Back to Menu", root_path %>
+    <%= link_to "Back to Menu", root_path, class:"btn btn-mini btn-success"%>
     <span id="my-cart-title"><h2>My Cart</h2></span>
     <%= form_for(cart, url: cart_path, method: :put) do |cart_form| %>
     <table class="table table-striped table-hover">
@@ -63,6 +63,7 @@
         <div id="checkout-button"><%= link_to "Checkout", review_contributions_path, class: 'btn btn-success' %></div>
       <% else %>
           <td colspan="5" style="text-align:center;">Your cart is empty.</td>
+        </table>
       <% end %>
   <% end %>
   </div>

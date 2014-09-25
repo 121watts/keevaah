@@ -1,40 +1,41 @@
 <h1>Confirmation and Payment</h1>
 
-
-
 <%= form_tag checkout_contributions_path do %>
 <table class="table table-striped order-table">
   <tr>
     <th></th>
-    <th>Loan Name</th>
+    <th class="col-md-6">Loan Name</th>
     <th></th>
-    <th>Contribution Amount</th>
+    <th class="col-md-2"></th>
+    <th class="col-md-6">Contribution Amount</th>
   </tr>
-  <% for contribution in @contributions %>
-    <tr>
-      <td><%= hidden_field_tag "contribution_ids[]", contribution.id %></td>
-      <td><%=h contribution.loan.title %></td>
-      <td><%= %></td>
-      <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
-    </tr>
+    <% for contribution in @contributions %>
+      <tr>
+        <td><%= hidden_field_tag "contribution_ids[]", contribution.id %></td>
+        <td><%=h contribution.loan.title %></td>
+        <td></td>
+        <td></td>
+        <td><%= number_to_currency(contribution.amount.to_i/100) %></td>
+      </tr>
     <% end %>
     <tr>
       <td></td>
       <td></td>
+      <td></td>
       <td> <strong>TOTAL:</strong> </td>
-      <td class="cart-total"><%= number_to_currency cart.total %></td>
+      <td id="cart-total" ><%= number_to_currency cart.total %></td>
     </tr>
 </table>
 <div class="col-md-8 pull-left">
-  <p>
-    Your contribution is the best. You are helping this person immensely. I hope this helps you assuage your white guilt. Have a nice day!
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper quis erat id pharetra. Donec vel augue varius, elementum est ac, interdum metus. Aenean eget quam vel felis tristique ultrices. In auctor ante eget augue tincidunt fringilla. Aenean malesuada tellus eget massa lobortis, nec feugiat dui imperdiet. Quisque tincidunt sagittis eros, vitae faucibus purus faucibus et. Nullam varius a metus vel volutpat. Praesent nec semper magna. Etiam cursus nisi nec urna condimentum auctor.
-  </p>
-  <p>
-    Aliquam non turpis dapibus, volutpat augue ac, iaculis velit. Curabitur auctor eget enim a luctus. Nullam tincidunt nunc et lectus malesuada cursus. Quisque id urna erat. Fusce posuere quam risus, vitae facilisis tellus placerat at. Nulla tortor felis, mattis ut nulla eu, rutrum accumsan sapien. Nullam fringilla lectus eget ultrices tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur diam libero, placerat at sem id, rhoncus consectetur odio. Phasellus vestibulum posuere ante a rutrum. Donec sit amet nulla sed nunc mattis ornare quis eu purus. Morbi bibendum tincidunt orci, et vulputate enim tincidunt eu. Nulla vitae feugiat massa. Morbi finibus mollis tortor vel finibus.
-  </p>
+  <h1 id="best-contribution">
+    Your contribution is the best!
+  </h1>
+  <h3>
+    You are helping this person immensely.
+  </h3>
+  <h3>
+    I hope this helps you assuage your white guilt. Have a nice day!
+  </h3>
 </div>
 <div class="col-md-4 pull-right">
   <%= hidden_field_tag :stripe_card_token %>

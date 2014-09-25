@@ -34,8 +34,22 @@ class ContributionsController < ApplicationController
   end
 
   def cancel
-    contribution = current_user.contributions.find(params[:contribution_id])
+    if current_user
+      contribution = current_user.contributions.find(params[:contribution_id])
+    else
+      contribution = cart.contributions.find(params[:contribution_id])
+    end
     contribution.update_to_cancelled
+    redirect_to :back
+  end
+
+  def delete_from_cart
+    if current_user
+      contribution = current_user.contributions.find(params[:contribution_id])
+    else
+      contribution = cart.contributions.find(params[:contribution_id])
+    end
+    contribution.destroy
     redirect_to :back
   end
 end

@@ -45,14 +45,9 @@
             <td></td>
             <td class="col-md-3 ">
               <%= cart_form.submit class: 'btn btn-warning btn-sm', id: "update-button"   %>
-        <% end %>
-          <% cart.contributions.each do |contribution|%>
-              <div id="checkout-button">
-                <%= link_to 'Remove From Cart', contribution_cancel_path(contribution),:method => 'post',:data => { :confirm => 'Are you sure?' },class: "btn btn-sm btn-default",id: "delete-button" %>
-              </div>
+              <%= link_to 'Remove From Cart', contribution_delete_path(contribution_fields.object),:method => 'post',:data => { :confirm => 'Are you sure?' },class: "btn btn-sm btn-default",id: "delete-button" %>
             </td>
         <% end %>
-
         </tr>
 
         <tr>

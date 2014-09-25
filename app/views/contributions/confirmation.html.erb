@@ -51,7 +51,7 @@
     <div id="checkout-button"><%= link_to "Home", root_path, class: 'btn btn-default' %></div>
 
     <div id="MOAR-LOANS">
-      <h1>Feeling good?</h1>
+      <h1 id="best-contribution">Feeling good?</h1>
       <h3>Based on your recent generocity, you might like to contribute to these other loans:</h3>
       <div class="loans transitions-enabled">
         <%= render partial: 'loan_box', collection: @suggestions, as: :loan %>

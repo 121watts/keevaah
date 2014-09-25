@@ -25,7 +25,8 @@ gem 'faker'
 gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :production, :staging do
-  gem 'asset_sync'
+  # gem 'fog', require ''
+  # gem 'asset_sync'
   gem 'rails_12factor'
 end
 

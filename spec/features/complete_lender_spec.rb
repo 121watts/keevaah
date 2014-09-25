@@ -75,7 +75,7 @@ describe 'lender experience' do
         expect(page).to have_content "$25.00"
       end
 
-      xit 'can remove contributions from my cart' do
+      it 'can remove contributions from my cart' do
         click_on 'Remove'
         expect(page).to_not have_content @loan.title
         expect(page).to have_content "Your cart is empty."
@@ -144,8 +144,7 @@ describe 'lender experience' do
         expect(page).to have_content "$25.00"
       end
 
-    xit 'can remove contributions from my cart' do
-        save_and_open_page
+    it 'can remove contributions from my cart' do
         click_on 'Remove'
         expect(page).to_not have_content @loan.title
         expect(page).to have_content "Your cart is empty."
@@ -155,12 +154,6 @@ describe 'lender experience' do
         click_on "Checkout"
         expect(current_path).to eq review_contributions_path
         expect(page).to have_content @loan.title
-      end
-
-      xit 'can enter in credit card information on checkout page' do
-        click_on "Checkout"
-        save_and_open_page
-        fill_in "Credit Card Number", with: "4242 4242 4242 4242"
       end
 
       it 'can confirm order' do

@@ -1,0 +1,46 @@
+<% cart.contributions.map {|contribution| contribution.loan_id} %>
+<div class="lender-box">
+  <div class="lender-image col-xs-2">
+      <%= image_tag contribution.loan.image.url(:small), class: "lender-image" %>
+  </div>
+
+  <div class="lender-info col-xs-6">
+    <div class="lender-title">Loan Title:
+      <strong> <%= link_to contribution.loan.title, loan_path(contribution.loan_id) %></strong>
+    </div>
+    <div class="lender-description">Loan Description:
+      <%= contribution.loan.description %>
+    </div>
+    <div class="lender-unit-price ">Total Need:
+      <%= contribution.loan.decorate.unit_price_dollars %>
+    </div>
+  </div>
+
+  <div class="lender-analytics col-xs-3">
+    <div class="lender-currency">You gave:
+      <%= number_to_currency(contribution.amount.to_i/100) %>
+    </div>
+    <div class="lender-status">Status:
+      <%= contribution.status.capitalize %>
+    </div>
+    <div class="lender-expires">Expires in:
+      <%= (contribution.loan.requested_by - Date.today).to_i %> days
+    </div>
+    <div class="lender-remaining">Remaining:
+      <%= number_to_currency(contribution.loan.pending/100) %>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=contribution.loan.progress%>%;"><%=contribution.loan.progress%>%</div>
+    </div>
+
+  </div>
+
+  <div class="lender-cancel col-xs-1">
+    <div>
+      <%= link_to 'Cancel', contribution_cancel_path(contribution),
+        :method => 'post',
+        :data => { :confirm => 'Are you sure?' },
+        :class => 'btn-xs btn-danger' %>
+    </div>
+  </div>
+</div>

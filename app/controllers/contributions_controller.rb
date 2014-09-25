@@ -35,7 +35,8 @@ class ContributionsController < ApplicationController
   def confirmation
     @contributions = cart.contributions
     @suggestions = Loan.last(3)
-    # session[:cart_id] = nil
+    @contribtuion_total = cart.contributions.map{|contribution| contribution.amount.to_i/100}.reduce(:+)
+    session[:cart_id] = nil
   end
 
   def confirm

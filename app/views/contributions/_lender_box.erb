@@ -30,17 +30,19 @@
       <%= number_to_currency(contribution.loan.pending/100) %>
     </div>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=contribution.loan.progress%>%;"><%=contribution.loan.progress%>%</div>
+      <div class="progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%=contribution.loan.progress%>%;"><%=contribution.loan.progress%>%</div>
     </div>
 
   </div>
 
   <div class="lender-cancel col-xs-1">
-    <div>
-      <%= link_to 'Cancel', contribution_cancel_path(contribution),
-        :method => 'post',
-        :data => { :confirm => 'Are you sure?' },
-        :class => 'btn-xs btn-danger' %>
-    </div>
+    <% if contribution.loan.request? %>
+      <div>
+        <%= link_to 'Cancel', contribution_cancel_path(contribution),
+          :method => 'post',
+          :data => { :confirm => 'Are you sure?' },
+          :class => 'btn-sm btn' %>
+      </div>
+    <% end %>
   </div>
 </div>

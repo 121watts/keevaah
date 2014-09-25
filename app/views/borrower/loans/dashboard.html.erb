@@ -1,5 +1,5 @@
 <div class="page-border">
-  <h1 class="col-md-12 dashboard"><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h1>
+  <h1><%= current_user.first_name %> <%= current_user.last_name %>'s Dashboard</h1>
   <% if current_user.loans.any? %>
     <h3>Loans</h3>
       <table class="table table-striped">
@@ -26,7 +26,7 @@
                     <%= link_to 'Cancel', borrower_loan_path(loan),
                     method: 'delete',
                     data: { confirm: 'Are you sure you want to cancel this loan request?' },
-                    class: 'btn btn' %>
+                    class: 'btn btn-sm btn-default' %>
                 </td>
               <% end %>
             </tr>

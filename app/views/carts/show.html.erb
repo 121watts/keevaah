@@ -15,7 +15,7 @@
         <th></th>
       </tr>
       <% if @contributions.any? %>
-        <%= cart_form.fields_for :contributions do |contribution_fields| %>
+        <%= cart_form.fields_for :contributions, @contributions.order(:id) do |contribution_fields| %>
           <% contribution_decorator = ContributionDecorator.new(contribution_fields.object) %>
           <tr>
             <td class="col-md-2">

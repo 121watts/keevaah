@@ -35,14 +35,8 @@ class ContributionsController < ApplicationController
   def confirmation
     @contributions = cart.contributions
     @suggestions = Loan.last(3)
-    @contribtuion_total = cart.contributions.map{|contribution| contribution.amount.to_i/100}.reduce(:+)
+    @contribution_total = cart.contributions.map {|contribution| contribution.amount.to_i/100}.reduce(:+)
     session[:cart_id] = nil
-  end
-
-  def confirm
-    @contribution = cart.contributions.last
-    # session[:cart_id] = nil
-    # redirect_to root_path
   end
 
   def cancel

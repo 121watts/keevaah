@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
   private
 
   def login_with_flash
-    flash[:error] = 'You must be logged in to access that.'
+    flash[:success] = 'One more step to contribution to the loan(s) you have selected.'
     session[:last_page] = request.path
     redirect_to login_path
   end

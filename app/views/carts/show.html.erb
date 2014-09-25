@@ -45,7 +45,7 @@
             <td></td>
             <td class="col-md-3" id="cart-actions">
               <%= cart_form.submit class: 'btn btn-warning btn-sm', id: "update-button"   %>
-              <%= link_to 'Remove', contribution_delete_path(contribution_fields.object),:method => 'post',:data => { :confirm => 'Are you sure?'},id: "delete-button" %>
+              <%= link_to 'Remove', contribution_delete_path(contribution_fields.object),:method => 'post',:data => { :confirm => "Are you sure you want to remove your #{number_to_currency(contribution_fields.object.amount.to_i/100)} contribution to the #{contribution_fields.object.loan.title}"},id: "delete-button" %>
             </td>
         <% end %>
         </tr>

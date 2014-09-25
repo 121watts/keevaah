@@ -42,7 +42,12 @@ div.flash.error   { border: 2px solid #d9534f; 	 color: #d9534f;}
 // BODY //
 body {
    padding-top: 85px;
+   padding-bottom: 50px;
    color: #828587;
+}
+
+a:hover{
+  color: #5cb85c;
 }
 
 $body-bg: #fff;
@@ -236,9 +241,17 @@ a{
   margin-right: 70px;
 }
 
+#cart-actions{
+  position: relative;
+}
+
+.contribution-amounts{
+  text-align: right;
+}
+
 #delete-button{
+  position: absolute;
   margin-left:15px;
-  margin-top: 30px;
 }
 
 #update-button{

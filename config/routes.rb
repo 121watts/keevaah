@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:show, :update, :destroy]
   resources :contributions, only: [:index, :show, :update] do
     post '/cancel' => 'contributions#cancel', as: :cancel
+    post '/delete' => 'contributions#delete_from_cart', as: :delete
     collection do
       post :checkout
       get :review

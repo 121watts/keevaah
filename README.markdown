@@ -3,7 +3,7 @@
 Welcome to Keevaah!
 ==
 
-See the site live at [kevah.herokuapp.com](kevah.herokuapp.com)
+See the site live at [kevah.herokuapp.com](http://kevah.herokuapp.com)
 
 Keevaah is a mock crowd-sourced micro-lending site. The purpose of the project was to experiment with multitenancy, authorization/authentication, and using legacy code.  We started with an [online marketplace](ivorytowerdonuts.herokuapp.com) and turned it into a site inspired by [Kiva.org](www.kiva.org).
 
